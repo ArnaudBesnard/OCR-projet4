@@ -2,7 +2,7 @@
     <div class="form_billet">
         <form action="add_billet.php" method="post">
             <div>
-                <label for="titre">Titre :</label>
+                <label for="titre">Titre du chapitre :</label>
                 <input type="text" id="titre" name="titre_chapitre">
             </div>
             <div>

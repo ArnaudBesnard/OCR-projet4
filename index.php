@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css">
 </body>
-    
+
 <header>
     <div class='titre'>Un billet simple pour l'Alaska</div>
 </header>
@@ -23,14 +23,14 @@
             <nav>
                 <ul>
                     <li><a href="index.php">Accueil</a></li>
-                    <li><a href="edit_billet.php">Editer un billet</a></li>
-                    <li><a href="ajout_billet.php">Ajouter un billet</a></li>
+                    <li><a href="_admin/admin.php">Administration</a></li>
                 </ul>
             </nav>
         </div>
         <div class="col-8">
-            <?php  include('view_billet.php'); 
-            include('ajout_billet.php'); ?>
+            <?php
+            include('view_billet.php'); 
+            ?>
         </div>
         <div class="col-2">
             <ul>
@@ -41,4 +41,5 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </html>

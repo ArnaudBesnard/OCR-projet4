@@ -1,5 +1,5 @@
 <?php
-require('_connect/connect.php');
+require('../_connect/connect.php');
 $req = $bdd->prepare('INSERT INTO billet(titre, contenu, date, auteur) VALUES(:titre, :contenu, :date, :auteur)');
 
 $req->execute(array(
@@ -12,4 +12,4 @@ $req->execute(array(
 echo('Données ajoutées ! Bravo');
 
 ?>
-<br /><br /><a href="index.php">Retour à la page précédente</a>
+<br /><br /><a href="admin.php">Retour à la page précédente</a>

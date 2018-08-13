@@ -1,5 +1,5 @@
 <?php
-$reponse = $bdd->query('SELECT * FROM billet LIMIT 0,15');
+$reponse = $bdd->query('SELECT * FROM billet ORDER BY id DESC LIMIT 0,3');
 
                 while ($donnees = $reponse->fetch()) { ?>
     <h1>
