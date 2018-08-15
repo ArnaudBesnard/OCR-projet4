@@ -1,3 +1,4 @@
+//Création de l'objet billet
 <?php
 
 class billet {
