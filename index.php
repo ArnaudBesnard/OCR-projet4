@@ -14,14 +14,16 @@
 </body>
 
     <?php include('template/header.html'); ?>
-
+    
 <div class="container-fluid">
     <div class="row">
         <div class="col-2">
             <?php include('template/nav_left.html'); ?>
         </div>
-        <div class="col-8">
-            <?php include('view_billet.php'); ?>
+ 
+            <div class="col-8">
+                <?php include('view_billet.php'); ?>
+
         </div>
         <div class="col-2">
             <?php include('template/nav_right.html'); ?>

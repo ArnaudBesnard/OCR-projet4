@@ -19,9 +19,9 @@ header {
 
 .titre {
     font-size: 2em;
-    color: gray;
-    margin-left: 10px;
-    margin-top: 35px;
+    color: black;
+    padding-top: 35px;
+    text-align: center;
 }
 
 h1 {
@@ -38,7 +38,18 @@ h2 {
 li {
     margin-top: 10px;
 }
-
+nav {
+    padding: 15px 0;
+    background-color: gray;
+    height: auto;
+}
+nav a{
+    padding: 15px;
+    color: white;
+}
+nav a:hover{
+    color: white;
+}
 .contenu {
     width: 100%;
     margin: 10px;

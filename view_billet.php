@@ -1,9 +1,10 @@
 <?php
-$reponse = $bdd->query('SELECT * FROM billet ORDER BY id DESC LIMIT 0,3') or die(print_r($bdd->errorInfo()));
+$reponse = $bdd->query('SELECT * FROM billet ORDER BY id DESC LIMIT 0,10') or die(print_r($bdd->errorInfo()));
 
                 while ($donnees = $reponse->fetch()) { 
 $dataId = $donnees['id']; ?>
-    <h1>
+  
+<h1>
         <?php echo($donnees['titre']); ?>
 
     </h1>
