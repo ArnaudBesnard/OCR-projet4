@@ -19,7 +19,7 @@
         <form action="update_art.php" method="post">
             <div>
                 <label for="id">Id :</label>
-                <input type="text" id="id" name="id" value="<?php echo($id); ?>" disabled="disabled">
+                <input type="text" id="id" name="id" value="<?php echo($id); ?>">
             </div>
             <div>
                 <label for="titre">Titre du chapitre :</label>
