@@ -1,5 +1,4 @@
 <?php
-
     //Création de la classe article
     class article {
     
@@ -13,12 +12,12 @@
             // Méthode pour consulter un article
             return('Article affiché avec l\'id : ' .$this->_id. '<br />');
         }
-        public function addArticle(){
+        public function insertArticle(){
             // Méthode ajout d'un article
             return('Article ajouté avec l\'id : ' .$this->_id. '<br />');
         }
         public function editArticle(){
-            // Méthode édition d'un article
+            // Méthode édition d'un article 
             return('Article édité avec l\'id : '.$this->_id. '<br />');
         }
         public function deleteArticle(){
@@ -31,8 +30,8 @@
     $viewBillet = new article;
     echo($viewBillet->viewArticle());
     //Création de l'objet addBillet
-    $addBillet = new article;
-    echo($addBillet->addArticle());
+    $insertBillet = new article;
+    echo($insertBillet->insertArticle());
 
     //Création de l'objet editBillet
     $editBillet = new article;

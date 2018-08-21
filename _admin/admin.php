@@ -36,6 +36,9 @@
                     include('form_add_billet.php'); 
                     }
                 elseif ($_GET['page'] === "edit") {
+                   include('selectChapitre.php'); 
+                }
+                elseif ($_GET['page'] === "dataEdit") {
                    include('edit_billet.php'); 
                 }
                 elseif ($_GET['page'] === "supp") {

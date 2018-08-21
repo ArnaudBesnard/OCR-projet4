@@ -1,7 +1,11 @@
 <?php
-    require('../_connect/connect.php'); 
-    $reponse = $bdd->query('SELECT * FROM billet WHERE id = 1') or die(print_r($bdd->errorInfo()));
-    while ($donnees = $reponse->fetch()) { 
+    require('../_connect/connect.php');
+
+    $chapitre = $_POST['selectTitre'];
+
+    $reponse = $bdd->query("SELECT * FROM billet WHERE titre = '".$chapitre."' ") or die(print_r($bdd->errorInfo()));
+
+    while ($donnees = $reponse->fetch()) {
         $id = $donnees['id'];
         $titre = $donnees['titre'];
         $contenu = $donnees['contenu'];
@@ -14,9 +18,8 @@
     <div class="form_billet">
         <form action="update_art.php" method="post">
             <div>
-                <select name="id">
-                    <?php echo('<option>' .$id. '</option>'); ?>
-                </select>
+                <label for="id">Id :</label>
+                <input type="text" id="id" name="id" value="<?php echo($id); ?>" disabled="disabled">
             </div>
             <div>
                 <label for="titre">Titre du chapitre :</label>
