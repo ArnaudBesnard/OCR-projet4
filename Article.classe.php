@@ -2,43 +2,94 @@
     //Création de la classe article
     class article {
     
-        private $_id = 14;
+        private $_id;
         private $_titre;
         private $_contenu;
         private $_auteur;
-        private $date;
-    
-        public function viewArticle(){
-            // Méthode pour consulter un article
-            return('Article affiché avec l\'id : ' .$this->_id. '<br />');
+        private $_maDate;
+        
+        //Hydratation de la classe
+        public function hydrate(array $donnees)
+        {
+            if (isset($donnees['id']))
+            {
+                $this->setId($donnees['id']);
+            }
+            if (isset($donnees['titre']))
+            {
+                $this->setTitre($donnees['titre']);
+            }
+            if (isset($donnees['contenu']))
+            {
+                $this->setContenu($donnees['contenu']);
+            }
+            if (isset($donnees['auteur']))
+            {
+                $this->setAuteur($donnees['auteur']);
+            }
+            if (isset($donnees['date']))
+            {
+                $this->setmaDate($donnees['date']);
+            }
         }
-        public function insertArticle(){
-            // Méthode ajout d'un article
-            return('Article ajouté avec l\'id : ' .$this->_id. '<br />');
+        
+        //Getter
+        public function id()
+        {
+            return $this->_id;
         }
-        public function editArticle(){
-            // Méthode édition d'un article 
-            return('Article édité avec l\'id : '.$this->_id. '<br />');
+        public function titre()
+        {
+            return $this->_titre;
+            
         }
-        public function deleteArticle(){
-            // M"thode suppression d'un article
-            return('Article supprimé avec l\'id : '.$this->_id. '<br />');
+        public function contenu()
+        {
+            return $this->_contenu;
+        }
+        public function auteur()
+        {
+            return $this->_auteur;
+        }
+        public function maDate()
+        {
+            return $this->_maDate;
+        }
+        
+        //Setter
+        public function setId($id)
+        {
+            if ((int)$id)
+            {
+                $this->_id = $id;
+            }
+        }
+        public function setTitre($titre)
+        {
+            if (is_string($titre))
+            {
+                $this->_titre = $titre;
+            }
+        }
+        
+        public function setContenu($contenu)
+        {
+            if (is_string($contenu))
+            {
+                $this->_contenu = $contenu;
+            }
+        }
+        
+        public function setAuteur($auteur)
+        {
+            if (is_string($auteur))
+            {
+                $this->_auteur = $auteur;
+            }
+        }
+        
+        public function setmaDate($maDate)
+        {
+            $this->_maDate = $maDate;
         }
     }
-
-    //Création de l'objet viewBillet
-    $viewBillet = new article;
-    echo($viewBillet->viewArticle());
-    //Création de l'objet addBillet
-    $insertBillet = new article;
-    echo($insertBillet->insertArticle());
-
-    //Création de l'objet editBillet
-    $editBillet = new article;
-    echo($editBillet->editArticle());
-
-    //Création de l'objet deleteBillet
-    $deleteBillet = new article;
-    echo($deleteBillet->deleteArticle());
-
-                
