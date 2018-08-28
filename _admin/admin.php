@@ -1,5 +1,3 @@
-<?php require('../_connect/connect.php'); ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 

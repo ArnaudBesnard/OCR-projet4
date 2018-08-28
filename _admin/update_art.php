@@ -1,11 +1,19 @@
 <?php
-    require('../_connect/connect.php');
+    
+    //Autoload de chargement des classes
+    spl_autoload_register(function($classe){
+    include '../class/' .$classe. '.class.php';
+});
+
+    $db= new Database();
+    $bdd = $db->getConnection();
+
     $id = $_POST['id'];
-    $req = $bdd->prepare("UPDATE billet SET titre = :titre, contenu = :contenu, date = :date, auteur = :auteur WHERE id = $id");
+    $req = $bdd->prepare("UPDATE billet SET titre = :titre, contenu = :contenu, dateAjout = :dateAjout, auteur = :auteur WHERE id = $id");
     $req->execute(array(
 	   'titre' => $_POST['titre_chapitre'],
 	   'contenu' => $_POST['contenu'],
-	   'date' => $_POST['date'],
+	   'dateAjout' => $_POST['dateAjout'],
        'auteur' => $_POST['auteur']
        
 	));

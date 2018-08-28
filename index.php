@@ -1,10 +1,8 @@
-<?php require('_connect/connect.php'); ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-    <title>Jean Forteroche - Alaska</title>
+    <title>Jean Forteroche - Un bilelt simple pour l'Alaska</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
     

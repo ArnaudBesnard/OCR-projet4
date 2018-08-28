@@ -1,5 +1,11 @@
 <?php
-    require('../_connect/connect.php');
+    //Autoload de chargement des classes
+spl_autoload_register(function($classe){
+    include '../class/' .$classe. '.class.php';
+});
+
+$db= new Database();
+$bdd = $db->getConnection();
 
     $chapitre = $_POST['selectTitre'];
 
@@ -10,7 +16,7 @@
         $titre = $donnees['titre'];
         $contenu = $donnees['contenu'];
         $auteur = $donnees['auteur'];
-        $date = $donnees['date'];
+        $dateAjout = $donnees['dateAjout'];
     };   
 ?>
 
@@ -35,7 +41,7 @@
             </div>
             <div>
                 <label for="date">Date :</label>
-                <input id="date" name="date" value="<?php echo($date); ?>">
+                <input id="dateAjout" name="dateAjout" value="<?php echo($dateAjout); ?>">
             </div>
             <div class="button">
                 <br /><button type="submit" class="btn btn-primary">Editer</button>

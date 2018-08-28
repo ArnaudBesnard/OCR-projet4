@@ -1,13 +1,16 @@
 <?php
-    require('../_connect/connect.php');
-    $req = $bdd->prepare('INSERT INTO billet(titre, contenu, date, auteur) VALUES(:titre, :contenu, :date, :auteur)');
-    $req->execute(array(
-        ':titre' => $_POST['titre_chapitre'],
-        ':contenu' => $_POST['contenu'],
-        ':date' => $_POST['date'],
-        ':auteur' => $_POST['auteur']
-));
- 
-    echo('Données ajoutées ! Bravo - Vous allez êtes redirigés vers la page d\'accueil de l\'administration');
-    header("Refresh: 3; URL=admin.php" );
-?>
+spl_autoload_register(function($classe){
+    include 'class/' .$classe. '.class.php';
+});
+
+$db= new Database();
+$bdd = $db->getConnection();
+
+$billet = new Article();
+$billet->setTitre($_POST['titre_chapitre']);
+$billet->setContenu($_POST['contenu']);
+$billet->setDateAjout($_POST['dateAjout']);
+$billet->setAuteur($_POST['auteur']);
+
+$manager = new ArticleManager($bdd);
+$manager->add($billet);

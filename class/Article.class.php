@@ -1,35 +1,27 @@
 <?php
     //Création de la classe article
-    class article {
+    class Article {
     
-        private $_id;
-        private $_titre;
-        private $_contenu;
-        private $_auteur;
-        private $_maDate;
+        protected $_id;
+        protected $_titre;
+        protected $_contenu;
+        protected $_dateAjout;
+        protected $_auteur;
         
-        //Hydratation de la classe
+        
         public function hydrate(array $donnees)
         {
-            if (isset($donnees['id']))
+            foreach ($donnees as $key => $value)
             {
-                $this->setId($donnees['id']);
-            }
-            if (isset($donnees['titre']))
-            {
-                $this->setTitre($donnees['titre']);
-            }
-            if (isset($donnees['contenu']))
-            {
-                $this->setContenu($donnees['contenu']);
-            }
-            if (isset($donnees['auteur']))
-            {
-                $this->setAuteur($donnees['auteur']);
-            }
-            if (isset($donnees['date']))
-            {
-                $this->setmaDate($donnees['date']);
+                // On récupère le nom du setter correspondant à l'attribut.
+                $method = 'set'.ucfirst($key);
+        
+                // Si le setter correspondant existe.
+                if (method_exists($this, $method))
+                {
+                    // On appelle le setter.
+                    $this->$method($value);
+                }
             }
         }
         
@@ -41,7 +33,6 @@
         public function titre()
         {
             return $this->_titre;
-            
         }
         public function contenu()
         {
@@ -51,9 +42,9 @@
         {
             return $this->_auteur;
         }
-        public function maDate()
+        public function dateAjout()
         {
-            return $this->_maDate;
+            return $this->_dateAjout;
         }
         
         //Setter
@@ -80,6 +71,14 @@
             }
         }
         
+                public function setDateAjout($dateAjout)
+        {
+            if (is_string($dateAjout))
+            {
+            $this->_dateAjout = $dateAjout;
+            }
+        }
+        
         public function setAuteur($auteur)
         {
             if (is_string($auteur))
@@ -88,8 +87,4 @@
             }
         }
         
-        public function setmaDate($maDate)
-        {
-            $this->_maDate = $maDate;
-        }
     }

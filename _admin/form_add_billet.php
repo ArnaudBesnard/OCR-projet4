@@ -10,8 +10,8 @@
             <textarea type="text" id="contenu" name="contenu"></textarea>
         </div>
         <div>
-            <label for="date">Date :</label>
-            <input id="date" name="date">
+            <label for="dateAjout">Date :</label>
+            <input id="dateAjout" name="dateAjout">
         </div>
         <div>
             <label for="auteur">Auteur :</label>
