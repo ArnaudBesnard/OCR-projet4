@@ -15,7 +15,7 @@ $billet->setContenu($_POST['contenu']);
 $billet->setDateAjout($_POST['dateAjout']);
 $billet->setAuteur($_POST['auteur']);
 
-$manager = new ArticleManager($bdd);
+$manager = new PostManager($bdd);
 $manager->update($billet);
 
     echo('Les données ont été modifiées, vous allez êtes redirigé vers la page d\'administration');
