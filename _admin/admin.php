@@ -29,27 +29,26 @@ $bdd = $db->getConnection();
                 <ul>
                     <li><a href="../index.php">Revenir au blog</a></li>
                     <li><a href="admin.php?page=ajout">Ajout d'un billet</a></li>
-                    <li><a href="admin.php?page=edit">Edition d'un billet</a></li>
-                    <li><a href="admin.php?page=supp">Suppression d'un billet</a></li>
+                    <li><a href="admin.php?page=gestion">Gestion des billets</a></li>
                 </ul>
             </nav>
         </div>
         <div class="col-8">
             <?php 
                 if (empty($_GET)) {
-                    include('form_add_billet.php');
+                    include('gestionBillet.php');
                 }
                 elseif ($_GET['page'] === "ajout"){
                     include('form_add_billet.php'); 
                     }
-                elseif ($_GET['page'] === "edit") {
-                   include('selectChapitre.php'); 
-                }
                 elseif ($_GET['page'] === "dataEdit") {
                    include('edit_billet.php'); 
                 }
                 elseif ($_GET['page'] === "supp") {
                     include('supp.php');
+                }
+                elseif ($_GET['page'] === "gestion") {
+                    include('gestionBillet.php');
                 }
                 else {
                     include ('default.php');
