@@ -71,7 +71,7 @@
             }
         }
         
-                public function setDateAjout($dateAjout)
+        public function setDateAjout($dateAjout)
         {
             if (is_string($dateAjout))
             {
