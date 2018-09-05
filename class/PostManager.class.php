@@ -20,7 +20,11 @@ class PostManager
         $req->execute();
     }
 
+<<<<<<< HEAD:class/PostManager.class.php
     public function delete(Article $billet) // Passer l'id en argument
+=======
+    public function delete(Article $billet)
+>>>>>>> f06626b921a853c3aee19071a7c9ad2683fd4e86:class/PostManager.class.php
     {
         $this->_bdd->exec('DELETE FROM billet WHERE id = ' . $billet->id());
     }
