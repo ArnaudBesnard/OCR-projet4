@@ -1,1 +1,1 @@
-<center><h1>Page Default de votre Blog</h1></center>
+<center><h1>La page demandée n'a pas été trouvée !</h1></center>

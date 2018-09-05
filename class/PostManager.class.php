@@ -20,9 +20,9 @@ class PostManager
         $req->execute();
     }
 
-    public function delete(Article $billet)
+    public function delete($id)
     {
-        $this->_bdd->exec('DELETE FROM billet WHERE id = ' . $billet->id());
+        $this->_bdd->exec('DELETE FROM billet WHERE id = ' . $id);
     }
 
     public function get($id)

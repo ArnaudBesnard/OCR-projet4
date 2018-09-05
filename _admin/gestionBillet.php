@@ -17,5 +17,10 @@
                     <div class='auteur'>
                         <?= $billet->auteur(); ?>
                     </div>
-                    <div class="btnGestion"><button type="button" class="btn btn-success" ><a href="admin.php?page=dataEdit&&id=<?=$billet->id() ?>">Editer</a></button><button type="button" class="btn btn-danger"><a href="admin.php?page=supp&&id=<?=$billet->id() ?>">Supprimer</a></button></div>
+                    <div class="btnGestion">
+                        <button type="button" class="btn btn-success" ><a href="admin.php?page=dataEdit&&id=<?=$billet->id() ?>" >Editer</a></button>
+                        <button type="button" class="btn btn-danger"><a href="admin.php?page=supp&&id=<?=$billet->id() ?>" onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">Supprimer</a></button>
+                    </div>
                 <?php }; ?>
+
+
