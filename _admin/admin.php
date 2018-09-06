@@ -16,8 +16,8 @@ $bdd = $db->getConnection();
 </head>
 
 <body>
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 </body>
 
 <?php include('../template/header.html'); ?>
@@ -25,34 +25,38 @@ $bdd = $db->getConnection();
 <div class="container-fluid">
     <div class="row">
         <div class="col-2">
-            <nav>
+            <nav class="menuAdmin">
                 <ul>
                     <li><a href="../index.php">Revenir au blog</a></li>
                     <li><a href="admin.php?page=ajout">Ajout d'un billet</a></li>
                     <li><a href="admin.php?page=gestion">Gestion des billets</a></li>
+                    <li><a href="admin.php?page=createUser">Ajouter un utilisateur</a> </li>
                 </ul>
             </nav>
         </div>
         <div class="col-8">
-            <?php 
-                if (empty($_GET)) {
-                    include('gestionBillet.php');
-                }
-                elseif ($_GET['page'] === "ajout"){
-                    include('form_add_billet.php'); 
-                    }
-                elseif ($_GET['page'] === "dataEdit") {
-                   include('edit_billet.php'); 
-                }
-                elseif ($_GET['page'] === "supp") {
-                    include('supp.php');
-                }
-                elseif ($_GET['page'] === "gestion") {
-                    include('gestionBillet.php');
-                }
-                else {
-                    include ('default.php');
-                }
+            <?php
+            if (empty($_GET)) {
+                include('gestionBillet.php');
+            }
+            elseif ($_GET['page'] === "ajout"){
+                include('form_add_billet.php');
+            }
+            elseif ($_GET['page'] === "dataEdit") {
+                include('edit_billet.php');
+            }
+            elseif ($_GET['page'] === "supp") {
+                include('supp.php');
+            }
+            elseif ($_GET['page'] === "gestion") {
+                include('gestionBillet.php');
+            }
+            elseif ($_GET['page'] === "createUser") {
+                include('../template/formAddUser.php');
+            }
+            else {
+                include ('default.php');
+            }
             ?>
         </div>
     </div>

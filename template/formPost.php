@@ -1,3 +1,4 @@
+
 <form action="<?php echo $action; ?>" method="post">
     <div>
         <label for="id">Id :</label>
@@ -13,7 +14,7 @@
     </div>
     <div>
         <label for="date">Date :</label>
-        <input id="dateAjout" name="dateAjout" value="<?php if (isset($dateAjout)) echo ($dateAjout); ?>">
+        <input id="dateAjout" type="date" name="dateAjout" value="<?php if (isset($dateAjout)) echo ($dateAjout); ?>">
     </div>
     <div>
         <label for="auteur">Auteur :</label>
