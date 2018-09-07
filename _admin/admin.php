@@ -52,7 +52,7 @@ $bdd = $db->getConnection();
                 include('gestionBillet.php');
             }
             elseif ($_GET['page'] === "createUser") {
-                include('../template/formAddUser.php');
+                include('../template/formUser.php');
             }
             else {
                 include ('default.php');
