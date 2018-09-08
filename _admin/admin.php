@@ -26,36 +26,39 @@ $bdd = $db->getConnection();
     <div class="row">
         <div class="col-2">
             <nav class="menuAdmin">
-                <ul>
+                <ul class="nav flex-column">
                     <li><a href="../index.php">Revenir au blog</a></li>
+                    <span>Gestion articles</span>
                     <li><a href="admin.php?page=ajout">Ajout d'un billet</a></li>
-                    <li><a href="admin.php?page=gestion">Gestion des billets</a></li>
+                    <li><a href="admin.php?page=gestion">Gestion des billets</a></li><br />
+                    <span>Gestion utilisateurs</span>
                     <li><a href="admin.php?page=createUser">Ajouter un utilisateur</a> </li>
+                    <li><a href="#">Voir les utilisateurs</a> </li>
                 </ul>
             </nav>
         </div>
         <div class="col-8">
             <?php
             if (empty($_GET)) {
-                include('gestionBillet.php');
+                include('postManager.php');
             }
             elseif ($_GET['page'] === "ajout"){
-                include('form_add_billet.php');
+                include('formAddPost.php');
             }
             elseif ($_GET['page'] === "dataEdit") {
-                include('edit_billet.php');
+                include('editPost.php');
             }
             elseif ($_GET['page'] === "supp") {
-                include('supp.php');
+                include('deletePost.php');
             }
             elseif ($_GET['page'] === "gestion") {
-                include('gestionBillet.php');
+                include('postManager.php');
             }
             elseif ($_GET['page'] === "createUser") {
-                include('../template/formUser.php');
+                include('formAddUser.php');
             }
             else {
-                include ('default.php');
+                include('../default.php');
             }
             ?>
         </div>

@@ -1,7 +1,6 @@
-
 <?php
 $dateCreate = date("Y-m-d");
-$action = "add_billet.php";
+$action = "addPost.php";
 ?>
 <div class="articles">
     <h2>Ajout d'un billet sur le site :</h2>
@@ -9,5 +8,5 @@ $action = "add_billet.php";
         <?php include("../template/formPost.php"); ?>
     </div>
 </div>
-<?php
+
 

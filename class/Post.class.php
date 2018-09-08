@@ -1,6 +1,6 @@
 <?php
     //Création de la classe article
-    class Article {
+    class Post {
     
         protected $_id;
         protected $_titre;

@@ -1,11 +1,14 @@
+
 <?php
 $request = $bdd->query('select * from billet order by id ASC ') or die(print_r($bdd->errorInfo()));
 while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
 {
-$billet = new Article($donnees);
+$billet = new Post($donnees);
 $billet->hydrate($donnees);
 ?>
+
 <div class="articles">
+
     <h1>
         <?= $billet->titre(); ?>
     </h1>

@@ -66,6 +66,11 @@ class userManager
         $req->execute();
     }
 
+    public function checkPassword()
+    {
+        // Créer vérification des mots de passe
+    }
+
     public function setBdd(PDO $bdd)
     {
         $this->_bdd = $bdd;

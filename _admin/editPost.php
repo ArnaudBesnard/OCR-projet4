@@ -1,7 +1,7 @@
 <?php
 
 $chapitre = $_GET['id'];
-$action = "update_billet.php";
+$action = "updatePost.php";
 $reponse = $bdd->query("SELECT * FROM billet WHERE id = '".$chapitre."' ") or die(print_r($bdd->errorInfo()));
 
 while ($donnees = $reponse->fetch()) {

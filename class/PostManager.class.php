@@ -10,7 +10,7 @@ class PostManager
         $this->setBdd($bdd);
     }
 
-    public function add(Article $billet)
+    public function add(Post $billet)
     {
         $req = $this->_bdd->prepare('INSERT INTO billet(titre, contenu, dateAjout, auteur) VALUES(:titre, :contenu, :dateAjout, :auteur)');
         $req->bindValue(':titre', $billet->titre());
@@ -34,9 +34,6 @@ class PostManager
         return new Article($donnees);
     }
 
-    /**
-     * @return array|Article
-     */
     public function getlist()
     {
         //$billet[];
@@ -49,7 +46,7 @@ class PostManager
         }
     }
 
-    public function update(Article $billet)
+    public function update(Post $billet)
     {
         $req = $this->_bdd->prepare('UPDATE billet SET titre = :titre, contenu = :contenu, dateAjout = :dateAjout, auteur = :auteur WHERE id = :id');
 
