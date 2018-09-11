@@ -15,7 +15,8 @@ $billet->setAuteur($_POST['auteur']);
 
 $manager = new PostManager($bdd);
 $manager->add($billet);
-//Copier ce code pour l'edition d'article
-echo('Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration');
 
-    header("Refresh: 3; URL=admin.php" );
+
+echo 'Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration';
+
+header("Refresh: 3; URL=admin.php" );

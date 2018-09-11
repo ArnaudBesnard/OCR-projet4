@@ -1,5 +1,4 @@
 <?php
-//$title = $titrePost;
 $id = $_GET['id'];
 ob_start();
 ?>
@@ -17,24 +16,17 @@ ob_start();
 
                         $billet = new Post($donnees);
                         $billet->hydrate($donnees);
-                        ?>
-                        <h1>
-                            <?= $billet->titre(); ?>
-                        </h1>
-                        <div class='date_billet'>
-                            <?= $billet->dateAjout(); ?>
-                        </div>
-                        <div class='contenu'>
-                            <?= $billet->contenu(); ?>
-                        </div>
-                        <div class='auteur'>
-                            <?= $billet->auteur(); ?>
-                        </div>
+                    ?>
+                        <h1><?= $billet->titre(); ?></h1>
+                        <div class='date_billet'><?= $billet->dateAjout(); ?></div>
+                        <div class='contenu'><?= $billet->contenu(); ?></div>
+                        <div class='auteur'><?= $billet->auteur(); ?></div>
                 </div>
             </div>
         </div>
     </div>
 <?php
 $content = ob_get_clean();
+$title = "Jean Forteroche - " .$billet->titre();
 require('template.php');
 ?>

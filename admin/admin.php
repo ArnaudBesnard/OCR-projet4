@@ -33,7 +33,7 @@ $bdd = $db->getConnection();
                     <li><a href="admin.php?page=gestion">Gestion des billets</a></li><br />
                     <span>Gestion utilisateurs</span>
                     <li><a href="admin.php?page=createUser">Ajouter un utilisateur</a> </li>
-                    <li><a href="#">Voir les utilisateurs</a> </li>
+                    <li><a href="admin.php?page=viewUser">Voir les utilisateurs</a> </li>
                 </ul>
             </nav>
         </div>
@@ -56,6 +56,9 @@ $bdd = $db->getConnection();
             }
             elseif ($_GET['page'] === "createUser") {
                 include('formAddUser.php');
+            }
+            elseif ($_GET['page'] === "viewUser") {
+                include('viewUser.php');
             }
             else {
                 include('../default.php');

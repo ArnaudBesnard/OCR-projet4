@@ -8,7 +8,7 @@ $db= new Database;
 $bdd = $db->getConnection();
 
 $addUser = new User;
-$addUser->setNickname($_POST['nickname']);
+$addUser->setLogin($_POST['login']);
 $addUser->setLastname($_POST['lastname']);
 $addUser->setFirstname($_POST['firstname']);
 $addUser->setEmail($_POST['email']);
@@ -19,6 +19,6 @@ $addUser->setRole($_POST['role']);
 $manager = new UserManager($bdd);
 $manager->add($addUser);
 //Copier ce code pour l'edition d'article
-echo('L\/utilisateur a été ajoutées, vous allez êtes redirigé vers la page d\'administration');
+echo('L\'utilisateur a été ajouté, vous allez êtes redirigé vers la page d\'administration');
 
 header("Refresh: 3; URL=admin.php" );

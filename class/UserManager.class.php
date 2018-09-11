@@ -11,8 +11,8 @@ class userManager
 
     public function add(User $user)
     {
-        $req = $this->_bdd->prepare('INSERT INTO users(nickname, lastname, firstname, email, password, createDate, role) VALUES(:nickname, :lastname, :firstname, :email, :password, :createDate, :role)');
-        $req->bindValue(':nickname', $user->nickname());
+        $req = $this->_bdd->prepare('INSERT INTO users(login, lastname, firstname, email, password, createDate, role) VALUES(:login, :lastname, :firstname, :email, :password, :createDate, :role)');
+        $req->bindValue(':login', $user->login());
         $req->bindValue(':lastname', $user->lastname());
         $req->bindValue(':firstname', $user->firstname());
         $req->bindValue(':email', $user->email());
@@ -21,7 +21,6 @@ class userManager
         $req->bindValue(':role', $user->role());
         $req->execute();
     }
-
 
     public function delete($id)
     {
@@ -31,7 +30,7 @@ class userManager
     public function get($id)
     {
         $id = (int)$id;
-        $req = $this->_bdd->query('SELECT nickname, lastname, firstname, email, password, createDate, role FROM users WHERE id = ' . $id);
+        $req = $this->_bdd->query('SELECT login, lastname, firstname, email, password, createDate, role FROM users WHERE id = ' . $id);
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         return new User($donnees);
     }
@@ -41,22 +40,22 @@ class userManager
      */
     public function getlist()
     {
-        //$billet[];
-        $req = $this->_bdd->query('SELECT * FROM users ORDER BY nickname ASC');
+        //$user[];
+        $req = $this->_bdd->query('SELECT * FROM users ORDER BY login ASC');
         while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
 
             $user = new User($donnees);
-            $billet->hydrate($donnees);
+            $user->hydrate($donnees);
             return $user;
         }
     }
 
     public function update(User $user)
     {
-        $req = $this->_bdd->prepare('UPDATE users SET nickname = :nickname, lastname = :lastname, firstname = :firstname, email = :email, password = :password, createDate = :createDate, role = :role WHERE id = :id');
+        $req = $this->_bdd->prepare('UPDATE users SET login = :login, lastname = :lastname, firstname = :firstname, email = :email, password = :password, createDate = :createDate, role = :role WHERE id = :id');
 
         $req->bindValue(':id', $user->id());
-        $req->bindValue(':nickname', $user->nickname());
+        $req->bindValue(':login', $user->login());
         $req->bindValue(':lastname', $user->lastname());
         $req->bindValue(':firstname', $user->firstname());
         $req->bindValue(':email', $user->email());
@@ -66,9 +65,9 @@ class userManager
         $req->execute();
     }
 
-    public function checkPassword()
+    public function checkUser()
     {
-        // Créer vérification des mots de passe
+        // Créer vérification de l'existence d'un utilisateur
     }
 
     public function setBdd(PDO $bdd)

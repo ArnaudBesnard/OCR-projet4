@@ -3,7 +3,7 @@
 class User {
 
     protected $_id;
-    protected $_nickname;
+    protected $_login;
     protected $_lastname;
     protected $_firstname;
     protected $_email;
@@ -32,9 +32,9 @@ class User {
         return $this->_id;
     }
 
-    public function nickname()
+    public function login()
     {
-        return $this->_nickname;
+        return $this->_login;
     }
 
     public function lastname()
@@ -75,10 +75,10 @@ class User {
         }
     }
 
-    public function setNickname($nickname)
+    public function setLogin($login)
     {
-        if (is_string($nickname)) {
-            $this->_nickname = $nickname;
+        if (is_string($login)) {
+            $this->_login = $login;
         }
     }
 
