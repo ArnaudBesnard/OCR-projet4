@@ -1,4 +1,0 @@
-AuthName "Administration du dossier"
-AuthType Basic
-AuthUserFile "C:\wamp\www\OCR-projet4\admin\.htpassword"
-Require valid-user

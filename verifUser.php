@@ -6,25 +6,24 @@ spl_autoload_register(function($classe){
 $db= new Database;
 $bdd = $db->getConnection();
 
-$login_valide = "Admin";
-$pwd_valide = "root";
+$login = $_POST['login'];
+$password = $_POST['password'];
 
-if (isset($_POST['login']) && isset($_POST['password'])) {
-
-    if ($login_valide == $_POST['login'] && $pwd_valide == $_POST['password']) {
-
-        session_start ();
-        $_SESSION['login'] = $_POST['login'];
-        $_SESSION['password'] = $_POST['password'];
-
-        header ('location: index.php');
+if (!empty($login) && !empty($password)) {
+    $req = $bdd->prepare('SELECT id FROM users WHERE login = :login AND password = :password');
+    $req->execute(array('login' => $login,'password' => $password));
+    $resultat = $req->fetch();
+    if (!$resultat) {
+        echo 'Vos identifiants sont incorrects !';
     }
     else {
-        echo '<body onLoad="alert(\'Membre non reconnu...\')">';
-        echo '<meta http-equiv="refresh" content="0;URL=index.php">';
+        session_start();
+        $_SESSION['id'] = $resultat['id'];
+        $_SESSION['login'] = $login;
+        echo 'OK';
+        header("Refresh: 3; URL=index.php" );
     }
-}
-else {
-    echo 'Les variables du formulaire ne sont pas déclarées.';
+} else {
+    echo 'Veuillez remplir tous les champs !';
 }
 ?>

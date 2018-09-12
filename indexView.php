@@ -13,7 +13,7 @@ ob_start();
         </div>
         <div class="col-8">
             <div class="articles">
-                <?php if (isset($_SESSION['login']) && isset($_SESSION['password'])) {
+                <?php if (isset($_SESSION['login'])) {
                 echo('Bonjour ' .$_SESSION['login']);
                 }
                 else{
