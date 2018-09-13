@@ -1,4 +1,7 @@
 <?php
+$title = "Connexion validée, bienvenue";
+ob_start();
+
 //Autoload de chargement des classes
 spl_autoload_register(function($classe){
     include 'class/' .$classe. '.class.php';
@@ -20,10 +23,13 @@ if (!empty($login) && !empty($password)) {
         session_start();
         $_SESSION['id'] = $resultat['id'];
         $_SESSION['login'] = $login;
-        echo 'OK';
+        echo '<br /><center>Bienvenue '.$_SESSION['login'].'</center>';
         header("Refresh: 3; URL=index.php" );
     }
 } else {
     echo 'Veuillez remplir tous les champs !';
 }
+
+$content = ob_get_clean();
+require('template.php');
 ?>
