@@ -1,4 +1,6 @@
 <?php
+session_start ();
+
 //Autoload de chargement des classes
 spl_autoload_register(function($classe){
     include '../class/' .$classe. '.class.php';

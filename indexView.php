@@ -2,7 +2,7 @@
 session_start ();
 // On récupère nos variables de session
 
-$title = "Un billet simple pour l'Alaska";
+$title = "Jean Forteroche - Un billet simple pour l'Alaska";
 ob_start();
 ?>
 
@@ -34,11 +34,17 @@ ob_start();
         </div>
         <div class="col-2">
             <div class="postTitleRight">
+                <p>Accès aux chapitres</p>
                 <ul>
-                    <li><?= 'Titre Chapitre'; ?></li>
-                    <li><?= 'Titre Chapitre'; ?></li>
-                    <li><?= 'Titre Chapitre'; ?></li>
-                    <li><?= 'Titre Chapitre'; ?></li>
+                    <?php
+                        $request = $bdd->query('select * from billet order by id ASC ') or die(print_r($bdd->errorInfo()));
+                        while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
+                        {
+                            $billet = new Post($donnees);
+                            $billet->hydrate($donnees);
+                        ?>
+                            <li><a href="index.php?page=singlePost&&id=<?= $billet->id(); ?>"><?= $billet->titre(); ?></a></li>
+                     <?php }; ?>
                 </ul>
             </div>
         </div>
@@ -48,4 +54,3 @@ ob_start();
 $content = ob_get_clean();
 require('template.php');
 ?>
-

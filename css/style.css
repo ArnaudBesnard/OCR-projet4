@@ -6,14 +6,10 @@ body {
     background-color: white;
 }
 
-/*header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+header {
     margin-bottom: 90px;
-    border-bottom: 1px solid rgba(200, 200, 200, 0.5);
-    box-shadow: 0 0 10px black;
-}*/
+}
+
 .menuHeader{
     display: flex;
     justify-content: flex-end;
@@ -42,6 +38,7 @@ li {
 
 .articles{
     margin-top: 20px;
+    margin-left: 50px;
 }
 .postTitleRight{
     margin-top: 95px;
@@ -73,8 +70,7 @@ li {
     width: 100%;
     font-size: 0.8em;
     color: blue;
-    text-align: left;
-    margin-left: 10px;
+    text-align: right;
 }
 
 .date_billet {

@@ -1,6 +1,6 @@
 <form action="<?= $action ?>" method="post">
     <div>
-        <input type="text" name="nickname" class="form-control" placeholder="Nom d'utilisateur">
+        <input type="text" name="login" class="form-control" placeholder="Nom d'utilisateur">
     </div>
     <br/>
     <div>
