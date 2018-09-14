@@ -41,7 +41,10 @@ li {
 }
 
 .articles{
-    margin-top: 90px;
+    margin-top: 20px;
+}
+.postTitleRight{
+    margin-top: 95px;
 }
 .menuAdmin {
     margin-top: 10px;

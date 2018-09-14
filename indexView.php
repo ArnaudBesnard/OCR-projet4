@@ -8,18 +8,9 @@ ob_start();
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-2">
-
-        </div>
-        <div class="col-8">
+        <div class="col-10">
             <div class="articles">
-                <?php if (isset($_SESSION['login'])) {
-                echo('Bonjour ' .$_SESSION['login']);
-                }
-                else{
-                    echo('Bonjour visiteur');
-                }
-
+                <?php
                 $request = $bdd->query('select * from billet order by id ASC ') or die(print_r($bdd->errorInfo()));
                 while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
                 {
@@ -39,6 +30,16 @@ ob_start();
                         <?= $billet->auteur(); ?>
                     </div>
                 <?php }; ?>
+            </div>
+        </div>
+        <div class="col-2">
+            <div class="postTitleRight">
+                <ul>
+                    <li><?= 'Titre Chapitre'; ?></li>
+                    <li><?= 'Titre Chapitre'; ?></li>
+                    <li><?= 'Titre Chapitre'; ?></li>
+                    <li><?= 'Titre Chapitre'; ?></li>
+                </ul>
             </div>
         </div>
     </div>

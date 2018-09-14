@@ -8,9 +8,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="http://localhost/ocr-projet4/index.php">Accueil</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ocr-projet4/admin/admin.php">Administration</a>
-                </li>>
+
+                  <?php  if (isset($_SESSION['login']) && ($_SESSION['login'] = 'Admin')){
+                   echo("<li class='nav-item'><a class='nav-link' href='http://localhost/ocr-projet4/admin/admin.php'>Administration</a></li>");
+                   } ?>
+
             </ul>
         </div>
         <div class="mx-auto order-0">
@@ -22,15 +24,24 @@
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ocr-projet4/index.php?page=connection">Se connecter</a>
+                    <?php if (empty($_SESSION['login'])) {
+                        echo("<a class='nav-link' href='http://localhost/ocr-projet4/index.php?page=connection'>Se connecter</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">S'enregistrer</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="deconnect.php">Déconnexion</a>
+                <li class='nav-item'>
+                    <a class='nav-link' href='#'>Senregistrer</a>
+                </li>");
+                    } else {
+                        echo ("<li class='nav-item'><a class='nav-link'>Bienvenue ".$_SESSION['login']."</a></li>
+                <li class='nav-item'>
+                    <a class='nav-link' href='deconnect.php'>Déconnexion</a>");
+                    } ?>
                 </li>
             </ul>
         </div>
     </nav>
 </header>
+<?php
+if (isset($_SESSION['login'])) {
+    echo $_SESSION['login'];
+}
+?>
