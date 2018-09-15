@@ -9,7 +9,7 @@ $title = "Inscription";
 <div class="articles">
     <h2>Ajout d'un utilisateur sur le site :</h2>
     <div class="form_billet">
-        <?php include("template/formUser.php"); ?>
+        <?php include("public/template/formUser.php"); ?>
     </div>
 </div>
 <?php

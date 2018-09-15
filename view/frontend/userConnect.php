@@ -8,7 +8,7 @@ ob_start();
             <div class="col-8">
                 <div class="articles">
                         <h2>Page de connexion utilisateurs</h2>
-                    <form action="verifUser.php" method="post">
+                    <form action="index.php?page=verifUser" method="post">
                         <div>
                             <input type="text" name="login" class="form-control" placeholder="Entrer votre nom d'utilisateur">
                         </div>

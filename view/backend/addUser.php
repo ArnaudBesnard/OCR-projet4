@@ -1,8 +1,13 @@
 <?php
+session_start ();
+// On récupère nos variables de session
+
+$title = "Jean Forteroche - Ajout d'un utlisateur";
+ob_start();
 
 //Autoload de chargement des classes
 spl_autoload_register(function($classe){
-    include '../class/' .$classe. '.class.php';
+    include '../model/' .$classe. '.class.php';
 });
 $db= new Database;
 $bdd = $db->getConnection();
@@ -21,4 +26,7 @@ $manager->add($addUser);
 //Copier ce code pour l'edition d'article
 echo('L\'utilisateur a été ajouté, vous allez êtes redirigé vers la page d\'administration');
 
-header("Refresh: 3; URL=admin.php" );
+$content = ob_get_clean();
+require('template.php');
+
+header("Refresh: 3; URL=index.php?page=administration" );
