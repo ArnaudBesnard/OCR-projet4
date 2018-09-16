@@ -4,6 +4,7 @@ session_start();
 
 $title = "Jean Forteroche - Administration";
 ob_start();
+if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
 ?>
     <div class="container-fluid">
         <div class="row">
@@ -13,7 +14,7 @@ ob_start();
             <div class="col-8">
                 <div class="articles">
                     <?php
-                    $request = $bdd->query('select * from billet order by id ASC ') or die(print_r($bdd->errorInfo()));
+                    $request = $bdd->query('select * from posts order by id ASC ') or die(print_r($bdd->errorInfo()));
                     while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
                         $billet = new Post($donnees);
                         $billet->hydrate($donnees);
@@ -42,7 +43,11 @@ ob_start();
             </div>
         </div>
     </div>
-<?php
+    <?php }
+    else{
+        header('Location: index.php?page=connection');
+    }
+
 $content = ob_get_clean();
 require('template.php');
 ?>

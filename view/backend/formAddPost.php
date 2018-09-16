@@ -4,9 +4,10 @@ session_start();
 
 $title = "Jean Forteroche - Un billet simple pour l'Alaska";
 ob_start();
-$dateCreate = date("Y-m-d");
-$action = "addUser.php";
-?>
+if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+    $dateCreate = date("Y-m-d");
+    $action = "addUser.php";
+    ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
@@ -22,7 +23,11 @@ $action = "addUser.php";
             </div>
         </div>
     </div>
-<?php
+    <?php
+}
+else{
+    header('Location: index.php?page=connection');
+}
 $content = ob_get_clean();
 require('template.php');
 ?>

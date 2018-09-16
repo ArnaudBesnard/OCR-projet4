@@ -11,7 +11,7 @@ ob_start();
         <div class="col-10">
             <div class="articles">
                 <?php
-                $request = $bdd->query('select * from billet order by id ASC ') or die(print_r($bdd->errorInfo()));
+                $request = $bdd->query('select * from posts order by id ASC ') or die(print_r($bdd->errorInfo()));
                 while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
                 {
                     $billet = new Post($donnees);
@@ -37,7 +37,7 @@ ob_start();
                 <p>Accès aux chapitres</p>
                 <ul>
                     <?php
-                        $request = $bdd->query('select * from billet order by id ASC ') or die(print_r($bdd->errorInfo()));
+                        $request = $bdd->query('select * from posts order by id ASC ') or die(print_r($bdd->errorInfo()));
                         while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
                         {
                             $billet = new Post($donnees);

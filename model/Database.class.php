@@ -1,7 +1,6 @@
 <?php
 
-class Database
-{
+class Database {
     const DB_HOST = 'mysql:host=localhost;dbname=projet4;charset=utf8';
     const DB_USER = 'root';
     const DB_PASS = '';

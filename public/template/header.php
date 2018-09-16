@@ -6,8 +6,7 @@
             <a class="navbar-brand" href="#"><img src="http://localhost/ocr-projet4/public/img/avion.png"/></a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ocr-projet4/index.php"><i style="font-size:16px"
-                                                                                         class="fa">&#xf015;</i> Accueil</a>
+                    <a class="nav-link" href="http://localhost/ocr-projet4/index.php"><i style="font-size:16px" class="fa">&#xf015;</i> Accueil</a>
                 </li>
 
                 <?php if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {

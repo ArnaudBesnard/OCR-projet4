@@ -23,7 +23,7 @@ $bdd = $db->getConnection();
             }
 //Backend
             elseif ($_GET['page'] == "administration") {
-                include('view/backend/postManager.php');
+                include('view/backend/adminManager.php');
             } elseif ($_GET['page'] == "viewUser") {
                 include('view/backend/viewUser.php');
             } elseif ($_GET['page'] == "createUser") {
