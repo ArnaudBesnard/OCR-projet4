@@ -40,6 +40,25 @@ li {
     margin-top: 20px;
     margin-left: 50px;
 }
+.titreComment{
+    background-color: #999999;
+    margin: 0;
+    padding: 5px;
+}
+.comment{
+    margin: auto;
+    margin-bottom: 15px;
+    width: 800px;
+}
+.contenuComment{
+    background-color: #CCCCCC;
+    padding: 5px;
+}
+.commentAuthor{
+    background-color: white;
+    font-size: 14px;
+    color: green;
+}
 .postTitleRight{
     margin-top: 95px;
 }

@@ -1,6 +1,6 @@
 <form action="<?php echo $action; ?>" method="post">
     <div>
-        <input type="text" name="id" class="form-control" placeholder="Id" value="<?php if (isset($id)) echo($id); ?>">
+        <input type="hidden" name="id" class="form-control" placeholder="Id" value="<?php if (isset($id)) echo($id); ?>">
     </div>
     <br/>
     <div>

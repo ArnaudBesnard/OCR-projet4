@@ -1,6 +1,8 @@
 <?php
 session_start();
 $id = $_GET['id'];
+$author = $_SESSION['login'];
+$posted = date("Y-m-d");
 ob_start();
 ?>
 
@@ -22,12 +24,24 @@ ob_start();
                     <div class='date_billet'><?= $billet->dateAjout(); ?></div>
                     <div class='contenu'><?= $billet->contenu(); ?></div>
                     <div class='auteur'><?= $billet->auteur(); ?></div>
-                </div>
+
+        <?php
+        if (isset($_SESSION['login'])) {
+            ?>
+            <!--Liste des commentaires-->
+            <?php include('view/frontend/viewComment.php'); ?>
+            <!--Fin liste des commentaires-->
+            <!--Formulaire des commentaires-->
+            <?php include('public/template/formComment.php'); ?>
+            <!--Fin du formulaire des commentaires-->
+            </div>
+            <?php
+        }
+        else{
+            echo("<center>Vous devez être connecté afin de voir ou poster un commentaire,<br /><a href='index.php?page=connection'>cliquez ici</a> pour vous connecter</center>");
+        } ?>
             </div>
         </div>
-        <!--Formulaire des commentaires-->
-            <?php include ('public/template/formComment.php'); ?>
-        <!--Fin du formulaire des commentaires-->
     </div>
 <?php
 $content = ob_get_clean();

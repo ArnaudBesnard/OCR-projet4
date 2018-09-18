@@ -1,12 +1,11 @@
 <?php
 session_start();
-// On récupère nos variables de session
 
 $title = "Jean Forteroche - Un billet simple pour l'Alaska";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $dateCreate = date("Y-m-d");
-    $action = "addUser.php";
+    $action = "index.php?page=runAddUser";
     ?>
     <div class="container-fluid">
         <div class="row">

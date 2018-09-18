@@ -1,12 +1,11 @@
 <?php
 session_start();
-// On récupère nos variables de session
 
 $title = "Jean Forteroche - Administration";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $chapitre = $_GET['id'];
-    $action = "updatePost.php";
+    $action = "index.php?page=updatePost";
     $reponse = $bdd->query("SELECT * FROM posts WHERE id = '" . $chapitre . "' ") or die(print_r($bdd->errorInfo()));
 
     while ($donnees = $reponse->fetch()) {

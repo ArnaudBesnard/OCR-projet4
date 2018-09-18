@@ -1,6 +1,5 @@
 <?php
 session_start();
-// On récupère nos variables de session
 
 $title = "Jean Forteroche - Administration";
 ob_start();

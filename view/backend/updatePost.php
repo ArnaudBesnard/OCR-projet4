@@ -4,13 +4,6 @@ session_start ();
 
 $title = "Jean Forteroche - Un billet simple pour l'Alaska";
 ob_start();
-    //Autoload de chargement des classes
-    spl_autoload_register(function($classe){
-    include '../model/' .$classe. '.class.php';
-});
-
-$db= new Database;
-$bdd = $db->getConnection();
 
 $billet = new Post;
 $billet->setId($_POST['id']);
@@ -22,9 +15,9 @@ $billet->setAuteur($_POST['auteur']);
 $manager = new PostManager($bdd);
 $manager->update($billet);
 
-    echo('Les données ont été modifiées, vous allez êtes redirigé vers la page d\'administration');
+    echo('<center>Les données ont été modifiées, vous allez êtes redirigé vers la page d\'administration</center>');
 
-    header("Refresh: 3; URL=admin.php" );
+    header("Refresh: 3; URL=index.php?page=administration" );
 
 $content = ob_get_clean();
 require('template.php');

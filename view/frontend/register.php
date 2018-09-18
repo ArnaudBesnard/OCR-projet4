@@ -1,6 +1,5 @@
 <?php
 session_start ();
-// On récupère nos variables de session
 
 $dateCreate = date("Y-m-d");
 $action = "admin/addUser.php";

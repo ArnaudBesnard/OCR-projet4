@@ -1,16 +1,11 @@
 <?php
-
 session_start();
-// On récupère nos variables de session
+
 $title = "Jean Forteroche - Aperçu des utilisateurs";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
-//Autoload de chargement des classes
-    spl_autoload_register(function ($classe) {
-        include '../model/' . $classe . '.class.php';
-    });
-    $db = new Database;
-    $bdd = $db->getConnection();
+
+
     ?>
     <div class="container-fluid">
         <div class="row">

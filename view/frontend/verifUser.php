@@ -2,13 +2,6 @@
 $title = "Connexion validée, bienvenue";
 ob_start();
 
-//Autoload de chargement des classes
-spl_autoload_register(function ($classe) {
-    include 'model/' . $classe . '.class.php';
-});
-$db = new Database;
-$bdd = $db->getConnection();
-
 $login = $_POST['login'];
 $password = $_POST['password'];
 

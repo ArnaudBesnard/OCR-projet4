@@ -30,10 +30,18 @@ $bdd = $db->getConnection();
                 include('view/backend/formAddUser.php');
             } elseif ($_GET['page'] == "addPost") {
                 include('view/backend/formAddPost.php');
+            } elseif ($_GET['page'] == "runAddUser") {
+                include('view/backend/addUser.php');
+            } elseif ($_GET['page'] == "runAddPost") {
+                include('view/backend/addPost.php');
             } elseif ($_GET['page'] == "postEdit") {
                 include('view/backend/editPost.php');
+            } elseif ($_GET['page'] == "updatePost") {
+                include('view/backend/updatePost.php');
             } elseif ($_GET['page'] == "deletePost") {
                 include('view/backend/deletePost.php');
+            } elseif ($_GET['page'] == "addComment") {
+                include('view/backend/addComment.php');
             } else {
                 include('view/frontend/default.php');
             }

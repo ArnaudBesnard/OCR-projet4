@@ -29,7 +29,6 @@
     </div>
     <br/>
     <div>
-
         <select id="role" name="role" class="form-control" type="text">
             <option>Administrateur</option>
             <option>Contributeur</option>
@@ -37,9 +36,8 @@
         </select>
     </div>
     <div class="button">
-
         <br/>
         <button type="submit" class="btn btn-primary">Envoyer</button>
-        <button type="button" class="btn btn-danger"><a href="admin.php">Annuler</a></button>
+        <button type="button" class="btn btn-danger"><a href="index.php?page=administration">Annuler</a></button>
     </div>
 </form>

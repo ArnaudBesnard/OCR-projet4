@@ -20,7 +20,6 @@ class PostManager
         $req->execute();
     }
 
-
     public function delete($id)
     {
         $this->_bdd->exec('DELETE FROM posts WHERE id = ' . $id);
@@ -31,19 +30,20 @@ class PostManager
         $id = (int)$id;
         $req = $this->_bdd->query('SELECT id, titre, contenu, dateAjout, auteur FROM posts WHERE id = ' . $id);
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
-        return new Article($donnees);
+        return new Post($donnees);
     }
 
-    public function getlist()
+    public function getList()
     {
-        //$billet[];
-        $req = $this->_bdd->query('SELECT * FROM posts ORDER BY titre ASC');
-        while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
+        //$posts = [];
+        $req = $this->_bdd->query('SELECT * FROM posts ORDER BY id');
 
-            $billet = new Article($donnees);
-            $billet->hydrate($donnees);
-            return $billet;
+        while ($donnees = $req->fetch(PDO::FETCH_ASSOC))
+        {
+            $posts = new Post;
+            $posts->hydrate($donnees);
         }
+        return $posts;
     }
 
     public function update(Post $billet)

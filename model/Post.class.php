@@ -1,5 +1,5 @@
 <?php
-    //Création de la classe article
+    //Création de la classe Post
     class Post {
     
         protected $_id;
@@ -7,8 +7,7 @@
         protected $_contenu;
         protected $_dateAjout;
         protected $_auteur;
-        
-        
+
         public function hydrate(array $donnees)
         {
             foreach ($donnees as $key => $value)
