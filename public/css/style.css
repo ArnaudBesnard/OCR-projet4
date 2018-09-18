@@ -59,6 +59,9 @@ li {
     font-size: 14px;
     color: green;
 }
+.buttonValidComment{
+    text-align: right;
+}
 .postTitleRight{
     margin-top: 95px;
 }

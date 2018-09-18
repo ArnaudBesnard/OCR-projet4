@@ -11,11 +11,26 @@ ob_start();
             <div class="articles">
             <!--Affichage des articles-->
                 <?php
-                    $manager = new PostManager($bdd);
-                    var_dump($manager);
-                    echo $manager->getList()->titre();
-                   echo $manager->getList()->contenu();
-                 ?>
+                $request = $bdd->query('select * from posts order by id ASC ') or die(print_r($bdd->errorInfo()));
+                while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
+                {
+                    $billet = new Post($donnees);
+                    $billet->hydrate($donnees);
+                    ?>
+                    <h1>
+                        <a href="index.php?page=singlePost&&id=<?= $billet->id(); ?>"><?= $billet->titre(); ?></a>
+                    </h1>
+                    <div class='date_billet'>
+                        <?= $billet->dateAjout(); ?>
+                    </div>
+                    <div class='contenu'>
+                        <?= $billet->contenu(); ?>
+                    </div>
+                    <div class='auteur'>
+                        <?= $billet->auteur(); ?>
+                    </div>
+                <?php }; ?>
+
             <!--Fin affichage des articles-->
             </div>
         </div>

@@ -52,7 +52,7 @@ class CommentManager {
         $req->bindValue(':statut', $comment->statut());
         $req->bindValue(':title', $comment->title());
         $req->bindValue(':comment', $comment->comment());
-        $req->bindValue(':author', $omment->author());
+        $req->bindValue(':author', $comment->author());
         $req->bindValue('posted', $comment->posted());
         $req->execute();
     }

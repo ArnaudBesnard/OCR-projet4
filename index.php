@@ -42,6 +42,8 @@ $bdd = $db->getConnection();
                 include('view/backend/deletePost.php');
             } elseif ($_GET['page'] == "addComment") {
                 include('view/backend/addComment.php');
+            } elseif ($_GET['page'] == "validComment") {
+                include ('view/backend/validComment.php');
             } else {
                 include('view/frontend/default.php');
             }

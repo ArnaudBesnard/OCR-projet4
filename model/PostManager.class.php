@@ -37,19 +37,19 @@ class PostManager
     {
         //$posts = [];
         $req = $this->_bdd->query('SELECT * FROM posts ORDER BY id');
-
         while ($donnees = $req->fetch(PDO::FETCH_ASSOC))
         {
-            $posts = new Post;
+            $posts = new Post();
             $posts->hydrate($donnees);
+
         }
         return $posts;
+
     }
 
     public function update(Post $billet)
     {
         $req = $this->_bdd->prepare('UPDATE posts SET titre = :titre, contenu = :contenu, dateAjout = :dateAjout, auteur = :auteur WHERE id = :id');
-
         $req->bindValue(':id', $billet->id());
         $req->bindValue(':titre', $billet->titre());
         $req->bindValue(':contenu', $billet->contenu());
