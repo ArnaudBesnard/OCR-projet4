@@ -12,7 +12,7 @@
     </div>
     <br/>
     <div>
-        <input type="hidden" name="author" class="form-control" value="<?=$author?>" >
+        <input type="hidden" name="author" class="form-control" value="<?php if (isset($author)) echo($author); ?>" >
     </div>
     <div>
         <input type="hidden" name="posted" class="form-control" value="<?=$posted?>" >

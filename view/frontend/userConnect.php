@@ -17,10 +17,7 @@ ob_start();
                             <input type="password" name="password" class="form-control" placeholder="Entrer votre mot de passe">
                         </div>
                         <br />
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                            <label class="custom-control-label" for="defaultUnchecked">Se souvenir de moi</label>
-                        </div>
+                        <span><a href="#">Mot de passe oublié</a></span>
                         <div class="button">
                         <br/>
                         <button type="submit" class="btn btn-primary">Valider</button>

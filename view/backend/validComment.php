@@ -20,7 +20,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                         <?php
                         $request = $bdd->query('select * from comments WHERE statut = 0 ORDER BY id ASC') or die(print_r($bdd->errorInfo()));
                         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
-                            $comments = new comment($donnees);
+                            $comments = new Cmt();
                             $comments->hydrate($donnees); ?>
                             <div class="comment">
                                 <form action="view/backend/runValidComment.php" method="post">

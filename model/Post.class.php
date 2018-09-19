@@ -3,7 +3,7 @@
     class Post {
     
         protected $_id;
-        public $_titre;
+        protected $_titre;
         protected $_contenu;
         protected $_dateAjout;
         protected $_auteur;

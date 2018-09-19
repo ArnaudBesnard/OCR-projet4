@@ -1,6 +1,6 @@
 <?php
 
-class Comment {
+class Cmt {
     protected $_id;
     protected $_postId;
     protected $_statut;

@@ -1,6 +1,6 @@
 <?php
 
-class CommentManager {
+class CmtManager {
     protected $_bdd;
 
     public function __construct($bdd)
@@ -8,7 +8,7 @@ class CommentManager {
         $this->setBdd($bdd);
     }
 
-    public function add(Comment $comment)
+    public function add(Cmt $comment)
     {
         $req = $this->_bdd->prepare('INSERT INTO comments(postId, title, comment, author, posted) VALUES(:postId, :title, :comment, :author, :posted)');
         $req->bindValue(':postId', $comment->postId());

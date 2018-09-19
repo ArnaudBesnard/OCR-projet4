@@ -15,9 +15,7 @@ ob_start();
                     $posts = $manager->getList();
                     foreach($posts as $post){
                 ?>
-                    <h1>
-                        <a href="index.php?page=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a>
-                    </h1>
+                    <h1><a href="index.php?page=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a></h1>
                     <div class='date_billet'>
                         <?= $post->dateAjout(); ?>
                     </div>

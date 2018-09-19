@@ -9,7 +9,7 @@ class PostManager
     {
         $this->setBdd($bdd);
     }
-
+    // Méthode d'ajout de post
     public function add(Post $billet)
     {
         $req = $this->_bdd->prepare('INSERT INTO posts(titre, contenu, dateAjout, auteur) VALUES(:titre, :contenu, :dateAjout, :auteur)');
@@ -19,20 +19,21 @@ class PostManager
         $req->bindValue(':auteur', $billet->auteur());
         $req->execute();
     }
-
+    // Méthode de suppression de post
     public function delete($id)
     {
         $this->_bdd->exec('DELETE FROM posts WHERE id = ' . $id);
     }
-
+    // Méthode de sélection de post par Id
     public function get($id)
     {
-        $id = (int)$id;
-        $req = $this->_bdd->query('SELECT id, titre, contenu, dateAjout, auteur FROM posts WHERE id = ' . $id);
-        $donnees = $req->fetch(PDO::FETCH_ASSOC);
-        return new Post($donnees);
+        $request = $this->_bdd->query('select * from posts WHERE id = ' . $id) or die(print_r($bdd->errorInfo()));
+        $donnees = $request->fetch(PDO::FETCH_ASSOC);
+        $post = new Post();
+        $post->hydrate($donnees);
+        return $post;
     }
-
+    // Méthode d'affichage de tous les posts
     public function getList()
     {
         $posts = [];
@@ -44,7 +45,7 @@ class PostManager
         }
         return $posts;
     }
-
+    // Méthode d'update des posts
     public function update(Post $billet)
     {
         $req = $this->_bdd->prepare('UPDATE posts SET titre = :titre, contenu = :contenu, dateAjout = :dateAjout, auteur = :auteur WHERE id = :id');
