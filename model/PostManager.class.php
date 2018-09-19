@@ -35,16 +35,14 @@ class PostManager
 
     public function getList()
     {
-        //$posts = [];
-        $req = $this->_bdd->query('SELECT * FROM posts ORDER BY id');
-        while ($donnees = $req->fetch(PDO::FETCH_ASSOC))
-        {
-            $posts = new Post();
-            $posts->hydrate($donnees);
-
+        $posts = [];
+        $request = $this->_bdd->query('select * from posts order by id ASC ') or die(print_r($bdd->errorInfo()));
+        while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
+            $post = new Post();
+            $post->hydrate($donnees);
+            array_push($posts, $post);
         }
         return $posts;
-
     }
 
     public function update(Post $billet)

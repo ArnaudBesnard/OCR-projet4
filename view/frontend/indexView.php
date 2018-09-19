@@ -9,29 +9,26 @@ ob_start();
     <div class="row">
         <div class="col-10">
             <div class="articles">
-            <!--Affichage des articles-->
+                <!--Affichage des articles-->
                 <?php
-                $request = $bdd->query('select * from posts order by id ASC ') or die(print_r($bdd->errorInfo()));
-                while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
-                {
-                    $billet = new Post($donnees);
-                    $billet->hydrate($donnees);
-                    ?>
+                    $manager = new PostManager($bdd);
+                    $posts = $manager->getList();
+                    foreach($posts as $post){
+                ?>
                     <h1>
-                        <a href="index.php?page=singlePost&&id=<?= $billet->id(); ?>"><?= $billet->titre(); ?></a>
+                        <a href="index.php?page=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a>
                     </h1>
                     <div class='date_billet'>
-                        <?= $billet->dateAjout(); ?>
+                        <?= $post->dateAjout(); ?>
                     </div>
                     <div class='contenu'>
-                        <?= $billet->contenu(); ?>
+                        <?= $post->contenu(); ?>
                     </div>
                     <div class='auteur'>
-                        <?= $billet->auteur(); ?>
+                        <?= $post->auteur(); ?>
                     </div>
-                <?php }; ?>
-
-            <!--Fin affichage des articles-->
+                 <?php } ?>
+                <!--Fin affichage des articles-->
             </div>
         </div>
         <div class="col-2">
