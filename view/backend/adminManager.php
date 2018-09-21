@@ -4,7 +4,7 @@ session_start();
 $title = "Jean Forteroche - Administration";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
-?>
+    ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
@@ -13,27 +13,27 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
             <div class="col-8">
                 <div class="articles">
                     <?php
-                    $request = $bdd->query('select * from posts order by id ASC ') or die(print_r($bdd->errorInfo()));
-                    while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
-                        $billet = new Post($donnees);
-                        $billet->hydrate($donnees);
+                    $manager = new PostManager($bdd);
+                    $posts = $manager->getList();
+                    foreach ($posts as $post) {
                         ?>
-                        <h1> <?= $billet->titre(); ?></h1>
+                        <h1><?= $post->titre(); ?></h1>
                         <div class='date_billet'>
-                            Id n°<?= $billet->id(); ?> - Ajouté le : <?= $billet->dateAjout(); ?>
+                            <?= $post->dateAjout(); ?>
                         </div>
                         <div class='contenu'>
-                            <?= $billet->contenu(); ?>
+                            <?= $post->contenu(); ?>
                         </div>
                         <div class='auteur'>
-                            <?= $billet->auteur(); ?>
+                            <?= $post->auteur(); ?>
                         </div>
+
                         <div class="btnGestion">
                             <button type="button" class="btn btn-success"><a
-                                        href="index.php?page=postEdit&&id=<?= $billet->id() ?>">Editer</a>
+                                        href="index.php?page=postEdit&&id=<?= $post->id() ?>">Editer</a>
                             </button>
                             <button type="button" class="btn btn-danger"><a
-                                        href="index.php?page=deletePost&&id=<?= $billet->id() ?>"
+                                        href="index.php?page=deletePost&&id=<?= $post->id() ?>"
                                         onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">Supprimer</a>
                             </button>
                         </div>
@@ -42,10 +42,9 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
             </div>
         </div>
     </div>
-    <?php }
-    else{
-        header('Location: index.php?page=connection');
-    }
+<?php } else {
+    header('Location: index.php?page=connection');
+}
 
 $content = ob_get_clean();
 require('template.php');

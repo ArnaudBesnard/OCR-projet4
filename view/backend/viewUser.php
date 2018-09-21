@@ -20,8 +20,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                         $users = new user($donnees);
                         $users->hydrate($donnees);
                         echo("<b>Pseudo :</b> " . $users->login() . " <b>- Mot de passe : </b>" . $users->password() . " <b>- Email : </b>" . $users->email() . "<br />");
-
-
                     }; ?>
                 </div>
             </div>

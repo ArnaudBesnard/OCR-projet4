@@ -1,12 +1,9 @@
 <?php
-
-$request = $bdd->query('select * from comments WHERE postId =' . $id . ' && statut = 1') or die(print_r($bdd->errorInfo()));
-while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
-    $comments = new Cmt();
-    $comments->hydrate($donnees); ?>
-<div class="comment">
-    <?php echo("<div class='titreComment'>" .$comments->title() . "</div><div class='contenuComment'>" . $comments->comment() ."</div><div class='commentAuthor'>" . $comments->author() ."</div>"); ?>
-</div>
-
-<?php }; ?>
-
+$manager = new CmtManager($bdd);
+$comments = $manager->getList($id );
+foreach($comments as $comment){
+?>
+    <div class="comment">
+        <?php echo("<div class='titreComment'>" .$comment->title() . "</div><div class='contenuComment'>" . $comment->comment() ."</div><div class='commentAuthor'>" . $comment->author() ."</div>"); ?>
+    </div>
+<?php } ?>

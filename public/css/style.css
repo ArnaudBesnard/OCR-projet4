@@ -9,21 +9,27 @@ body {
 header {
     margin-bottom: 35px;
 }
+.travel_train{
+    background-image: url(../img/travel_train_nb.jpg);
+    background-repeat: no-repeat;
+    width: 1360px;
+    height: 350px;
+    margin: 67px auto;
+}
 
 .menuHeader{
     display: flex;
     justify-content: flex-end;
 }
 .titre {
-    font-size: 2em;
+    font-size: 1em;
     color: black;
-    /*padding-top: 35px;*/
     text-align: center;
 }
 
 h1 {
     color: red !important;
-    font-size: 1.5em;
+    font-size: 1.5em !important;
     margin-left: 10px;
 }
 

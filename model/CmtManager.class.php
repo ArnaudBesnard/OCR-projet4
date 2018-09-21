@@ -32,16 +32,16 @@ class CmtManager {
         return new Comment($donnees);
     }
 
-    public function getlist()
+    public function getlist($id)
     {
-        //$billet[];
-        $req = $this->_bdd->query('SELECT * FROM comments ORDER BY author ASC');
-        while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
-
-            $comment = new Comment($donnees);
+        $comments = [];
+        $request = $this->_bdd->query('select * from comments WHERE postId =' . $id . ' && statut = 1') or die(print_r($bdd->errorInfo()));
+        while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
+            $comment = new Cmt();
             $comment->hydrate($donnees);
-            return $comment;
+            array_push($comments, $comment);
         }
+        return $comments;
     }
 
     public function update(Comment $comment)
