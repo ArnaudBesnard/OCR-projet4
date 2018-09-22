@@ -10,7 +10,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
-                <?php include('public/template/adminNav.html'); ?>
+                <?php include('public/template/adminNav.php'); ?>
             </div>
             <div class="col-10">
                 <div class="articles">

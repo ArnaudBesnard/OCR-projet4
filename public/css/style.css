@@ -73,6 +73,24 @@ li {
     font-size: 14px;
     color: green;
 }
+.signalement{
+    font-size: 0.8em;
+    color: red;
+    text-align: right;
+    margin-top: -20px;
+}
+.signalement a{
+    color: red;
+}
+.titre_nav_admin{
+    font-weight:  bold;
+    font-size: 1em;
+    margin-left: 14px;
+    margin-top: 25px;
+}
+.signalement a:hover{
+    color: red;
+}
 .buttonValidComment{
     text-align: right;
 }

@@ -53,6 +53,44 @@ class CmtManager {
         $req = $this->_bdd->query('UPDATE comments SET statut = 1 WHERE id =' .$id);
     }
 
+    public function reporting($id)
+    {
+        $req = $this->_bdd->query('UPDATE comments SET reporting = 1 WHERE id =' .$id);
+    }
+
+    public function cancelReport($id)
+    {
+        $req = $this->_bdd->query('UPDATE comments SET reporting = 0 WHERE id =' .$id);
+    }
+
+    public function getReporting($reporting)
+    {
+        $comments = [];
+        $request = $this->_bdd->query('select * from comments WHERE  reporting =' . $reporting) or die(print_r($bdd->errorInfo()));
+        while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
+            $comment = new Cmt();
+            $comment->hydrate($donnees);
+            array_push($comments, $comment);
+        }
+        return $comments;
+    }
+
+    public function countComment()
+    {
+        $request = $this->_bdd->query('SELECT COUNT(*) AS statut FROM comments WHERE statut = 0') or die(print_r($bdd->errorInfo()));
+        $data = $request->fetch(PDO::FETCH_ASSOC);
+        $count = $data['statut'];
+        return $count;
+    }
+
+    public function countReporting()
+    {
+        $request = $this->_bdd->query('SELECT COUNT(*) AS reporting FROM comments WHERE reporting = 1') or die(print_r($bdd->errorInfo()));
+        $data = $request->fetch(PDO::FETCH_ASSOC);
+        $count = $data['reporting'];
+        return $count;
+    }
+
     public function setBdd(PDO $bdd)
     {
         $this->_bdd = $bdd;

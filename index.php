@@ -20,6 +20,8 @@ $bdd = $db->getConnection();
                 include('view/frontend/deconnect.php');
             } elseif ($_GET['page'] == "verifUser") {
                 include('view/frontend/verifUser.php');
+            } elseif ($_GET['page'] == "reporting"){
+                include('view/frontend/reporting.php');
             }
 //Backend
             elseif ($_GET['page'] == "administration") {
@@ -48,6 +50,10 @@ $bdd = $db->getConnection();
                 include('view/backend/validComment.php');
             } elseif ($_GET['page'] == "deleteComment") {
                 include('view/backend/deleteComment.php');
+            } elseif ($_GET['page'] == "viewReporting") {
+                include('view/backend/viewReporting.php');
+            } elseif ($_GET['page'] == "cancelReporting") {
+                include ('view/backend/cancelReporting.php');
             } else {
                 include('view/frontend/default.php');
             }

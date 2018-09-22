@@ -8,7 +8,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">
-                <?php include('public/template/adminNav.html'); ?>
+                <?php include('public/template/adminNav.php'); ?>
             </div>
             <div class="col-8">
                 <div class="articles">
@@ -30,11 +30,11 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
 
                         <div class="btnGestion">
                             <button type="button" class="btn btn-success"><a
-                                        href="index.php?page=postEdit&&id=<?= $post->id() ?>">Editer</a>
+                                        href="index.php?page=postEdit&&id=<?= $post->id() ?>"><i style="font-size:18px" class="fa">&#xf0a4;</i> Editer</a>
                             </button>
                             <button type="button" class="btn btn-danger"><a
                                         href="index.php?page=deletePost&&id=<?= $post->id() ?>"
-                                        onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');">Supprimer</a>
+                                        onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a>
                             </button>
                         </div>
                     <?php }; ?>
