@@ -41,5 +41,5 @@
             </ul>
         </div>
     </nav>
-    <div class="travel_train"></div>
+    <div class="travel_train"><div class="titre_img">"Un voyage au bout du monde."</div></div>
 </header>

@@ -12,9 +12,17 @@ header {
 .travel_train{
     background-image: url(../img/travel_train_nb.jpg);
     background-repeat: no-repeat;
-    width: 1360px;
-    height: 350px;
+    background-size: cover;
+    width: 100%;
+    height: 365px;
     margin: 67px auto;
+}
+.titre_img{
+    padding-top: 165px;
+    padding-left: 50px;
+    font-size: 2em;
+
+    color: white;
 }
 
 .menuHeader{
@@ -54,7 +62,7 @@ li {
 .comment{
     margin: auto;
     margin-bottom: 15px;
-    width: 800px;
+    width: 100%;
 }
 .contenuComment{
     background-color: #CCCCCC;

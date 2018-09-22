@@ -1,6 +1,6 @@
 <?php
 $manager = new CmtManager($bdd);
-$comments = $manager->getList($id );
+$comments = $manager->getList($id, 1);
 foreach($comments as $comment){
 ?>
     <div class="comment">

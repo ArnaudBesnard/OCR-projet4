@@ -24,15 +24,19 @@ class CmtManager {
         $this->_bdd->exec('DELETE FROM comments WHERE id = ' . $id);
     }
 
-    public function get($id)
+    public function getStatus($status)
     {
-        $id = (int)$id;
-        $req = $this->_bdd->query('SELECT id, postId, statut, title, comment, author, posted FROM comments WHERE id = ' . $id);
-        $donnees = $req->fetch(PDO::FETCH_ASSOC);
-        return new Comment($donnees);
+        $comments = [];
+        $request = $this->_bdd->query('select * from comments WHERE  statut =' . $status) or die(print_r($bdd->errorInfo()));
+        while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
+            $comment = new Cmt();
+            $comment->hydrate($donnees);
+            array_push($comments, $comment);
+        }
+        return $comments;
     }
 
-    public function getlist($id)
+    public function getlist($id, $statut)
     {
         $comments = [];
         $request = $this->_bdd->query('select * from comments WHERE postId =' . $id . ' && statut = 1') or die(print_r($bdd->errorInfo()));
@@ -44,17 +48,9 @@ class CmtManager {
         return $comments;
     }
 
-    public function update(Comment $comment)
+    public function valid($id)
     {
-        $req = $this->_bdd->prepare('UPDATE comments SET postId = :postId, statut = :statut, title = :title, comment = :comment, author = :author, posted = :posted WHERE id = :id');
-
-        $req->bindValue(':postId', $comment->PostId());
-        $req->bindValue(':statut', $comment->statut());
-        $req->bindValue(':title', $comment->title());
-        $req->bindValue(':comment', $comment->comment());
-        $req->bindValue(':author', $comment->author());
-        $req->bindValue('posted', $comment->posted());
-        $req->execute();
+        $req = $this->_bdd->query('UPDATE comments SET statut = 1 WHERE id =' .$id);
     }
 
     public function setBdd(PDO $bdd)
