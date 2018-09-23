@@ -30,11 +30,20 @@ ob_start();
             </div>
         </div>
         <div class="col-2">
-            <!--Affichage ici des titres des chapitres-->
+
+            <div class="postTitleRight">Liste des chapitres</div>
+            <div class="postsTitlesList">
+            <?php
+            foreach($posts as $post){
+                $postTitle = $post->titre();
+                $id = $post->id();
+                $cutTitle = substr($postTitle, 0, 21) . "...";
+                $titleLink = ("<a href='index.php?page=singlePost&&id=$id'>$cutTitle</a><br />");
+                echo $titleLink;
+             } ?>
         </div>
     </div>
 </div>
-
 <?php
 $content = ob_get_clean();
 require('template.php');

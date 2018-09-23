@@ -1,6 +1,7 @@
 <?php
 
-class CmtManager {
+class CmtManager
+{
     protected $_bdd;
 
     public function __construct($bdd)

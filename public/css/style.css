@@ -9,6 +9,10 @@ body {
 header {
     margin-bottom: 35px;
 }
+/*.nav-item a:hover{
+    border-bottom: 3px solid rgba(200, 200, 200, 0.2);
+}*/
+
 .travel_train{
     background-image: url(../img/travel_train_nb.jpg);
     background-repeat: no-repeat;
@@ -95,7 +99,22 @@ li {
     text-align: right;
 }
 .postTitleRight{
-    margin-top: 95px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.postsTitlesList{
+    background-color: #CCCCCC;
+    padding: 10px;
+}
+
+.postsTitlesList a{
+    color: black;
+}
+
+.postsTitlesList a:hover{
+    color: black;
 }
 .menuAdmin {
     margin-top: 10px;
@@ -212,4 +231,8 @@ button {
     /* Cette marge supplémentaire représente grosso modo le même espace que celui
      entre les étiquettes et les champs texte */
     margin-left: .5em;
+}
+footer{
+    background-color: darkgray;
+    margin-top: 15px;
 }
