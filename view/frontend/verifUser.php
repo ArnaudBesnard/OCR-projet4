@@ -6,23 +6,18 @@ $login = $_POST['login'];
 $password = $_POST['password'];
 
 if (!empty($login) && !empty($password)) {
-    $req = $bdd->prepare('SELECT id, login, role FROM users WHERE login = :login AND password = :password');
-    $req->execute(array('login' => $login, 'password' => $password));
-    $resultat = $req->fetch();
-    if (!$resultat) {
-        echo 'Vos identifiants sont incorrects, veuillez ressayer !';
-    } else {
-        session_start();
-        $_SESSION['id'] = $resultat['id'];
-        $_SESSION['login'] = $resultat['login'];
-        $_SESSION['role'] = $resultat['role'];
-        echo '<br /><center>Bienvenue ' . $_SESSION['login'] . '</center>';
-        header("Refresh: 3; URL=index.php");
+    $manager = new userManager($bdd);
+    $datas = $manager->checkUser($login, $password);
+    //session_start();
+    $_SESSION['id'] = $datas['id'];
+    $_SESSION['login'] = $datas['login'];
+    $_SESSION['role'] = $datas['role'];
+    echo '<br /><center>Bienvenue ' . $_SESSION['login'] . '</center>';
     }
-} else {
-    echo 'Veuillez remplir tous les champs !';
-}
-
+    else {
+        echo ('<center>Veuillez renseignez tous les champs du formulaire !</center>');
+    }
+header("Refresh: 3; URL=index.php");
 $content = ob_get_clean();
 require('template.php');
 ?>

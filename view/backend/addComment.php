@@ -1,5 +1,4 @@
 <?php
-session_start ();
 
 $title = "Jean Forteroche - Ajout d'un commentaire";
 ob_start();
@@ -15,6 +14,7 @@ $manager = new CmtManager($bdd);
 $manager->add($comment);
 
 echo '<center>Votre commentaire a bien été ajouté, il devra être validé avant affichage</center>';
+header("Refresh: 3; URL=index.php" );
 $content = ob_get_clean();
 require('template.php');
-header("Refresh: 3; URL=index.php" );
+

@@ -1,8 +1,8 @@
 <?php
-session_start ();
+
 
 $dateCreate = date("Y-m-d");
-$action = "admin/addUser.php";
+$action = "index.php?page=addUser";
 $title = "Inscription";
 ?>
 <div class="articles">

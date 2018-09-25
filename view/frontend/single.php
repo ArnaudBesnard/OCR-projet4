@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $id = $_GET['id'];
 if (isset($_SESSION['login'])) {$author = $_SESSION['login'];}
 $posted = date("Y-m-d");

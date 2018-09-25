@@ -1,5 +1,5 @@
 <?php
-session_start();
+//session_start();
 
 $title = "Jean Forteroche - Administration";
 ob_start();
@@ -12,6 +12,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
             </div>
             <div class="col-8">
                 <div class="articles">
+                    <h2>Gestion des chapitres</h2>
                     <?php
                     $manager = new PostManager($bdd);
                     $posts = $manager->getList();

@@ -12,7 +12,9 @@ header {
 /*.nav-item a:hover{
     border-bottom: 3px solid rgba(200, 200, 200, 0.2);
 }*/
-
+.container-fluid{
+    padding: 0;
+}
 .travel_train{
     background-image: url(../img/travel_train_nb.jpg);
     background-repeat: no-repeat;
@@ -107,6 +109,7 @@ li {
 .postsTitlesList{
     background-color: #CCCCCC;
     padding: 10px;
+    font-size: 1em;
 }
 
 .postsTitlesList a{

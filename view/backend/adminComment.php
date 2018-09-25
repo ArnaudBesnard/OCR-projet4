@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 $title = "Jean Forteroche - Un billet simple pour l'Alaska";
 ob_start();

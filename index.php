@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 //Autoload de chargement des classes
 spl_autoload_register(function ($classe) {
     include 'model/' . $classe . '.class.php';
@@ -22,6 +22,8 @@ $bdd = $db->getConnection();
                 include('view/frontend/verifUser.php');
             } elseif ($_GET['page'] == "reporting"){
                 include('view/frontend/reporting.php');
+            } elseif ($_GET['page'] == "addUser") {
+                include('view/backend/addUser.php');
             }
 //Backend
             elseif ($_GET['page'] == "administration") {

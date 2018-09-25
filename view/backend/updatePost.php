@@ -1,5 +1,5 @@
 <?php
-session_start ();
+//session_start ();
 // On récupère nos variables de session
 
 $title = "Jean Forteroche - Un billet simple pour l'Alaska";

@@ -1,5 +1,5 @@
 <?php
-session_start ();
+//session_start ();
 
 $title = "Jean Forteroche - Ajout d'un utlisateur";
 ob_start();

@@ -11,8 +11,6 @@
 
                 <?php if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                     echo("<li class='nav-item'><a class='nav-link' href='index.php?page=administration'><i style='font-size:16px' class='fa'>&#xf1fe;</i> Administration</a></li>");
-                } else {
-                    // mettre ici code pour refuser l'accès à l'admin
                 }
                 ?>
             </ul>

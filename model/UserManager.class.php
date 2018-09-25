@@ -16,7 +16,7 @@ class userManager
         $req->bindValue(':lastname', $user->lastname());
         $req->bindValue(':firstname', $user->firstname());
         $req->bindValue(':email', $user->email());
-        $req->bindValue(':password', $user->password());
+        $req->bindValue(':password', md5($user->password()));
         $req->bindValue(':createDate', $user->createDate());
         $req->bindValue(':role', $user->role());
         $req->execute();
@@ -65,9 +65,17 @@ class userManager
         $req->execute();
     }
 
-    public function checkUser()
+    public function checkUser($login, $password)
     {
-        // Créer vérification de l'existence d'un utilisateur
+        $req = $this->_bdd->prepare('SELECT * FROM users WHERE login = :login AND password = :password');
+        $req->execute(array('login' => $login, 'password' => $password));
+        $donnees = $req->fetch(PDO::FETCH_ASSOC);
+        if ($donnees){
+            return $donnees;
+        }
+        else{
+            echo('<center>Nom d\'utilisateur ou mot de passe invalide</center>');
+        }
     }
 
     public function setBdd(PDO $bdd)

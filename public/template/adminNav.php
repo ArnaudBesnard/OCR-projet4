@@ -8,7 +8,6 @@
 
         <span class="titre_nav_admin">Gestion des utilisateurs</span>
         <li><a href="index.php?page=createUser"><i style="font-size:18px" class="fa">&#xf234;</i> Ajouter un utilisateur</a></li>
-        <li><a href="index.php?page=viewUser"><i style="font-size:18px" class="fa">&#xf06e;</i> Voir les utilisateurs</a></li>
         <span class="titre_nav_admin">Gestion des commentaires</span>
         <li><a href="index.php?page=adminComment"><i style="font-size:18px" class="fa">&#xf00c;</i> Validation (<?= $manager->countComment(); ?>)</a></li>
         <li><a href="index.php?page=viewReporting"><i style="font-size:18px" class="fa">&#xf0f3;</i> Modéreration (<?= $manager->countReporting(); ?>)</a></li>

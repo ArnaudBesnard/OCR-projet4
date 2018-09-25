@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 $title = "Page 404 Erreur";
 ob_start();
 ?>
