@@ -24,7 +24,7 @@
     </div>
     <br/>
     <div>
-        <input class="form-control" type="file" name="image"/>
+        <input class="form-control" type="file" name="addImg"/>
     </div>
     <div class="button">
 
