@@ -27,9 +27,11 @@ $bdd = $db->getConnection();
             } elseif ($_GET['page'] == "forgetPwd"){
                 include('view/frontend/forgetPwd.php');
             } elseif ($_GET['page'] == "resetPwd") {
-                include('view/frontend/resetPwd.php');
+                include('view/frontend/sendMailPwd.php');
             } elseif ($_GET['page'] == "newPwd") {
                 include('view/frontend/newPwd.php');
+            } elseif ($_GET['page'] == "changePwd") {
+                include('view/frontend/updatePwd.php');
             }
 //Backend
             elseif ($_GET['page'] == "administration") {

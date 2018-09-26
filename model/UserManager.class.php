@@ -91,6 +91,19 @@ class userManager
         }
     }
 
+    public function newPwd($login, $pwd){
+        $req = $this->_bdd->prepare('UPDATE users SET password = :password WHERE login = :login');
+        $req->bindValue(':password', md5($pwd));
+        $req->bindValue(':login', $login);
+        $req->execute();
+        if ($req){
+            echo ('<center>Votre mot de passe a bien été changé !</center>');
+        }
+        else {
+            echo ('<center>Une erreur s\'est produite ! Veuillez recommencer</center>');
+        }
+    }
+
     public function setBdd(PDO $bdd)
     {
         $this->_bdd = $bdd;
