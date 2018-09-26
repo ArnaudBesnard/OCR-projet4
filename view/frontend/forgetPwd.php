@@ -1,5 +1,5 @@
 <?php
-$title = "Connexion validée, bienvenue";
+$title = "Mot de passe oublié ?";
 ob_start();
 ?>
 <h2>Formulaire de récupération de mot de passe</h2>

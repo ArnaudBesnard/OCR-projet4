@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0875384-8fb8-447e-bdc9-e4352ee82a9a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/view/frontend/newPwd.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/template/formPost.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/template/formPost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/UserManager.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/UserManager.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/ForgottenPassword.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/forgetPwd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/resetPwd.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/resetPwd.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/frontend/userConnect.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/frontend/userConnect.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -141,7 +146,7 @@
         <entry file="file://$PROJECT_DIR$/view/frontend/userConnect.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="380">
-              <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
+              <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -149,26 +154,17 @@
       <file leaf-file-name="verifUser.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/frontend/verifUser.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
+            <state relative-caret-position="420">
+              <caret line="21" selection-start-line="21" selection-end-line="23" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ForgottenPassword.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/view/frontend/ForgottenPassword.php">
+      <file leaf-file-name="forgetPwd.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/view/frontend/forgetPwd.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="460">
-              <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
+            <state relative-caret-position="420">
+              <caret line="21" column="7" lean-forward="true" selection-start-line="6" selection-end-line="21" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -176,8 +172,26 @@
       <file leaf-file-name="resetPwd.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/view/frontend/resetPwd.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
+            <state relative-caret-position="208">
+              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="newPwd.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/view/frontend/newPwd.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
             </state>
           </provider>
         </entry>
@@ -185,35 +199,8 @@
       <file leaf-file-name="UserManager.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/model/UserManager.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1560">
-              <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CmtManager.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/CmtManager.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="69" column="39" lean-forward="true" selection-start-line="69" selection-start-column="38" selection-end-line="69" selection-end-column="94" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostManager.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/model/PostManager.class.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="3" column="1" lean-forward="true" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="formPost.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/template/formPost.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+            <state relative-caret-position="234">
+              <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -238,8 +225,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/view/backend/postManager.php" />
-        <option value="$PROJECT_DIR$/model/comment.class.php" />
         <option value="$PROJECT_DIR$/model/commentManager.class.php" />
         <option value="$PROJECT_DIR$/model/Database.class.php" />
         <option value="$PROJECT_DIR$/model/Comment.class.php" />
@@ -282,13 +267,15 @@
         <option value="$PROJECT_DIR$/view/frontend/single.php" />
         <option value="$PROJECT_DIR$/model/User.class.php" />
         <option value="$PROJECT_DIR$/public/template/formComment.php" />
-        <option value="$PROJECT_DIR$/view/frontend/userConnect.php" />
         <option value="$PROJECT_DIR$/view/frontend/ForgottenPassword.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/view/frontend/verifUser.php" />
-        <option value="$PROJECT_DIR$/view/frontend/resetPwd.php" />
-        <option value="$PROJECT_DIR$/model/UserManager.class.php" />
         <option value="$PROJECT_DIR$/public/template/formPost.php" />
+        <option value="$PROJECT_DIR$/view/frontend/userConnect.php" />
+        <option value="$PROJECT_DIR$/model/UserManager.class.php" />
+        <option value="$PROJECT_DIR$/view/frontend/forgetPwd.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/view/frontend/resetPwd.php" />
+        <option value="$PROJECT_DIR$/view/frontend/newPwd.php" />
       </list>
     </option>
   </component>
@@ -459,12 +446,12 @@
       <workItem from="1536738955644" duration="12449000" />
       <workItem from="1536910052524" duration="89857000" />
       <workItem from="1537737093802" duration="7227000" />
-      <workItem from="1537820560320" duration="17978000" />
+      <workItem from="1537820560320" duration="23718000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="244129000" />
+    <option name="totallyTimeSpent" value="249869000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -513,7 +500,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/admin/.htaccess" />
     <entry file="das://513ac70e-adb9-4520-9ad5-321f90ed5530/schema/projet4/table/users" />
     <entry file="das://77383130-d5bd-4fee-993b-47cad2116f46/schema/projet4/table/users.sql">
       <provider selected="true" editor-type-id="text-editor">
@@ -775,52 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/view/frontend/userConnect.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="19" column="71" selection-start-line="19" selection-start-column="71" selection-end-line="19" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/frontend/ForgottenPassword.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" column="37" selection-start-line="6" selection-start-column="37" selection-end-line="6" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/template/formComment.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="440">
           <caret line="22" column="61" lean-forward="true" selection-start-line="22" selection-start-column="61" selection-end-line="22" selection-end-column="101" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/frontend/verifUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="8" column="37" lean-forward="true" selection-start-line="8" selection-start-column="37" selection-end-line="8" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/view/frontend/resetPwd.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/UserManager.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1560">
-          <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -841,7 +785,56 @@
     <entry file="file://$PROJECT_DIR$/public/template/formPost.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
-          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+          <caret line="26" column="63" lean-forward="true" selection-start-line="26" selection-start-column="63" selection-end-line="26" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/frontend/userConnect.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="19" column="63" selection-start-line="19" selection-start-column="63" selection-end-line="19" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/UserManager.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="86" column="24" selection-start-line="86" selection-start-column="24" selection-end-line="86" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/frontend/verifUser.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" selection-start-line="21" selection-end-line="23" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/frontend/resetPwd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/frontend/forgetPwd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="21" column="7" lean-forward="true" selection-start-line="6" selection-end-line="21" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/view/frontend/newPwd.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
         </state>
       </provider>
     </entry>
