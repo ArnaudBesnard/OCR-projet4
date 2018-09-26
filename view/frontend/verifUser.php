@@ -6,7 +6,7 @@ $login = $_POST['login'];
 $password = $_POST['password'];
 
 if (!empty($login) && !empty($password)) {
-    $manager = new userManager($bdd);
+    $manager = new UserManager($bdd);
     $datas = $manager->checkUser($login, $password);
     //session_start();
     $_SESSION['id'] = $datas['id'];
@@ -17,6 +17,7 @@ if (!empty($login) && !empty($password)) {
     else {
         echo ('<center>Veuillez renseignez tous les champs du formulaire !</center>');
     }
+
 header("Refresh: 3; URL=index.php");
 $content = ob_get_clean();
 require('template.php');

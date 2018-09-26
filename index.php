@@ -24,6 +24,10 @@ $bdd = $db->getConnection();
                 include('view/frontend/reporting.php');
             } elseif ($_GET['page'] == "addUser") {
                 include('view/backend/addUser.php');
+            } elseif ($_GET['page'] == "forgottenPassword"){
+                include('view/frontend/forgottenPassword.php');
+            } elseif ($_GET['page'] == "resetPwd") {
+                include('view/frontend/resetPwd.php');
             }
 //Backend
             elseif ($_GET['page'] == "administration") {

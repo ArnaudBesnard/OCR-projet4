@@ -17,7 +17,7 @@ ob_start();
                             <input type="password" name="password" class="form-control" placeholder="Entrer votre mot de passe">
                         </div>
                         <br />
-                        <span><a href="#">Mot de passe oublié</a></span>
+                        <span><a href="index.php?page=forgottenPassword">Mot de passe oublié</a></span>
                         <div class="button">
                         <br/>
                         <button type="submit" class="btn btn-primary">Valider</button>

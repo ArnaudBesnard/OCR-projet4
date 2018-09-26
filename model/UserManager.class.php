@@ -59,7 +59,7 @@ class userManager
         $req->bindValue(':lastname', $user->lastname());
         $req->bindValue(':firstname', $user->firstname());
         $req->bindValue(':email', $user->email());
-        $req->bindValue(':password', $user->password());
+        $req->bindValue(':password', md5($user->password()));
         $req->bindValue(':createDate', $user->createDate());
         $req->bindValue(':role', $user->role());
         $req->execute();
@@ -68,13 +68,25 @@ class userManager
     public function checkUser($login, $password)
     {
         $req = $this->_bdd->prepare('SELECT * FROM users WHERE login = :login AND password = :password');
-        $req->execute(array('login' => $login, 'password' => $password));
+        $req->execute(array('login' => $login, 'password' => md5($password)));
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
             return $donnees;
         }
         else{
             echo('<center>Nom d\'utilisateur ou mot de passe invalide</center>');
+        }
+    }
+
+    public function resetPwd($login, $email){
+        $req = $this->_bdd->prepare('SELECT password FROM users WHERE login = :login AND email = :email');
+        $req->execute(array('login' =>$login, 'email' =>$email));
+        $donnees = $req->fetch(PDO::FETCH_ASSOC);
+        if ($donnees){
+            return $donnees['password'];
+        }
+        else{
+            echo('<center>Login ou mot de passe incorrect</center>');
         }
     }
 
