@@ -83,10 +83,24 @@ class userManager
         $req->execute(array('login' =>$login, 'email' =>$email));
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
-            return $donnees['password'];
+            //return $donnees['password'];
+            return true;
         }
         else{
             echo('<center>Login ou mot de passe incorrect</center>');
+        }
+    }
+
+    public function newPwd($login, $pwd){
+        $req = $this->_bdd->prepare('UPDATE users SET password = :password WHERE login = :login');
+        $req->bindValue(':password', md5($pwd));
+        $req->bindValue(':login', $login);
+        $req->execute();
+        if ($req){
+            echo ('<center>Votre mot de passe a bien été changé !</center>');
+        }
+        else {
+            echo ('<center>Une erreur s\'est produite ! Veuillez recommencer</center>');
         }
     }
 
