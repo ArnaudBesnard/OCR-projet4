@@ -83,7 +83,6 @@ class userManager
         $req->execute(array('login' =>$login, 'email' =>$email));
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
-            //return $donnees['password'];
             return true;
         }
         else{

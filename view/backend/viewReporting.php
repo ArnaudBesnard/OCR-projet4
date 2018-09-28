@@ -29,7 +29,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                                         <?php echo("<div class='titreComment'>" . $comment->title() . "</div><div class='contenuComment'>" . $comment->comment() . "</div><div class='commentAuthor'>" . $comment->author() . "</div>"); ?>
                                     </div>
                                     <div class="button">
-                                        <button type="button" class="btn btn-danger"><a href="index.php?page=cancelReporting&&id=<?= $comment->id(); ?>"><i style="font-size:18px" class="fa">&#xf087;</i> Annuler</a></button>
+                                        <button type="button" class="btn btn-primary"><a href="index.php?page=cancelReporting&&id=<?= $comment->id(); ?>"><i style="font-size:18px" class="fa">&#xf087;</i> Commentaire ok</a></button>
                                         <button type="button" class="btn btn-danger"><a href="index.php?page=deleteComment&&id=<?= $comment->id(); ?>"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a></button>
                                     </div>
                                 </form>

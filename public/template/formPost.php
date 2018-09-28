@@ -14,7 +14,7 @@
     </div>
     <br/>
     <div>
-        <input class="form-control" name="dateAjout" type="date" placeholder="Date"
+        <input type="hidden" class="form-control" name="dateAjout" type="date" placeholder="Date"
                value="<?php if (isset($dateAjout)) echo($dateAjout); ?>">
     </div>
     <br/>
@@ -33,3 +33,5 @@
         <button type="button" class="btn btn-danger"><a href="admin.php">Annuler</a></button>
     </div>
 </form>
+
+

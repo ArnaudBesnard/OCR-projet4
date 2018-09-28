@@ -1,7 +1,20 @@
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=x033aj159s617dv6p04ex8cf9h6t37eytyjtfami5oah5xsg"></script>
-<script>tinymce.init({selector: 'textarea'});</script>
+
+        <script>
+    tinymce.init({
+        selector: "textarea",  // change this value according to your HTML
+        plugins: "image",
+        menubar: "insert",
+        //toolbar: "image",
+        image_list: [
+            {title: 'My image 1', value: 'https://www.tinymce.com/my1.gif'},
+            {title: 'My image 2', value: 'http://www.moxiecode.com/my2.gif'}
+        ]
+    });  </script>
+
+</script>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <a class="navbar-brand" href="#"><img src="public/img/avion.png"/></a>
             <ul class="navbar-nav mr-auto">
