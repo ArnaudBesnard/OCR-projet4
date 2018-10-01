@@ -2,7 +2,7 @@
 
 
 $dateCreate = date("Y-m-d");
-$action = "index.php?page=addUser";
+$action = "index.php?action=addUser";
 $title = "Inscription";
 ?>
 <div class="articles">
@@ -13,5 +13,5 @@ $title = "Inscription";
 </div>
 <?php
 $content = ob_get_clean();
-require('template.php');
+require('view/template.php');
 ?>

@@ -1,17 +1,12 @@
 <?php
 
-class CmtManager
+class CmtManager extends Database
 {
-    protected $_bdd;
-
-    public function __construct($bdd)
-    {
-        $this->setBdd($bdd);
-    }
 
     public function add(Cmt $comment)
     {
-        $req = $this->_bdd->prepare('INSERT INTO comments(postId, title, comment, author, posted) VALUES(:postId, :title, :comment, :author, :posted)');
+        $db = $this->dbconnect();
+        $req = $db->prepare('INSERT INTO comments(postId, title, comment, author, posted) VALUES(:postId, :title, :comment, :author, :posted)');
         $req->bindValue(':postId', $comment->postId());
         $req->bindValue(':title', $comment->title());
         $req->bindValue(':comment', $comment->comment());
@@ -22,13 +17,15 @@ class CmtManager
 
     public function delete($id)
     {
-        $this->_bdd->exec('DELETE FROM comments WHERE id = ' . $id);
+        $db = $this->dbconnect();
+        $db->exec('DELETE FROM comments WHERE id = ' . $id);
     }
 
     public function getStatus($status)
     {
+        $db = $this->dbconnect();
         $comments = [];
-        $request = $this->_bdd->query('select * from comments WHERE  statut =' . $status) or die(print_r($bdd->errorInfo()));
+        $request = $db>query('select * from comments WHERE  statut =' . $status) or die(print_r($bdd->errorInfo()));
         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
             $comment->hydrate($donnees);
@@ -39,8 +36,9 @@ class CmtManager
 
     public function getlist($id, $statut)
     {
+        $db = $this->dbconnect();
         $comments = [];
-        $request = $this->_bdd->query('select * from comments WHERE postId =' . $id . ' && statut = 1') or die(print_r($bdd->errorInfo()));
+        $request = $db->query('select * from comments WHERE postId =' . $id . ' && statut = 1') or die(print_r($db>errorInfo()));
         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
             $comment->hydrate($donnees);
@@ -51,23 +49,27 @@ class CmtManager
 
     public function valid($id)
     {
-        $req = $this->_bdd->query('UPDATE comments SET statut = 1 WHERE id =' .$id);
+        $db = $this->dbconnect();
+        $req = $db>query('UPDATE comments SET statut = 1 WHERE id =' .$id);
     }
 
     public function reporting($id)
     {
-        $req = $this->_bdd->query('UPDATE comments SET reporting = 1 WHERE id =' .$id);
+        $db = $this->dbconnect();
+        $req = $db->query('UPDATE comments SET reporting = 1 WHERE id =' .$id);
     }
 
     public function cancelReport($id)
     {
-        $req = $this->_bdd->query('UPDATE comments SET reporting = 0 WHERE id =' .$id);
+        $db = $this->dbconnect();
+        $req = $db>query('UPDATE comments SET reporting = 0 WHERE id =' .$id);
     }
 
     public function getReporting($reporting)
     {
+        $db = $this->dbconnect();
         $comments = [];
-        $request = $this->_bdd->query('select * from comments WHERE  reporting =' . $reporting) or die(print_r($bdd->errorInfo()));
+        $request = $db>query('select * from comments WHERE  reporting =' . $reporting) or die(print_r($bdd->errorInfo()));
         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
             $comment->hydrate($donnees);
@@ -78,7 +80,8 @@ class CmtManager
 
     public function countComment()
     {
-        $request = $this->_bdd->query('SELECT COUNT(*) AS statut FROM comments WHERE statut = 0') or die(print_r($bdd->errorInfo()));
+        $db = $this->dbconnect();
+        $request = $db->query('SELECT COUNT(*) AS statut FROM comments WHERE statut = 0') or die(print_r($bdd->errorInfo()));
         $data = $request->fetch(PDO::FETCH_ASSOC);
         $count = $data['statut'];
         return $count;
@@ -86,7 +89,8 @@ class CmtManager
 
     public function countReporting()
     {
-        $request = $this->_bdd->query('SELECT COUNT(*) AS reporting FROM comments WHERE reporting = 1') or die(print_r($bdd->errorInfo()));
+        $db = $this->dbconnect();
+        $request = $db->query('SELECT COUNT(*) AS reporting FROM comments WHERE reporting = 1') or die(print_r($bdd->errorInfo()));
         $data = $request->fetch(PDO::FETCH_ASSOC);
         $count = $data['reporting'];
         return $count;

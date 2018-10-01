@@ -1,7 +1,6 @@
 <?php
-
-
 $title = "Jean Forteroche - Un billet simple pour l'Alaska";
+require_once('controller/frontend.php');
 ob_start();
 ?>
 
@@ -10,12 +9,8 @@ ob_start();
         <div class="col-10">
             <div class="articles">
                 <!--Affichage des articles-->
-                <?php
-                    $manager = new PostManager($bdd);
-                    $posts = $manager->getList();
-                    foreach($posts as $post){
-                ?>
-                    <h1><a href="index.php?page=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a></h1>
+                <?php foreach($posts as $post){ ?>
+                    <h1><a href="index.php?action=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a></h1>
                     <div class='date_billet'>
                         <?= $post->dateAjout(); ?>
                     </div>
@@ -38,7 +33,7 @@ ob_start();
                 $postTitle = $post->titre();
                 $id = $post->id();
                 $cutTitle = substr($postTitle, 0, 21) . "...";
-                $titleLink = ("<a href='index.php?page=singlePost&&id=$id'>$cutTitle</a><br />");
+                $titleLink = ("<a href='index.php?action=singlePost&&id=$id'>$cutTitle</a><br />");
                 echo $titleLink;
              } ?>
         </div>
@@ -46,6 +41,6 @@ ob_start();
 </div>
 <?php
 $content = ob_get_clean();
-require('template.php');
+require('view/template.php');
 ?>
 

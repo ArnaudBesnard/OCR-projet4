@@ -5,7 +5,7 @@ $title = "Jean Forteroche - Un billet simple pour l'Alaska";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $dateCreate = date("Y-m-d");
-    $action = "index.php?page=runAddUser";
+    $action = "index.php?action=addUser";
     ?>
     <div class="container-fluid">
         <div class="row">
@@ -28,5 +28,5 @@ else{
     header('Location: index.php?page=connection');
 }
 $content = ob_get_clean();
-require('template.php');
+require('view/template.php');
 ?>

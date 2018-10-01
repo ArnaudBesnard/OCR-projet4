@@ -14,7 +14,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                 <div class="articles">
                     <h2>Gestion des chapitres</h2>
                     <?php
-                    $manager = new PostManager($bdd);
+                    $manager = new PostManager();
                     $posts = $manager->getList();
                     foreach ($posts as $post) {
                         ?>
@@ -31,10 +31,10 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
 
                         <div class="btnGestion">
                             <button type="button" class="btn btn-success"><a
-                                        href="index.php?page=postEdit&&id=<?= $post->id() ?>"><i style="font-size:18px" class="fa">&#xf0a4;</i> Editer</a>
+                                        href="index.php?action=editPost&&id=<?= $post->id() ?>"><i style="font-size:18px" class="fa">&#xf0a4;</i> Editer</a>
                             </button>
                             <button type="button" class="btn btn-danger"><a
-                                        href="index.php?page=deletePost&&id=<?= $post->id() ?>"
+                                        href="index.php?action=deletePost&&id=<?= $post->id() ?>"
                                         onclick="return confirm('Êtes-vous sûr de vouloir supprimer cet article ?');"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a>
                             </button>
                         </div>
@@ -48,5 +48,5 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
 }
 
 $content = ob_get_clean();
-require('template.php');
+require('view/template.php');
 ?>

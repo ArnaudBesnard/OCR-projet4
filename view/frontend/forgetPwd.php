@@ -4,7 +4,7 @@ ob_start();
 ?>
 <h2>Formulaire de réinitialisation de mot de passe</h2>
 <h6><center>Un email vous sera envoyé afin de réinitialiser votre mot de passe</center></h6>
-<form action="index.php?page=resetPwd" method="post">
+<form action="index.php?action=resetPwd" method="post">
 
     <div>
         <input type="text" name="user" class="form-control" placeholder="Votre nom d'utilisateur" value="">
@@ -23,5 +23,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
-require('template.php');
+require('view/template.php');
 ?>

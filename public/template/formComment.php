@@ -1,5 +1,5 @@
 <h2>Ajouter un commentaire sur cet article</h2>
-<form action="index.php?page=addComment" method="post">
+<form action="index.php?action=addComment" method="post">
     <div>
         <input type="hidden" name="postId" class="form-control" value="<?=$id?>" >
     </div>
@@ -20,6 +20,6 @@
     <div class="button">
         <br/>
         <button type="submit" class="btn btn-primary"> Envoyer</button>
-        <button type="button" class="btn btn-danger"><a href="index.php?page=singlePost&&id=<?=$id?>"> Annuler</a></button>
+        <button type="button" class="btn btn-danger"><a href="index.php?action=singlePost&&id=<?=$id?>"> Annuler</a></button>
     </div>
 </form>

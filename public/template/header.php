@@ -23,7 +23,7 @@
                 </li>
 
                 <?php if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
-                    echo("<li class='nav-item'><a class='nav-link' href='index.php?page=administration'><i style='font-size:16px' class='fa'>&#xf1fe;</i> Administration</a></li>");
+                    echo("<li class='nav-item'><a class='nav-link' href='index.php?action=administration'><i style='font-size:16px' class='fa'>&#xf1fe;</i> Administration</a></li>");
                 }
                 ?>
             </ul>
@@ -38,15 +38,15 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <?php if (empty($_SESSION['login'])) {
-                        echo("<a class='nav-link' href='index.php?page=connection'><i style='font-size:16px' class='fa'>&#xf090;</i> Se connecter</a>
+                        echo("<a class='nav-link' href='index.php?action=connect'><i style='font-size:16px' class='fa'>&#xf090;</i> Se connecter</a>
                 </li>
                 <li model='nav-item'>
-                    <a class='nav-link' href='index.php?page=register'><i style='font-size:16px' class='fa'>&#xf007;</i> S'enregistrer</a>
+                    <a class='nav-link' href='index.php?action=register'><i style='font-size:16px' class='fa'>&#xf007;</i> S'enregistrer</a>
                 </li>");
                     } else {
                         echo("<li class='nav-item'><a class='nav-link'><i style='font-size:16px' class='fa'>&#xf007;</i> Bienvenue " . $_SESSION['login'] . "</a></li>
                 <li model='nav-item'>
-                    <a class='nav-link' href='index.php?page=deconnection'><i style='font-size:16px' class='fa'>&#xf08b;</i> Déconnexion</a>");
+                    <a class='nav-link' href='index.php?action=deconnexion'><i style='font-size:16px' class='fa'>&#xf08b;</i> Déconnexion</a>");
                     } ?>
                 </li>
             </ul>

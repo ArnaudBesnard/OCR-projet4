@@ -4,7 +4,7 @@ ob_start();
 $login = $_GET['login'];
 ?>
 <h2>Réinitialisation de votre mot de passe</h2>
-    <form action="index.php?page=changePwd" method="post">
+    <form action="index.php?action=updatePwd" method="post">
         <div>
             <input type="hidden" name="login" class="form-control" value="<?= $login ?>">
         </div>
@@ -24,5 +24,5 @@ $login = $_GET['login'];
 
 <?php
 $content = ob_get_clean();
-require('template.php');
+require('view/template.php');
 ?>

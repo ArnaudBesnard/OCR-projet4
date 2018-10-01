@@ -8,7 +8,7 @@ ob_start();
             <div class="col-8">
                 <div class="articles">
                         <h2>Page de connexion utilisateurs</h2>
-                    <form action="index.php?page=verifUser" method="post">
+                    <form action="index.php?action=verifUser" method="post">
                         <div>
                             <input type="text" name="login" class="form-control" placeholder="Entrer votre nom d'utilisateur">
                         </div>
@@ -17,7 +17,7 @@ ob_start();
                             <input type="password" name="password" class="form-control" placeholder="Entrer votre mot de passe">
                         </div>
                         <br />
-                        <span><a href="index.php?page=forgetPwd">Mot de passe oublié</a></span>
+                        <span><a href="index.php?action=forgetPwd">Mot de passe oublié</a></span>
                         <div class="button">
                         <br/>
                         <button type="submit" class="btn btn-primary">Valider</button>
@@ -30,5 +30,5 @@ ob_start();
 <?php
 $content = ob_get_clean();
 $title = "Jean Forteroche - Page de connection";
-require('template.php');
+require('view/template.php');
 ?>

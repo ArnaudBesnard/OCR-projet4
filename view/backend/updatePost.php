@@ -12,7 +12,7 @@ $billet->setContenu($_POST['contenu']);
 $billet->setDateAjout($_POST['dateAjout']);
 $billet->setAuteur($_POST['auteur']);
 
-$manager = new PostManager($bdd);
+$manager = new PostManager();
 $manager->update($billet);
 
     echo('<center>Les données ont été modifiées, vous allez êtes redirigé vers la page d\'administration</center>');

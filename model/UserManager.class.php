@@ -1,17 +1,12 @@
 <?php
 
-class userManager
+class userManager extends Database
 {
-    protected $_bdd;
-
-    public function __construct($bdd)
-    {
-        $this->setBdd($bdd);
-    }
 
     public function add(User $user)
     {
-        $req = $this->_bdd->prepare('INSERT INTO users(login, lastname, firstname, email, password, createDate, role) VALUES(:login, :lastname, :firstname, :email, :password, :createDate, :role)');
+        $db = $this->dbconnect();
+        $req = $db->prepare('INSERT INTO users(login, lastname, firstname, email, password, createDate, role) VALUES(:login, :lastname, :firstname, :email, :password, :createDate, :role)');
         $req->bindValue(':login', $user->login());
         $req->bindValue(':lastname', $user->lastname());
         $req->bindValue(':firstname', $user->firstname());
@@ -67,7 +62,8 @@ class userManager
 
     public function checkUser($login, $password)
     {
-        $req = $this->_bdd->prepare('SELECT * FROM users WHERE login = :login AND password = :password');
+        $db = $this->dbconnect();
+        $req = $db->prepare('SELECT * FROM users WHERE login = :login AND password = :password');
         $req->execute(array('login' => $login, 'password' => md5($password)));
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
@@ -79,7 +75,8 @@ class userManager
     }
 
     public function resetPwd($login, $email){
-        $req = $this->_bdd->prepare('SELECT password FROM users WHERE login = :login AND email = :email');
+        $db = $this->dbconnect();
+        $req = $db->prepare('SELECT password FROM users WHERE login = :login AND email = :email');
         $req->execute(array('login' =>$login, 'email' =>$email));
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
@@ -91,7 +88,8 @@ class userManager
     }
 
     public function newPwd($login, $pwd){
-        $req = $this->_bdd->prepare('UPDATE users SET password = :password WHERE login = :login');
+        $db = $this->dbconnect();
+        $req = $db->prepare('UPDATE users SET password = :password WHERE login = :login');
         $req->bindValue(':password', md5($pwd));
         $req->bindValue(':login', $login);
         $req->execute();

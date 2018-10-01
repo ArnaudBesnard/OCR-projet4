@@ -4,16 +4,17 @@ session_start();
 spl_autoload_register(function ($classe) {
     include 'model/' . $classe . '.class.php';
 });
-$db = new Database;
-$bdd = $db->getConnection();
+require('controller/frontend.php');
+require('controller/backend.php');
+/*
 
 //Frontend
             if (empty($_GET)) {
-                include('view/frontend/indexView.php');
+                include('view/frontend/listPostView.php');
             } elseif ($_GET['page'] == "singlePost") {
-                include('view/frontend/single.php');
+                include('view/frontend/singlePost.php');
             } elseif ($_GET['page'] == "connection") {
-                include('view/frontend/userConnect.php');
+                include('view/frontend/connect.php');
             } elseif ($_GET['page'] == "register") {
                 include('view/frontend/register.php');
             } elseif ($_GET['page'] == "deconnection") {
@@ -29,7 +30,7 @@ $bdd = $db->getConnection();
             } elseif ($_GET['page'] == "resetPwd") {
                 include('view/frontend/sendMailPwd.php');
             } elseif ($_GET['page'] == "newPwd") {
-                include('view/frontend/newPwd.php');
+                include('view/frontend/formPwd.php');
             } elseif ($_GET['page'] == "changePwd") {
                 include('view/frontend/updatePwd.php');
             }
@@ -66,7 +67,79 @@ $bdd = $db->getConnection();
                 include ('view/backend/cancelReporting.php');
             } else {
                 include('view/frontend/default.php');
-            }
+            }*/
+
+if (isset($_GET['action'])){
+    //Posts
+    if ($_GET['action'] == 'listPost'){
+        getList();
+    }
+    elseif ($_GET['action'] == 'singlePost'){
+        if (isset($_GET['id']) && $_GET['id'] > 0){
+            getPost($_GET['id']);
+        }
+        else {
+            echo("Erreur, aucun ID de billet envoyé");
+            header("Refresh: 2; URL=index.php" );
+        }
+    }
+    elseif ($_GET['action'] == 'addComment'){
+        addComment();
+    }
+    elseif ($_GET['action'] == 'reporting'){
+        reporting();
+    }
+    elseif ($_GET['action'] == 'formAddPost'){
+        formAddPost();
+    }
+    elseif ($_GET['action'] == 'addPost'){
+        addPost();
+    }
+    elseif ($_GET['action'] == 'deletePost'){
+        deletePost();
+    }
+    elseif ($_GET['action'] == 'editPost'){
+        editPost();
+    }
+    //Users
+    elseif ($_GET['action'] == 'connect'){
+        connect();
+    }
+    elseif ($_GET['action'] == 'verifUser'){
+        verifUser();
+    }
+    elseif ($_GET['action'] == 'deconnexion'){
+        deconnexion();
+    }
+    elseif ($_GET['action'] == 'register'){
+        register();
+    }
+    elseif ($_GET['action'] == 'addUser'){
+        addUser();
+    }
+    elseif ($_GET['action'] == 'forgetPwd'){
+        forgetPwd();
+    }
+    elseif ($_GET['action'] == 'resetPwd'){
+        resetPwd();
+    }
+    elseif ($_GET['action'] == 'formPwd'){
+        formPwd();
+    }
+    elseif ($_GET['action'] == 'updatePwd'){
+        updatePwd();
+    }
+    //Administration
+    elseif ($_GET['action'] == 'administration'){
+        administration();
+    }
+    elseif ($_GET['action'] == 'createUser'){
+        createUser();
+    }
+}
+else {
+    getlist();
+}
         
 
 

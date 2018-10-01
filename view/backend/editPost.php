@@ -6,7 +6,7 @@ ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $chapitre = $_GET['id'];
     $action = "index.php?page=updatePost";
-    $reponse = $bdd->query("SELECT * FROM posts WHERE id = '" . $chapitre . "' ") or die(print_r($bdd->errorInfo()));
+    $reponse = $db->query("SELECT * FROM posts WHERE id = '" . $chapitre . "' ") or die(print_r($db->errorInfo()));
 
     while ($donnees = $reponse->fetch()) {
         $id = $donnees['id'];
