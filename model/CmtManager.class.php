@@ -25,7 +25,7 @@ class CmtManager extends Database
     {
         $db = $this->dbconnect();
         $comments = [];
-        $request = $db>query('select * from comments WHERE  statut =' . $status) or die(print_r($bdd->errorInfo()));
+        $request = $db->query('select * from comments WHERE  statut =' . $status) or die(print_r($db->errorInfo()));
         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
             $comment->hydrate($donnees);
@@ -50,7 +50,7 @@ class CmtManager extends Database
     public function valid($id)
     {
         $db = $this->dbconnect();
-        $req = $db>query('UPDATE comments SET statut = 1 WHERE id =' .$id);
+        $req = $db->query('UPDATE comments SET statut = 1 WHERE id =' .$id);
     }
 
     public function reporting($id)
@@ -62,14 +62,14 @@ class CmtManager extends Database
     public function cancelReport($id)
     {
         $db = $this->dbconnect();
-        $req = $db>query('UPDATE comments SET reporting = 0 WHERE id =' .$id);
+        $req = $db->query('UPDATE comments SET reporting = 0 WHERE id =' .$id);
     }
 
     public function getReporting($reporting)
     {
         $db = $this->dbconnect();
         $comments = [];
-        $request = $db>query('select * from comments WHERE  reporting =' . $reporting) or die(print_r($bdd->errorInfo()));
+        $request = $db->query('select * from comments WHERE  reporting =' . $reporting) or die(print_r($bdd->errorInfo()));
         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
             $comment->hydrate($donnees);
@@ -94,10 +94,5 @@ class CmtManager extends Database
         $data = $request->fetch(PDO::FETCH_ASSOC);
         $count = $data['reporting'];
         return $count;
-    }
-
-    public function setBdd(PDO $bdd)
-    {
-        $this->_bdd = $bdd;
     }
 }

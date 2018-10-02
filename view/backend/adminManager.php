@@ -44,7 +44,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
         </div>
     </div>
 <?php } else {
-    header('Location: index.php?page=connection');
+    header('Location: index.php?action=connect');
 }
 
 $content = ob_get_clean();

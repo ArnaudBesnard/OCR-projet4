@@ -4,17 +4,17 @@
 $title = "Jean Forteroche - Administration";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
-    $chapitre = $_GET['id'];
-    $action = "index.php?page=updatePost";
-    $reponse = $db->query("SELECT * FROM posts WHERE id = '" . $chapitre . "' ") or die(print_r($db->errorInfo()));
+    $id = $_GET['id'];
+    $action = "index.php?action=updatePost";
+    $manager = new PostManager();
+    $post = $manager->get($id);
 
-    while ($donnees = $reponse->fetch()) {
-        $id = $donnees['id'];
-        $titre = $donnees['titre'];
-        $contenu = $donnees['contenu'];
-        $auteur = $donnees['auteur'];
-        $dateAjout = $donnees['dateAjout'];
-    };
+        $id = $post->id();
+        $titre = $post->titre();
+        $contenu = $post->contenu();
+        $auteur = $post->auteur();
+        $dateAjout = $post->dateAjout();
+
     ?>
     <div class="container-fluid">
         <div class="row">
@@ -33,8 +33,8 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     </div>
     <?php
 } else {
-    header('Location: index.php?page=connection');
+    header('Location: index.php?action=connect');
 }
 $content = ob_get_clean();
-require('template.php');
+require('view/template.php');
 ?>

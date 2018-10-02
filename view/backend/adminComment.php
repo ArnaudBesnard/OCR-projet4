@@ -24,14 +24,14 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                         if ($comments) {
                             foreach ($comments as $comment) {
                                 ?>
-                                <form action="index.php?page=validComment&&id=<?= $comment->id(); ?>" method="post">
+                                <form action="index.php?action=validComment&&id=<?= $comment->id(); ?>" method="post">
                                     <div class="comment">
                                         <?= 'Chapitre : ' . $comment->postId() . ' - Id N° : ' . $comment->id(); ?>
                                         <?php echo("<div class='titreComment'>" . $comment->title() . "</div><div class='contenuComment'>" . $comment->comment() . "</div><div class='commentAuthor'>" . $comment->author() . "</div>"); ?>
                                     </div>
                                     <div class="button">
                                         <button type="submit" class="btn btn-primary"><i style="font-size:18px" class="fa">&#xf087;</i> Valider</button>
-                                        <button type="button" class="btn btn-danger"><a href="index.php?page=deleteComment&&id=<?= $comment->id(); ?>"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a></button>
+                                        <button type="button" class="btn btn-danger"><a href="index.php?action=deleteComment&&id=<?= $comment->id(); ?>"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a></button>
                                     </div>
                                 </form>
                                 <br/>
@@ -46,9 +46,9 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     </div>
     <?php
 } else {
-    header('Location: index.php?page=connection');
+    header('Location: index.php?action=connect');
 }
 $content = ob_get_clean();
-require('template.php');
+require('view/template.php');
 ?>
 

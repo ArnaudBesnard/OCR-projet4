@@ -100,9 +100,4 @@ class userManager extends Database
             echo ('<center>Une erreur s\'est produite ! Veuillez recommencer</center>');
         }
     }
-
-    public function setBdd(PDO $bdd)
-    {
-        $this->_bdd = $bdd;
-    }
 }

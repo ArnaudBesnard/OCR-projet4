@@ -81,7 +81,7 @@ function deconnexion()
 
 function forgetPwd()
 {
-    require('view/frontend/forgetPwd.php');
+    require('public/template/formForgetPwd.php');
 }
 
 function resetPwd()
@@ -143,7 +143,7 @@ function resetPwd()
 
 function formPwd()
 {
-    require('view/frontend/formPwd.php');
+    require('public/template/formPwd.php');
 }
 
 function updatePwd()

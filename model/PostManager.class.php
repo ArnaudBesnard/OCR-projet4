@@ -1,7 +1,5 @@
 <?php
 
-require_once('model/Database.class.php');
-
 class PostManager extends Database
 {
 
@@ -47,9 +45,6 @@ class PostManager extends Database
         return $posts;
     }
     // Méthode d'update des posts
-    public function editPost($chapitre){
-
-    }
     public function update(Post $billet)
     {
         $db = $this->dbconnect();
@@ -60,11 +55,5 @@ class PostManager extends Database
         $req->bindValue(':dateAjout', $billet->dateAjout());
         $req->bindValue(':auteur', $billet->auteur());
         $req->execute();
-    }
-
-    public function setBdd(PDO $bdd)
-    {
-        $db = $this->dbconnect();
-        $db = $bdd;
     }
 }
