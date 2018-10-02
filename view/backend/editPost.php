@@ -33,7 +33,8 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     </div>
     <?php
 } else {
-    header('Location: index.php?action=connect');
+    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+    header("Refresh: 2; URL=index.php");
 }
 $content = ob_get_clean();
 require('view/template.php');

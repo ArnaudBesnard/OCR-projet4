@@ -1,6 +1,9 @@
 <?php
 
 //Posts and Comments functions
+function getDefault(){
+    require('view/frontend/default.php');
+}
 function getList()
 {
     $manager = new PostManager();

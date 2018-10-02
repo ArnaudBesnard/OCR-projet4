@@ -7,6 +7,7 @@ ob_start();
             </div>
             <div class="col-8">
                 <div class="articles">
+                    <?php if (!isset($_SESSION['login'])){ ?>
                         <h2>Page de connexion utilisateurs</h2>
                     <form action="index.php?action=verifUser" method="post">
                         <div>
@@ -23,6 +24,11 @@ ob_start();
                         <button type="submit" class="btn btn-primary">Valider</button>
                         </div>
                     </form>
+    <?php }
+    else {
+                        echo('<center>Vous êtes déjà connecté !</center>');
+                        header("Refresh: 2; URL=index.php");
+    }?>
                 </div>
             </div>
         </div>

@@ -17,7 +17,7 @@ if (isset($_GET['action'])) {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             getPost($_GET['id']);
         } else {
-            echo("Erreur, aucun ID de billet envoyé");
+            echo("<center>Erreur, aucun ID de billet envoyé</center>");
             header("Refresh: 2; URL=index.php");
         }
     } elseif ($_GET['action'] == 'addComment') {
@@ -72,6 +72,9 @@ if (isset($_GET['action'])) {
         editPost();
     } elseif ($_GET['action'] == 'updatePost') {
         updatePost();
+    }
+    else{
+        getDefault();
     }
 } else {
     getlist();
