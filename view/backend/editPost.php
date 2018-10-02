@@ -1,20 +1,15 @@
 <?php
-//session_start();
-
-$title = "Jean Forteroche - Administration";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $id = $_GET['id'];
     $action = "index.php?action=updatePost";
     $manager = new PostManager();
     $post = $manager->get($id);
-
         $id = $post->id();
         $titre = $post->titre();
         $contenu = $post->contenu();
         $auteur = $post->auteur();
         $dateAjout = $post->dateAjout();
-
     ?>
     <div class="container-fluid">
         <div class="row">
@@ -37,5 +32,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     header("Refresh: 2; URL=index.php");
 }
 $content = ob_get_clean();
+$title = "Edition d'un chapitre";
 require('view/template.php');
 ?>

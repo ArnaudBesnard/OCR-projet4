@@ -1,7 +1,4 @@
 <?php
-//session_start();
-
-$title = "Jean Forteroche - Administration";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     ?>
@@ -47,7 +44,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
     header("Refresh: 2; URL=index.php");
 }
-
 $content = ob_get_clean();
+$title = "Jean Forteroche - Administration";
 require('view/template.php');
 ?>

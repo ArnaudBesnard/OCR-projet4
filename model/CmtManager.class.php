@@ -38,7 +38,7 @@ class CmtManager extends Database
     {
         $db = $this->dbconnect();
         $comments = [];
-        $request = $db->query('select * from comments WHERE postId =' . $id . ' && statut = 1') or die(print_r($db>errorInfo()));
+        $request = $db->query('select * from comments WHERE postId =' . $id . ' && statut = 1 ORDER BY posted DESC') or die(print_r($db>errorInfo()));
         while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
             $comment->hydrate($donnees);

@@ -42,6 +42,6 @@ ob_start();
     </div>
 <?php
 $content = ob_get_clean();
-$title = "Jean Forteroche - " . $post->titre();
+$title = $post->titre();
 require('view/template.php');
 ?>

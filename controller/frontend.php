@@ -11,6 +11,16 @@ function getList()
     require('view/frontend/listPostView.php');
 }
 
+//Fonction pour couper les post dans listPostView
+function cutText ($text, $size, $id)
+{
+    if (strlen ($text) <= $size)
+        return $text;
+    $cut = substr ($text, 0, $size);
+    $cut = substr ($text, 0, strrpos ($cut, ' ')) . "<br /><a href='index.php?action=singlePost&&id=$id'>Lire la suite...</a>";
+    return $cut;
+}
+
 function getPost()
 {
     $id = $_GET['id'];

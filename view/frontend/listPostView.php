@@ -1,9 +1,6 @@
 <?php
-$title = "Jean Forteroche - Un billet simple pour l'Alaska";
-require_once('controller/frontend.php');
 ob_start();
 ?>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-10">
@@ -15,7 +12,12 @@ ob_start();
                         <?= $post->dateAjout(); ?>
                     </div>
                     <div class='contenu'>
-                        <?= $post->contenu(); ?>
+                        <?php
+                            $id = $post->id();
+                            $text = $post->contenu();
+                            $cutText = cutText($text, 1500, $id);
+                            echo $cutText;
+                         ?>
                     </div>
                     <div class='auteur'>
                         <?= $post->auteur(); ?>
@@ -25,7 +27,8 @@ ob_start();
             </div>
         </div>
         <div class="col-2">
-
+            <figure><img class="biographie" src="public/img/JeanForteroche.jpg" alt="Jean Forteroche" /></figure>
+            <figurecaption><center>Jean Forteroche</center></figurecaption>
             <div class="postTitleRight">Liste des chapitres</div>
             <div class="postsTitlesList">
             <?php
@@ -41,6 +44,7 @@ ob_start();
 </div>
 <?php
 $content = ob_get_clean();
+$title = "Jean Forteroche - Un billet simple pour l'Alaska";
 require('view/template.php');
 ?>
 

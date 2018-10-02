@@ -14,7 +14,7 @@
 
 </script>
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top ">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <a class="navbar-brand" href="#"><img src="public/img/avion.png"/></a>
             <ul class="navbar-nav mr-auto">

@@ -1,6 +1,4 @@
 <?php
-
-$title = "Page 404 Erreur";
 ob_start();
 ?>
 <center>
@@ -10,4 +8,5 @@ ob_start();
 
 <?php
 $content = ob_get_clean();
+$title = "Page 404 Erreur";
 require('view/template.php');

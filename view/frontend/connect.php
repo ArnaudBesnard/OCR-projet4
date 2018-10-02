@@ -35,6 +35,6 @@ ob_start();
     </div>
 <?php
 $content = ob_get_clean();
-$title = "Jean Forteroche - Page de connection";
+$title = "Connexion";
 require('view/template.php');
 ?>

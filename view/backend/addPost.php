@@ -1,7 +1,4 @@
 <?php
-//session_start();
-
-$title = "Jean Forteroche - Un billet simple pour l'Alaska";
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $dateCreate = date("Y-m-d");
@@ -29,5 +26,6 @@ else{
     header("Refresh: 2; URL=index.php");
 }
 $content = ob_get_clean();
+$title = "Ajout d'un chapitre";
 require('view/template.php');
 ?>
