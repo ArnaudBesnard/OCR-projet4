@@ -1,4 +1,4 @@
-<form action="<?php echo $action; ?>" method="post">
+<form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data"/>
     <div>
         <input type="hidden" name="id" class="form-control" placeholder="Id" value="<?php if (isset($id)) echo($id); ?>">
     </div>
@@ -24,7 +24,8 @@
     </div>
     <br/>
     <div>
-        <input class="form-control" type="file" name="addImg"/>
+        <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
+        <input class="form-control" type="file" name="postImage" />
     </div>
     <div class="button">
 

@@ -1,6 +1,8 @@
 <?php
 //Admin acces
 function administration(){
+    $manager = new PostManager();
+    $posts = $manager->getList();
     require('view/backend/adminManager.php');
 }
 //Users Functions
@@ -36,12 +38,38 @@ function addPost(){
     $billet->setContenu($_POST['contenu']);
     $billet->setDateAjout($dateAjout);
     $billet->setAuteur($_POST['auteur']);
-
+    $billet->setPostImg($_FILES['postImage']['name']);
     $manager = new PostManager($bdd);
     $manager->add($billet);
-
-    echo '<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>';
-    header("Refresh: 3; URL=index.php?action=administration" );
+    //début upload image
+    if (isset($_FILES['postImage']))
+        $file=$_FILES['postImage']['name'];
+        $size=$_FILES['postImage']['size'];
+        $tmp=$_FILES['postImage']['tmp_name'];
+        $type=$_FILES['postImage']['type'];
+        list($width,$height)=getimagesize($tmp);
+        if (is_uploaded_file($tmp))
+        {
+            if ($type=="image/jpeg" || $type=="image/png" && $size<=2000500 && $width<=10000 && $height<=10000 )
+            {
+                $file = preg_replace ("` `i","",$file);
+                if (file_exists('./uploads/'.$file))
+                {
+                    $finalName= preg_replace("`.jpeg`is",date("U").".jpeg",$file);
+                }
+                else {
+                    $finalName=$file;
+                }
+                //on déplace l'image dans le répertoire final
+                move_uploaded_file($tmp,'public/uploads/'.$finalName);
+                echo "<center>L'image a été uploadée avec succès</center><br/>";
+            }
+            else {
+                echo '<center>Votre image a été rejetée (poids, taille ou type incorrect)</center>';
+            }
+        }
+        echo '<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>';
+        header("Refresh: 3; URL=index.php?action=administration" );
 }
 
 function deletePost(){

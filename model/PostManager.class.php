@@ -7,11 +7,12 @@ class PostManager extends Database
     public function add(Post $billet)
     {
         $db = $this->dbconnect();
-        $req = $db->prepare('INSERT INTO posts(titre, contenu, dateAjout, auteur) VALUES(:titre, :contenu, :dateAjout, :auteur)');
+        $req = $db->prepare('INSERT INTO posts(titre, contenu, dateAjout, auteur, postImg) VALUES(:titre, :contenu, :dateAjout, :auteur, :postImg)');
         $req->bindValue(':titre', $billet->titre());
         $req->bindValue(':contenu', $billet->contenu());
         $req->bindValue(':dateAjout', $billet->dateAjout());
         $req->bindValue(':auteur', $billet->auteur());
+        $req->bindValue(':postImg', $billet->postImg());
         $req->execute();
     }
 

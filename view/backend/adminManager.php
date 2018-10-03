@@ -11,8 +11,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                 <div class="articles">
                     <h2>Gestion des chapitres</h2>
                     <?php
-                    $manager = new PostManager();
-                    $posts = $manager->getList();
                     foreach ($posts as $post) {
                         ?>
                         <h1><?= $post->titre(); ?></h1>
@@ -25,6 +23,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                         <div class='auteur'>
                             <?= $post->auteur(); ?>
                         </div>
+                    <div>image associée : <a href="public/uploads/<?= $post->postImg() ; ?>" target="_blank"><?= $post->postImg() ; ?></a></div>
 
                         <div class="btnGestion">
                             <button type="button" class="btn btn-success"><a

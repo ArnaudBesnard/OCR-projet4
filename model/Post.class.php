@@ -7,6 +7,7 @@
         protected $_contenu;
         protected $_dateAjout;
         protected $_auteur;
+        protected $_postImg;
 
         public function hydrate(array $donnees)
         {
@@ -44,6 +45,10 @@
         public function dateAjout()
         {
             return $this->_dateAjout;
+        }
+        public function postImg()
+        {
+            return $this->_postImg;
         }
         
         //Setter
@@ -84,6 +89,10 @@
             {
                 $this->_auteur = $auteur;
             }
+        }
+        public function setPostImg($postImg)
+        {
+                $this->_postImg = $postImg;
         }
         
     }

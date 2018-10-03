@@ -35,7 +35,7 @@ ob_start();
                 <?php
                 }
                 else {
-                    echo("<center>Vous devez être connecté afin de voir ou poster un commentaire,<br /><a href='index.php?page=connection'>cliquez ici</a> pour vous connecter</center>");
+                    echo("<center>Vous devez être connecté afin de voir ou poster un commentaire,<br /><a href='index.php?action=connect'>cliquez ici</a> pour vous connecter</center>");
                 } ?>
             </div>
         </div>
