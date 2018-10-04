@@ -15,7 +15,8 @@ ob_start();
                 <div class="articles">
                     <!--Début de l'affichage de l'article-->
                     <h1><?= $post->titre(); ?></h1>
-                    <div class='date_billet'><?= $post->dateAjout(); ?></div>
+                    <div class="postImg"><center><img src="public/uploads/<?= $post->postImg(); ?>" alt="Image liée à l'article"></center></div>
+                    <div class='date_billet'>Chapitre publié le : <?= $post->dateAjout(); ?></div>
                     <div class='contenu'><?= $post->contenu(); ?></div>
                     <div class='auteur'><?= $post->auteur(); ?></div>
                     <!--Fin affichage de l'article-->

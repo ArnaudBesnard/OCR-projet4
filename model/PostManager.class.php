@@ -49,12 +49,13 @@ class PostManager extends Database
     public function update(Post $billet)
     {
         $db = $this->dbconnect();
-        $req = $db->prepare('UPDATE posts SET titre = :titre, contenu = :contenu, dateAjout = :dateAjout, auteur = :auteur WHERE id = :id');
+        $req = $db->prepare('UPDATE posts SET titre = :titre, contenu = :contenu, dateAjout = :dateAjout, auteur = :auteur, postImg = :postImg WHERE id = :id');
         $req->bindValue(':id', $billet->id());
         $req->bindValue(':titre', $billet->titre());
         $req->bindValue(':contenu', $billet->contenu());
         $req->bindValue(':dateAjout', $billet->dateAjout());
         $req->bindValue(':auteur', $billet->auteur());
+        $req->bindvalue(':postImg', $_FILES['postImage']['name']);
         $req->execute();
     }
 }

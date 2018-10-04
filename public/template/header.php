@@ -1,5 +1,5 @@
+<?php $manager = new CmtManager($bdd); ?>
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=x033aj159s617dv6p04ex8cf9h6t37eytyjtfami5oah5xsg"></script>
-
         <script>
     tinymce.init({
         selector: "textarea",  // change this value according to your HTML
@@ -23,9 +23,21 @@
                 </li>
 
                 <?php if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
-                    echo("<li class='nav-item'><a class='nav-link' href='index.php?action=administration'><i style='font-size:16px' class='fa'>&#xf1fe;</i> Administration</a></li>");
-                }
-                ?>
+                    echo("<li class='nav-item dropdown'><a class='nav-link dropdown-toggle' href='#' id='navbardrop' data-toggle='dropdown'><i style='font-size:16px' class='fa'>&#xf1fe;</i> Administration</a>
+                            <div class='dropdown-menu'>
+                                <span class=\"titre_nav_admin\">Gestion des articles</span>
+                                    <a class='dropdown-item' href=\"index.php?action=formAddPost\"><i style=\"font-size:18px\" class=\"fa\">&#xf055;</i> Ajout d'un billet</a>
+                                    <a class='dropdown-item' href=\"index.php?action=administration\"><i style=\"font-size:18px\" class=\"fa\">&#xf0ad;</i> Gestion des billets</a>
+                                <div class=\"dropdown-divider\"></div>
+                                <span class=\"titre_nav_admin\">Gestion des utilisateurs</span>
+                                    <a class='dropdown-item' href=\"index.php?action=createUser\"><i style=\"font-size:18px\" class=\"fa\">&#xf234;</i> Ajouter un utilisateur</a>
+                                <div class=\"dropdown-divider\"></div>
+                                <span class=\"titre_nav_admin\">Gestion des commentaires</span>
+                                    <a class='dropdown-item' href=\"index.php?action=adminComment\"><i style=\"font-size:18px\" class=\"fa\">&#xf00c;</i> Validation (".$manager->countComment().")</a>
+                                    <a class='dropdown-item' href=\"index.php?action=viewReport\"><i style=\"font-size:18px\" class=\"fa\">&#xf0f3;</i> Modéreration (".$manager->countReporting().")</a>
+                            </div>
+                          </li>");
+                } ?>
             </ul>
         </div>
         <div class="mx-auto order-0">

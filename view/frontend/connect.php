@@ -10,18 +10,22 @@ ob_start();
                     <?php if (!isset($_SESSION['login'])){ ?>
                         <h2>Page de connexion utilisateurs</h2>
                     <form action="index.php?action=verifUser" method="post">
-                        <div>
-                            <input type="text" name="login" class="form-control" placeholder="Entrer votre nom d'utilisateur">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">@</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Nom d'utilisateur" name="login">
                         </div>
-                        <br/>
-                        <div>
-                            <input type="password" name="password" class="form-control" placeholder="Entrer votre mot de passe">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">**</span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="Mot de passe" name="password">
                         </div>
-                        <br />
                         <span><a href="index.php?action=forgetPwd">Mot de passe oublié</a></span>
                         <div class="button">
-                        <br/>
-                        <button type="submit" class="btn btn-primary">Valider</button>
+                            <br />
+                            <button type="submit" class="btn btn-primary">Valider</button>
                         </div>
                     </form>
     <?php }

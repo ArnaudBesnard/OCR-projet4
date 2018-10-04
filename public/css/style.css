@@ -148,6 +148,10 @@ li {
     border-radius: 1em;
 }
 
+.postImg{
+    margin-bottom: 15px;
+}
+
 .auteur {
     width: 100%;
     font-size: 0.8em;

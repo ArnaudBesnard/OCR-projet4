@@ -1,16 +1,6 @@
 <?php
 ob_start();
-if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
-    $id = $_GET['id'];
-    $action = "index.php?action=updatePost";
-    $manager = new PostManager();
-    $post = $manager->get($id);
-        $id = $post->id();
-        $titre = $post->titre();
-        $contenu = $post->contenu();
-        $auteur = $post->auteur();
-        $dateAjout = $post->dateAjout();
-    ?>
+if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) { ?>
     <div class="container-fluid">
         <div class="row">
             <div class="col-2">

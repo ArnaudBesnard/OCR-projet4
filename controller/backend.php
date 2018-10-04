@@ -41,35 +41,39 @@ function addPost(){
     $billet->setPostImg($_FILES['postImage']['name']);
     $manager = new PostManager($bdd);
     $manager->add($billet);
+    upload();
+        echo '<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>';
+        header("Refresh: 3; URL=index.php?action=administration" );
+}
+
+function upload(){
     //début upload image
     if (isset($_FILES['postImage']))
         $file=$_FILES['postImage']['name'];
         $size=$_FILES['postImage']['size'];
         $tmp=$_FILES['postImage']['tmp_name'];
         $type=$_FILES['postImage']['type'];
-        list($width,$height)=getimagesize($tmp);
-        if (is_uploaded_file($tmp))
+    list($width,$height)=getimagesize($tmp);
+    if (is_uploaded_file($tmp))
+    {
+        if ($type=="image/jpeg" || $type=="image/png" && $size<=1000000 && $width<=800 && $height<=400 )
         {
-            if ($type=="image/jpeg" || $type=="image/png" && $size<=2000500 && $width<=10000 && $height<=10000 )
+            $file = preg_replace ("` `i","",$file);
+            if (file_exists('./uploads/'.$file))
             {
-                $file = preg_replace ("` `i","",$file);
-                if (file_exists('./uploads/'.$file))
-                {
-                    $finalName= preg_replace("`.jpeg`is",date("U").".jpeg",$file);
-                }
-                else {
-                    $finalName=$file;
-                }
-                //on déplace l'image dans le répertoire final
-                move_uploaded_file($tmp,'public/uploads/'.$finalName);
-                echo "<center>L'image a été uploadée avec succès</center><br/>";
+                $finalName= preg_replace("`.jpeg`is",date("U").".jpeg",$file);
             }
             else {
-                echo '<center>Votre image a été rejetée (poids, taille ou type incorrect)</center>';
+                $finalName=$file;
             }
+            //on déplace l'image dans le répertoire final
+            move_uploaded_file($tmp,'public/uploads/'.$finalName);
+            echo "<center>L'image a été uploadée avec succès</center><br/>";
         }
-        echo '<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>';
-        header("Refresh: 3; URL=index.php?action=administration" );
+        else {
+            echo '<center>Votre image a été rejetée (poids, taille ou type incorrect)</center>';
+        }
+    }
 }
 
 function deletePost(){
@@ -81,6 +85,16 @@ function deletePost(){
 }
 
 function editPost(){
+    $id = $_GET['id'];
+    $action = "index.php?action=updatePost";
+    $manager = new PostManager();
+    $post = $manager->get($id);
+    $id = $post->id();
+    $titre = $post->titre();
+    $contenu = $post->contenu();
+    $auteur = $post->auteur();
+    $dateAjout = $post->dateAjout();
+    $postImg = $post->postImg();
     require('view/backend/editPost.php');
 }
 
@@ -91,10 +105,11 @@ function updatePost(){
     $billet->setContenu($_POST['contenu']);
     $billet->setDateAjout($_POST['dateAjout']);
     $billet->setAuteur($_POST['auteur']);
+    $billet->postImg($_FILES['postImage']['name']);
 
     $manager = new PostManager();
     $manager->update($billet);
-
+    upload();
     echo('<center>Les données ont été modifiées, vous allez êtes redirigé vers la page d\'administration</center>');
 
     header("Refresh: 3; URL=index.php?action=administration" );
