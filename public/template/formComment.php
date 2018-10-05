@@ -1,10 +1,10 @@
 <h2>Ajouter un commentaire sur cet article</h2>
 <form action="index.php?action=addComment" method="post">
     <div>
-        <input type="hidden" name="postId" class="form-control" value="<?=$id?>" >
+        <input type="hidden" name="postId" class="form-control" required value="<?=$id?>" >
     </div>
     <div>
-        <input type="text" name="titleComment" class="form-control" placeholder="Titre du commentaire" value="">
+        <input type="text" name="titleComment" class="form-control" placeholder="Titre du commentaire" required value="">
     </div>
     <br/>
     <div>
@@ -12,10 +12,10 @@
     </div>
     <br/>
     <div>
-        <input type="hidden" name="author" class="form-control" value="<?php if (isset($author)) echo($author); ?>" >
+        <input type="hidden" name="author" class="form-control" required value="<?php if (isset($author)) echo($author); ?>" >
     </div>
     <div>
-        <input type="hidden" name="posted" class="form-control" value="<?=$posted?>" >
+        <input type="hidden" name="posted" class="form-control" required value="<?=$posted?>" >
     </div>
     <div class="button">
         <br/>

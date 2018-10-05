@@ -27,8 +27,9 @@ function addUser(){
     $manager->add($addUser);
     }
     else{
-        echo('<center>Les mots de passes ne correspondent pas ! Veuillez ressayer</center>');
         header("Refresh: 3; URL=index.php?action=register" );
+        echo('<center>Les mots de passes ne correspondent pas ! Veuillez ressayer</center>');
+        exit;
     }
 }
 
@@ -50,8 +51,9 @@ function addPost(){
     }
     $manager = new PostManager($bdd);
     $manager->add($billet);
-    echo ('<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>');
     header("Refresh: 3; URL=index.php?action=administration" );
+    echo ('<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>');
+    exit;
 }
 
 function upload(){
@@ -88,8 +90,9 @@ function deletePost(){
     $billetId = $_GET['id'];
     $manager = new PostManager();
     $manager->delete($billetId);
-    echo("<center>Le billet avec l'id n°" . $billetId . " a bien été supprimé, vous allez êtes redirigé vers la page d'administration</center>");
     header("Refresh: 3; URL=index.php?action=administration");
+    echo("<center>Le billet avec l'id n°" . $billetId . " a bien été supprimé, vous allez êtes redirigé vers la page d'administration</center>");
+    exit;
 }
 
 function editPost(){
@@ -122,9 +125,9 @@ function updatePost(){
     }
     $manager = new PostManager();
     $manager->update($billet);
-    echo('<center>Les données ont été modifiées, vous allez êtes redirigé vers la page d\'administration</center>');
-
     header("Refresh: 3; URL=index.php?action=administration" );
+    echo('<center>Les données ont été modifiées, vous allez êtes redirigé vers la page d\'administration</center>');
+    exit;
 }
 //Comments admin
 function adminComment(){
@@ -136,16 +139,18 @@ function validComment(){
     //Passer le statut du commentaire à 1
     $manager = new CmtManager($bdd);
     $manager->valid($id);
-    echo '<br /><center>Le commentaire a bien été ajouté </center>';
     header("Refresh: 2; URL=index.php?action=adminComment");
+    echo '<br /><center>Le commentaire a bien été ajouté </center>';
+    exit;
 }
 
 function deleteComment(){
     $id = $_GET['id'];
     $manager = new CmtManager($bdd);
     $manager->delete($id);
-    echo '<br /><center>Le commentaire a bien été supprimé </center>';
     header("Refresh: 2; URL=index.php?action=adminComment");
+    echo '<br /><center>Le commentaire a bien été supprimé </center>';
+    exit;
 }
 //Reports admin
 function viewReport(){
@@ -157,8 +162,9 @@ function cancelReport(){
     //Passer le statut du commentaire à 1
     $manager = new CmtManager($bdd);
     $manager->cancelReport($id);
-    echo '<br /><center>Le signalement a bien été supprimé </center>';
     header("Refresh: 2; URL=index.php?action=viewReport");
+    echo '<br /><center>Le signalement a bien été supprimé </center>';
+    exit;
 }
 
 

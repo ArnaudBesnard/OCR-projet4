@@ -18,8 +18,9 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) { ?>
     </div>
     <?php
 } else {
-    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
     header("Refresh: 2; URL=index.php");
+    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+    exit;
 }
 $content = ob_get_clean();
 $title = "Edition d'un chapitre";

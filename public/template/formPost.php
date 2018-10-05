@@ -4,8 +4,7 @@
     </div>
     <br/>
     <div>
-        <input type="text" name="titre_chapitre" class="form-control" placeholder="Chapitre"
-               value="<?php if (isset($titre)) echo($titre); ?>">
+        <input type="text" name="titre_chapitre" class="form-control" placeholder="Chapitre" required value="<?php if (isset($titre)) echo($titre); ?>">
     </div>
     <br/>
     <div>
@@ -14,13 +13,11 @@
     </div>
     <br/>
     <div>
-        <input type="hidden" class="form-control" name="dateAjout" type="date" placeholder="Date"
-               value="<?php if (isset($dateAjout)) echo($dateAjout); ?>">
+        <input type="hidden" class="form-control" name="dateAjout" type="date" placeholder="Date" required value="<?php if (isset($dateAjout)) echo($dateAjout); ?>">
     </div>
     <br/>
     <div>
-        <input class="form-control" name="auteur" placeholder="Auteur"
-               value="<?php if (isset($auteur)) echo($auteur); ?>">
+        <input class="form-control" name="auteur" placeholder="Auteur" required value="<?php if (isset($auteur)) echo($auteur); ?>">
     </div>
     <br/>
 <div>

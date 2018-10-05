@@ -12,8 +12,9 @@ class userManager extends Database
         $num_row = $query->rowCount();
         if ($num_row == 1)
         {
-            echo('<center>Ce nom d\'utilisateur est déjà pris</center>');
             header("Refresh: 3; URL=index.php?action=register" );
+            echo('<center>Ce nom d\'utilisateur est déjà pris</center>');
+            exit;
         }
         else
         {
@@ -26,8 +27,9 @@ class userManager extends Database
             $req->bindValue(':createDate', $user->createDate());
             $req->bindValue(':role', $user->role());
             $req->execute();
-            echo ('<center>Votre comptre a bien été crée !</center>');
             header("Refresh: 3; URL=index.php?action=connect" );
+            echo ('<center>Votre comptre a bien été crée !</center>');
+            exit;
         }
     }
 

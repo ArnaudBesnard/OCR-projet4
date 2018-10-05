@@ -25,8 +25,8 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                                         <?php echo("<div class='titreComment'>" . $comment->title() . "</div><div class='contenuComment'>" . $comment->comment() . "</div><div class='commentAuthor'>" . $comment->author() . "</div>"); ?>
                                     </div>
                                     <div class="button">
-                                        <button type="button" class="btn btn-primary"><a href="index.php?action=cancelReport&&id=<?= $comment->id(); ?>"><i style="font-size:18px" class="fa">&#xf087;</i> Commentaire ok</a></button>
-                                        <button type="button" class="btn btn-danger"><a href="index.php?action=deleteComment&&id=<?= $comment->id(); ?>"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a></button>
+                                        <a href="index.php?action=cancelReport&&id=<?= $comment->id(); ?>" class="btn btn-primary" onclick="return confirm('Êtes-vous sûr de vouloir valider ce commentaire ?');"><i style="font-size:18px" class="fa">&#xf087;</i> Commentaire ok</a></button>
+                                        <a href="index.php?action=deleteComment&&id=<?= $comment->id(); ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?');"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a></button>
                                     </div>
                                 </form>
                                 <br/>
@@ -41,8 +41,9 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     </div>
     <?php
 } else {
-    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
     header("Refresh: 2; URL=index.php");
+    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+    exit;
 }
 $content = ob_get_clean();
 $title = "Modération commentaires";

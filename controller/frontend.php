@@ -42,17 +42,18 @@ function addComment(){
 
     $manager = new CmtManager();
     $manager->add($comment);
-
-    echo '<center>Votre commentaire a bien été ajouté, il devra être validé avant affichage</center>';
     header("Refresh: 3; URL=index.php?action=singlePost&&id=".$_POST['postId']);
+    echo '<center>Votre commentaire a bien été ajouté, il devra être validé avant affichage</center>';
+    exit;
 }
 
 function reporting(){
     $id = $_GET['id'];
     $manager = new CmtManager();
     $manager->reporting($id);
-    echo ('<br /><center>Le commentaire a bien été signalé ! Merci de votre aide. </center>');
     header("Refresh: 3; URL=index.php");
+    echo ('<br /><center>Le commentaire a bien été signalé ! Merci de votre aide. </center>');
+    exit;
 }
 
 //Users functions
@@ -72,10 +73,13 @@ function verifUser()
         $_SESSION['id'] = $datas['id'];
         $_SESSION['login'] = $datas['login'];
         $_SESSION['role'] = $datas['role'];
-        echo '<br /><center>Bienvenue ' . $_SESSION['login'] . '</center>';
         header("Refresh: 2; URL=index.php");
+        echo '<br /><center>Bienvenue ' . $_SESSION['login'] . '</center>';
+        exit;
     } else {
+        header("Refresh: 2; URL=index.php?action=connect");
         echo('<center>Veuillez renseignez tous les champs du formulaire !</center>');
+        exit;
     }
 }
 
@@ -88,8 +92,9 @@ function deconnexion()
 {
     session_unset();
     session_destroy();
-    echo('<br /><center>Déconnexion en cours !</center>');
     header("Refresh: 2; URL=index.php");
+    echo('<br /><center>Déconnexion en cours !</center>');
+    exit;
 }
 
 function forgetPwd()
@@ -149,8 +154,9 @@ function resetPwd()
     $pwd = $manager->resetPwd($login, $mail);
     if ($pwd == true) {
         mail($mail, $sujet, $message, $header);
-        echo('<center>Un email vous a été envoyé, vous pourrez réinitialiser votre mot de passe</center>');
         header("Refresh: 3; URL=index.php?action=connect");
+        echo('<center>Un email vous a été envoyé, vous pourrez réinitialiser votre mot de passe</center>');
+        exit;
     }
 }
 
@@ -172,4 +178,5 @@ function updatePwd()
         echo('<center>Veuillez saisir des mots de passes identiques</center>');
     }
     header("Refresh: 3; URL=index.php?action=connect");
+    exit;
 }

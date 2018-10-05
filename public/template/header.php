@@ -6,7 +6,7 @@
 <header>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top ">
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-            <a class="navbar-brand" href="#"><img src="public/img/avion.png"/></a>
+            <a class="navbar-brand" href="#"><img src="public/img/avion.png" alt="Avion sur la bannière"/></a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="index.php"><i style="font-size:16px" class="fa">&#xf015;</i> Accueil</a>

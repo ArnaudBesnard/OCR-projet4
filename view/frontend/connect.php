@@ -30,8 +30,9 @@ ob_start();
                     </form>
     <?php }
     else {
-                        echo('<center>Vous êtes déjà connecté !</center>');
                         header("Refresh: 2; URL=index.php");
+                        echo('<center>Vous êtes déjà connecté !</center>');
+                        exit;
     }?>
                 </div>
             </div>

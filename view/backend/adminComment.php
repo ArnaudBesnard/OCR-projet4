@@ -27,7 +27,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                                     </div>
                                     <div class="button">
                                         <button type="submit" class="btn btn-primary"><i style="font-size:18px" class="fa">&#xf087;</i> Valider</button>
-                                        <button type="button" class="btn btn-danger"><a href="index.php?action=deleteComment&&id=<?= $comment->id(); ?>"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a></button>
+                                        <a href="index.php?action=deleteComment&&id=<?= $comment->id(); ?>" class="btn btn-danger" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce commentaire ?');"><i style="font-size:18px" class="fa">&#xf088;</i> Supprimer</a></button>
                                     </div>
                                 </form>
                                 <br/>
@@ -42,8 +42,9 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     </div>
     <?php
 } else {
-    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
     header("Refresh: 2; URL=index.php");
+    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+    exit;
 }
 $content = ob_get_clean();
 $title = "Validation des commentaires";

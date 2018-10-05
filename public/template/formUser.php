@@ -35,6 +35,6 @@
     <div class="button">
         <br/>
         <button type="submit" class="btn btn-primary">Envoyer</button>
-        <button type="button" class="btn btn-danger"><a href="index.php?action=administration">Annuler</a></button>
+        <a href="index.php?action=administration" class="btn btn-danger">Annuler</a></button>
     </div>
 </form>

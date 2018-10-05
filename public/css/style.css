@@ -32,7 +32,11 @@ header {
 }
 
 .menuHeader {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
     justify-content: flex-end;
 }
 
@@ -238,6 +242,7 @@ textarea {
 
     /* Pour que tous les champs texte aient la même dimension */
     width: 600px;
+    -webkit-box-sizing: border-box;
     box-sizing: border-box;
 
     /* Pour harmoniser le look & feel des bordures des champs texte */
