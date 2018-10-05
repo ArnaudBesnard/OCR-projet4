@@ -23,8 +23,9 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                         <div class='auteur'>
                             <?= $post->auteur(); ?>
                         </div>
-                    <div>image associée : <a href="public/uploads/<?= $post->postImg() ; ?>" target="_blank"><?= $post->postImg() ; ?></a></div>
-
+                        <?php if ($post->postImg()){ ?>
+                            <div>image associée : <a href="public/uploads/<?= $post->postImg() ; ?>" target="_blank"><?= $post->postImg() ; ?></a></div>
+                        <?php } ?>
                         <div class="btnGestion">
                             <button type="button" class="btn btn-success"><a
                                         href="index.php?action=editPost&&id=<?= $post->id() ?>"><i style="font-size:18px" class="fa">&#xf0a4;</i> Editer</a>

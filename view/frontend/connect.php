@@ -14,13 +14,13 @@ ob_start();
                             <div class="input-group-prepend">
                                 <span class="input-group-text">@</span>
                             </div>
-                            <input type="text" class="form-control" placeholder="Nom d'utilisateur" name="login">
+                            <input type="text" class="form-control" placeholder="Nom d'utilisateur" name="login" required value="">
                         </div>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">**</span>
                             </div>
-                            <input type="password" class="form-control" placeholder="Mot de passe" name="password">
+                            <input type="password" class="form-control" placeholder="Mot de passe" name="password" required value="">
                         </div>
                         <span><a href="index.php?action=forgetPwd">Mot de passe oublié</a></span>
                         <div class="button">

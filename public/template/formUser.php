@@ -1,39 +1,36 @@
 <form action="<?= $action ?>" method="post">
     <div>
-        <input type="text" name="login" class="form-control" placeholder="Nom d'utilisateur">
+        <input type="text" name="login" class="form-control" placeholder="Nom d'utilisateur" required value="">
     </div>
     <br/>
     <div>
-        <input type="text" name="lastname" class="form-control" placeholder="Nom">
+        <input type="text" name="lastname" class="form-control" placeholder="Nom" required value="">
     </div>
     <br/>
     <div>
-        <input type="text" name="firstname" class="form-control" placeholder="Prénom">
+        <input type="text" name="firstname" class="form-control" placeholder="Prénom" required value="">
     </div>
     <br/>
     <div>
-        <input type="email" name="email" class="form-control" placeholder="Email">
+        <input type="email" name="email" class="form-control" placeholder="Email" required value="">
     </div>
     <br/>
     <div>
-        <input type="password" name="password" class="form-control" placeholder="Mot de passe">
+        <input id="password" for="mdp" type="password" name="password" class="form-control" placeholder="Mot de passe" required value="">
     </div>
     <br/>
     <div>
-        <input type="password" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe">
+        <input id="confirm_password" for="mdp2" type="password" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" onblur="checkMdp()" required value="">
+        <label id="mdperror"></label>
     </div>
     <br/>
     <div>
-        <input type="date" name="createDate" class="form-control" placeholder="Date"
+        <input type="hidden" name="createDate" class="form-control" placeholder="Date"
                value="<?php if (isset($dateCreate)) echo($dateCreate); ?>">
     </div>
     <br/>
     <div>
-        <select id="role" name="role" class="form-control" type="text">
-            <option>Administrateur</option>
-            <option>Contributeur</option>
-            <option>Utilisateur</option>
-        </select>
+        <input type="hidden" id="role" name="role" class="form-control" value="Utilisateur">
     </div>
     <div class="button">
         <br/>

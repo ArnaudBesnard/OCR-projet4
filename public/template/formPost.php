@@ -23,7 +23,14 @@
                value="<?php if (isset($auteur)) echo($auteur); ?>">
     </div>
     <br/>
+<div>
+    <label>Image associée :</label>
+    <input class="form-control" name="image" placeholder="Aucune image associée"
+           value="<?php if (isset($postImg)) echo($postImg); ?>">
+</div>
+<br/>
     <div>
+        <label>Max 800*400 - 1mo</label>
         <input type="hidden" name="MAX_FILE_SIZE" value="1000000">
         <input type="file" class="form-control-file border" name="postImage">
     </div>

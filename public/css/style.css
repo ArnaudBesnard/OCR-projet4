@@ -10,10 +10,11 @@ header {
     margin-bottom: 35px;
 }
 
-.container-fluid{
+.container-fluid {
     padding: 0;
 }
-.travel_train{
+
+.travel_train {
     background-image: url(../img/travel_train_nb.jpg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -22,17 +23,19 @@ header {
     margin: 67px auto;
     margin-bottom: 0px;
 }
-.titre_img{
+
+.titre_img {
     padding-top: 165px;
     padding-left: 50px;
     font-size: 2em;
     color: white;
 }
 
-.menuHeader{
+.menuHeader {
     display: flex;
     justify-content: flex-end;
 }
+
 .titre {
     font-size: 1em;
     color: black;
@@ -54,76 +57,88 @@ li {
     margin-top: 10px;
 }
 
-.articles{
+.articles {
     /*margin-top: 20px;*/
     margin-left: 50px;
 }
-.titreComment{
+
+.titreComment {
     background-color: #999999;
     margin: 0;
     padding: 5px;
 }
-.comment{
+
+.comment {
     margin: auto;
     margin-bottom: 15px;
     width: 100%;
 }
-.contenuComment{
+
+.contenuComment {
     background-color: #CCCCCC;
     padding: 5px;
 }
-.commentAuthor{
+
+.commentAuthor {
     background-color: white;
     font-size: 14px;
     color: green;
 }
-.signalement{
+
+.signalement {
     font-size: 0.8em;
     color: red;
     text-align: right;
     margin-top: -20px;
 }
-.signalement a{
+
+.signalement a {
     color: red;
 }
-.titre_nav_admin{
-    font-weight:  bold;
+
+.titre_nav_admin {
+    font-weight: bold;
     font-size: 1em;
     margin-left: 14px;
     margin-top: 25px;
 }
-.signalement a:hover{
+
+.signalement a:hover {
     color: red;
 }
-.buttonValidComment{
+
+.buttonValidComment {
     text-align: right;
 }
-.postTitleRight{
-   margin-top: 10px;
+
+.postTitleRight {
+    margin-top: 10px;
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
 }
-.postsTitlesList{
+
+.postsTitlesList {
     background-color: #CCCCCC;
     padding: 10px;
     font-size: 1em;
 }
 
-.postsTitlesList a{
+.postsTitlesList a {
     color: black;
 }
 
-.postsTitlesList a:hover{
+.postsTitlesList a:hover {
     color: black;
 }
 
-.biographie{
+.biographie {
     border-radius: 10px;
     width: 195px;
     height: auto;
     margin-top: 65px;
 }
+
 .menuAdmin {
     margin-top: 10px;
     padding: 15px 0;
@@ -131,13 +146,16 @@ li {
     height: auto;
     font-size: 0.8em;
 }
-.menuAdmin a{
+
+.menuAdmin a {
     padding: 15px;
     color: white;
 }
-.menuAdmin a:hover{
+
+.menuAdmin a:hover {
     color: white;
 }
+
 .contenu {
     width: 100%;
     margin-top: 10px;
@@ -148,7 +166,7 @@ li {
     border-radius: 1em;
 }
 
-.postImg{
+.postImg {
     margin-bottom: 15px;
 }
 
@@ -166,28 +184,35 @@ li {
     text-align: left;
     margin-left: 10px;
 }
-.btn{
+
+.btn {
     margin-left: 10px;
 }
-.btn a{
+
+.btn a {
     color: white;
     text-decoration: none;
 }
-.btn a:hover{
+
+.btn a:hover {
     color: white;
     text-decoration: none;
 }
+
 .btnGestion {
     text-align: right;
 }
-.btnGestion a{
+
+.btnGestion a {
     text-decoration: none;
     color: white;
 }
-.btnGestion a:hover{
+
+.btnGestion a:hover {
     text-decoration: none;
     color: white;
 }
+
 /******************************FORMULAIRES****************************/
 
 form {
@@ -244,7 +269,12 @@ button {
      entre les étiquettes et les champs texte */
     margin-left: .5em;
 }
-footer{
+
+#mdperror {
+    color: red;
+}
+
+footer {
     background-color: darkgray;
     margin-top: 15px;
 }

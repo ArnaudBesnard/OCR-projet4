@@ -11,6 +11,9 @@ function createUser(){
 }
 
 function addUser(){
+    $pwd = $_POST['password'];
+    $pwd2 = $_POST['confirm_password'];
+    if ($pwd === $pwd2){
     $addUser = new User;
     $addUser->setLogin($_POST['login']);
     $addUser->setLastname($_POST['lastname']);
@@ -22,10 +25,13 @@ function addUser(){
 
     $manager = new UserManager();
     $manager->add($addUser);
-
-    echo('<center>L\'utilisateur a été ajouté</center>');
-    header("Refresh: 2; URL=index.php" );
+    }
+    else{
+        echo('<center>Les mots de passes ne correspondent pas ! Veuillez ressayer</center>');
+        header("Refresh: 3; URL=index.php?action=register" );
+    }
 }
+
 //Posts admin
 function formAddPost(){
     require('view/backend/addPost.php');
@@ -39,11 +45,13 @@ function addPost(){
     $billet->setDateAjout($dateAjout);
     $billet->setAuteur($_POST['auteur']);
     $billet->setPostImg($_FILES['postImage']['name']);
+    if (!$_FILES ["postImage"]["error"]){
+        upload();
+    }
     $manager = new PostManager($bdd);
     $manager->add($billet);
-    upload();
-        echo '<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>';
-        header("Refresh: 3; URL=index.php?action=administration" );
+    echo ('<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>');
+    header("Refresh: 3; URL=index.php?action=administration" );
 }
 
 function upload(){
@@ -53,7 +61,7 @@ function upload(){
         $size=$_FILES['postImage']['size'];
         $tmp=$_FILES['postImage']['tmp_name'];
         $type=$_FILES['postImage']['type'];
-    list($width,$height)=getimagesize($tmp);
+        list($width,$height)=getimagesize($tmp);
     if (is_uploaded_file($tmp))
     {
         if ($type=="image/jpeg" || $type=="image/png" && $size<=1000000 && $width<=800 && $height<=400 )
@@ -105,11 +113,15 @@ function updatePost(){
     $billet->setContenu($_POST['contenu']);
     $billet->setDateAjout($_POST['dateAjout']);
     $billet->setAuteur($_POST['auteur']);
-    $billet->postImg($_FILES['postImage']['name']);
-
+    if (!$_FILES ["postImage"]["error"]){
+        $billet->setPostImg($_FILES['postImage']['name']);
+        upload();
+    }
+    else {
+        $billet->setPostImg($_POST['image']);
+    }
     $manager = new PostManager();
     $manager->update($billet);
-    upload();
     echo('<center>Les données ont été modifiées, vous allez êtes redirigé vers la page d\'administration</center>');
 
     header("Refresh: 3; URL=index.php?action=administration" );

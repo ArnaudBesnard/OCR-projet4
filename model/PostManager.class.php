@@ -55,7 +55,7 @@ class PostManager extends Database
         $req->bindValue(':contenu', $billet->contenu());
         $req->bindValue(':dateAjout', $billet->dateAjout());
         $req->bindValue(':auteur', $billet->auteur());
-        $req->bindvalue(':postImg', $_FILES['postImage']['name']);
+        $req->bindValue(':postImg', $billet->postImg());
         $req->execute();
     }
 }
