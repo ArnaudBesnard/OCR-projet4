@@ -3,7 +3,7 @@ ob_start();
 ?>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-10">
+        <div class="col-xl-10">
             <div class="articles">
                 <!--Affichage des articles-->
                 <?php foreach($posts as $post){ ?>
@@ -26,9 +26,9 @@ ob_start();
                 <!--Fin affichage des articles-->
             </div>
         </div>
-        <div class="col-2">
+        <div class="col-xl-2">
             <figure><img class="biographie" src="public/img/JeanForteroche.jpg" alt="Jean Forteroche" /></figure>
-            <figurecaption><center>Jean Forteroche</center></figurecaption>
+            <figurecaption id="textBiographie"><center>Jean Forteroche</center></figurecaption>
             <div class="postTitleRight">Liste des chapitres</div>
             <div class="postsTitlesList">
             <?php
@@ -41,6 +41,7 @@ ob_start();
              } ?>
         </div>
     </div>
+</div>
 </div>
 <?php
 $content = ob_get_clean();

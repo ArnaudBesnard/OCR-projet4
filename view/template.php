@@ -1,7 +1,9 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8" />
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title><?= $title ?>
         </title><link rel="icon" type="image/png" href="public/img/livre.ico.png"/>
         <link rel="stylesheet" type="text/css" href="public/css/style.css">

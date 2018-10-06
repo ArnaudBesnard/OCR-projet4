@@ -9,16 +9,13 @@ ob_start();
 ?>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2">
-                <!-- Colonne vide-->
-            </div>
-            <div class="col-8">
+            <div class="col-xl-12">
                 <div class="articles">
                     <!--Début de l'affichage de l'article-->
                     <h1><?= $post->titre(); ?></h1>
                     <?php if ($post->postImg()) { ?>
                         <div class="postImg">
-                            <center><img src="public/uploads/<?= $post->postImg(); ?>" alt="Image liée à l'article">
+                            <center><img id="imgPost" src="public/uploads/<?= $post->postImg(); ?>" alt="Image liée à l'article">
                             </center>
                         </div>
                     <?php }; ?>
@@ -36,8 +33,8 @@ ob_start();
                             <div class="signalement"><a href="index.php?action=reporting&&id=<?= $comment->id(); ?>">Signaler</a>
                             </div>
                         </div>
-                    <?php }
-                    include('public/template/formComment.php'); ?>
+                    <?php } ?>
+                    <div class="formComment"><?php include('public/template/formComment.php'); ?></div>
                 </div>
                 <?php
                 }

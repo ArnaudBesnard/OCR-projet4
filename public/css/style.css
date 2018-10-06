@@ -1,6 +1,6 @@
 html,
 body {
-    height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -8,6 +8,10 @@ body {
 
 header {
     margin-bottom: 35px;
+}
+
+.navResponsive{
+    display: none;
 }
 
 .container-fluid {
@@ -62,8 +66,8 @@ li {
 }
 
 .articles {
-    /*margin-top: 20px;*/
-    margin-left: 50px;
+    /*margin-left:100px;
+    margin-right: 100px;*/
 }
 
 .titreComment {
@@ -120,12 +124,14 @@ li {
     text-align: center;
     font-size: 1.2em;
     font-weight: bold;
+    width: 200px;
 }
 
 .postsTitlesList {
     background-color: #CCCCCC;
     padding: 10px;
     font-size: 1em;
+    width: 200px;
 }
 
 .postsTitlesList a {
@@ -162,16 +168,13 @@ li {
 
 .contenu {
     width: 100%;
+
     margin-top: 10px;
     margin-bottom: 10px;
     text-align: justify;
     background-color: antiquewhite;
     padding: 10px;
     border-radius: 1em;
-}
-
-.postImg {
-    margin-bottom: 15px;
 }
 
 .auteur {
@@ -182,7 +185,6 @@ li {
 }
 
 .date_billet {
-    width: 500px;
     font-size: 0.8em;
     color: green;
     text-align: left;
@@ -221,7 +223,7 @@ li {
 
 form {
     margin: 0 auto;
-    width: 635px;
+    width: 100%;
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 0.5em;
@@ -280,6 +282,88 @@ button {
 }
 
 footer {
-    background-color: darkgray;
-    margin-top: 15px;
+
 }
+
+#footerLink {
+    color: lightgray;
+}
+
+/*************************************************/
+/******************RESPONSIVE*********************/
+/*************************************************/
+
+@media screen and (min-width: 480px) and (max-width: 1152px) {
+
+    .navNormal{
+        display:none;
+    }
+    .navResponsive{
+        display: block;
+    }
+    .articles {
+        margin-top: 40px;
+        margin-left:0;
+        margin-right:0;
+    }
+    #imgPost {
+        width: 700px;
+        height: auto;
+        margin:0;
+    }
+    .biographie{
+        display:none;
+    }
+    #textBiographie{
+        display:none;
+    }
+    .postTitleRight {
+        display:none;
+    }
+    .postsTitlesList {
+        display:none;
+    }
+    .travel_train {
+        display:none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    .navNormal{
+        display:none;
+    }
+    .navResponsive{
+        display: block;
+    }
+    #imgPost {
+        width: 310px;
+        height: auto;
+        margin:auto;
+    }
+    .travel_train {
+        display:none;
+    }
+    .biographie{
+        display:none;
+    }
+    #textBiographie{
+        display:none;
+    }
+    .postTitleRight {
+        display:none;
+    }
+    .postsTitlesList {
+        display:none;
+    }
+    .articles {
+        width: 320px;
+        margin-top: 120px;
+    }
+    .formComment{
+        /*display:none;*/
+    }
+
+}
+
+
