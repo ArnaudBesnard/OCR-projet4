@@ -27,7 +27,7 @@ ob_start();
         Le Webmaster est  : <strong>Arnaud Besnard</strong><br />
         Contacter le Webmaster :  <strong><a href="mailto:besnard.arno@gmail.com?subject=Contact a partir des mentions lÃ©gales via le site projet4.arnaudbesnard.fr">besnard.arno@gmail.com</a></strong><br />
         L’hebergeur du site est : <strong>1&1 Internet SARL 7, place de la Gare BP 70109 57201  Sarreguemines Cedex </strong><br />
-        
+
     <p style="text-align:justify"> </p>
 
     <p style="text-align:justify"><strong>2. Présentation et principe :</strong></p>

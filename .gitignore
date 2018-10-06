@@ -7,4 +7,5 @@
 .idea/vcs.xml
 .idea/OCR-projet4.iml
 .idea/inspectionProfiles/Project_Default.xml
-model/Database.class.php
+/model/Database.class.php
+
