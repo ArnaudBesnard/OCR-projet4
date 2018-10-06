@@ -180,3 +180,8 @@ function updatePwd()
     header("Refresh: 3; URL=index.php?action=connect");
     exit;
 }
+
+function mentionsLegales()
+{
+    require('view/frontend/mentionsLegales.php');
+}

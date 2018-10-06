@@ -72,6 +72,8 @@ if (isset($_GET['action'])) {
         editPost();
     } elseif ($_GET['action'] == 'updatePost') {
         updatePost();
+    } elseif ($_GET['action'] == 'mentionsLegales'){
+        mentionsLegales();
     }
     else{
         getDefault();
