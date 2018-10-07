@@ -1,12 +1,13 @@
 <?php
 ob_start();
 ?>
-<center>
-    <h1>ERREUR 404</h1>
-    <h2>La page demandée n'a pas été trouvée !</h2>
-</center>
-
+    <div class="col-xl-12">
+        <center>
+            <h1>ERREUR 404</h1>
+            <h2>La page demandée n'a pas été trouvée !</h2>
+        </center>
+    </div>
 <?php
 $content = ob_get_clean();
 $title = "Page 404 Erreur";
-require('view/template.php');
+require('view/frontend/template.php');

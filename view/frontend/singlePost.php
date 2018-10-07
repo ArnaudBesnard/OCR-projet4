@@ -1,25 +1,20 @@
 <?php
 
 $id = $_GET['id'];
-if (isset($_SESSION['login'])) {
-    $author = $_SESSION['login'];
-}
+if (isset($_SESSION['login'])) { $author = $_SESSION['login']; }
 $posted = date("Y-m-d");
+$brutDate  = $post->dateAjout();
+$date = DateTime::createFromFormat('Y-m-d', $brutDate);
 ob_start();
 ?>
-    <div class="container-fluid">
-        <div class="row">
             <div class="col-xl-12">
-                <div class="articles">
+                <div class="main">
                     <!--Début de l'affichage de l'article-->
-                    <h1><?= $post->titre(); ?></h1>
+                    <div class="titre"><?= $post->titre(); ?></div>
                     <?php if ($post->postImg()) { ?>
-                        <div class="postImg">
-                            <center><img id="imgPost" src="public/uploads/<?= $post->postImg(); ?>" alt="Image liée à l'article">
-                            </center>
-                        </div>
-                    <?php }; ?>
-                    <div class='date_billet'>Chapitre publié le : <?= $post->dateAjout(); ?></div>
+                        <center><img id="imgPost" src="public/uploads/<?= $post->postImg(); ?>" alt="Image liée à l'article"></center>
+                     <?php }; ?>
+                    <div class='date_billet'>Chapitre publié le : <?= $date->format('d-m-Y'); ?></div>
                     <div class='contenu'><?= $post->contenu(); ?></div>
                     <div class='auteur'><?= $post->auteur(); ?></div>
                     <!--Fin affichage de l'article-->
@@ -29,12 +24,9 @@ ob_start();
                     foreach ($comments as $comment) { ?>
                         <div class="comment">
                             <?php echo("<div class='titreComment'>" . $comment->title() . "</div><div class='contenuComment'>" . $comment->comment() . "</div><div class='commentAuthor'>" . $comment->author() . ' - Posté le ' . $comment->posted() . "</div>"); ?>
-
-                            <div class="signalement"><a href="index.php?action=reporting&&id=<?= $comment->id(); ?>">Signaler</a>
-                            </div>
-                        </div>
-                    <?php } ?>
-                    <div class="formComment"><?php include('public/template/formComment.php'); ?></div>
+                            <div class="signalement"><a href="index.php?action=reporting&&id=<?= $comment->id(); ?>">Signaler</a></div></div>
+                    <?php }
+                    include('public/template/formComment.php'); ?>
                 </div>
                 <?php
                 }
@@ -42,10 +34,8 @@ ob_start();
                     echo("<center>Vous devez être connecté afin de voir ou poster un commentaire,<br /><a href='index.php?action=connect'>cliquez ici</a> pour vous connecter</center>");
                 } ?>
             </div>
-        </div>
-    </div>
 <?php
 $content = ob_get_clean();
 $title = $post->titre();
-require('view/template.php');
+require('view/frontend/template.php');
 ?>

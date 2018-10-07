@@ -2,18 +2,16 @@
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     ?>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-2">
+            <div class="col-xl-2">
                 <?php include('public/template/adminNav.php'); ?>
             </div>
-            <div class="col-8">
-                <div class="articles">
-                    <h2>Gestion des chapitres</h2>
+            <div class="col-xl-10">
+                <div class="main">
+                    <h1>Gestion des chapitres</h1>
                     <?php
                     foreach ($posts as $post) {
                         ?>
-                        <h1><?= $post->titre(); ?></h1>
+                        <div class="titre"><?= $post->titre(); ?></div>
                         <div class='date_billet'>
                             <?= $post->dateAjout(); ?>
                         </div>
@@ -35,8 +33,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                     <?php }; ?>
                 </div>
             </div>
-        </div>
-    </div>
 <?php } else {
     header("Refresh: 2; URL=index.php");
     echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
@@ -44,5 +40,5 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
 }
 $content = ob_get_clean();
 $title = "Jean Forteroche - Administration";
-require('view/template.php');
+require('view/backend/template.php');
 ?>

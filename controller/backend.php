@@ -39,7 +39,7 @@ function formAddPost(){
 }
 
 function addPost(){
-    $dateAjout = date("Y-m-d");
+    $dateAjout = date("Y-m-d"); //Regarder ici
     $billet = new Post;
     $billet->setTitre($_POST['titre_chapitre']);
     $billet->setContenu($_POST['contenu']);

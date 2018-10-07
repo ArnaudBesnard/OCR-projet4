@@ -82,6 +82,15 @@
             $this->_dateAjout = $dateAjout;
             }
         }
+        /*public function setDateAjout($dateAjout)
+        {
+            $brutDate  = $dateAjout;
+            $date = DateTime::createFromFormat('Y-m-d', $brutDate);
+            if ($date)
+            {
+                $this->_dateAjout = $date->format('d/m/Y');
+            }
+        }*/
         
         public function setAuteur($auteur)
         {

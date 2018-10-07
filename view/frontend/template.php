@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="fr">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title><?= $title ?>
@@ -16,7 +15,11 @@
     </head>
     <body>
        <?php require('public/template/header.php'); ?>
-       <?= $content ?>
+       <div class="container">
+           <div class="row">
+               <?= $content ?>
+           </div>
+       </div>
        <?php require('public/template/footer.html'); ?>
     </body>
 </html>

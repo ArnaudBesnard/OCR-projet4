@@ -1,16 +1,15 @@
 <?php
 ob_start();
 ?>
-<div class="container-fluid">
-    <div class="row">
         <div class="col-xl-10">
-            <div class="articles">
+            <div class="main">
                 <!--Affichage des articles-->
-                <?php foreach($posts as $post){ ?>
-                    <h1><a href="index.php?action=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a></h1>
-                    <div class='date_billet'>
-                        <?= $post->dateAjout(); ?>
-                    </div>
+                <?php foreach($posts as $post){
+                    $brutDate  = $post->dateAjout();
+                    $date = DateTime::createFromFormat('Y-m-d', $brutDate);
+                    ?>
+                    <div class="titre"><a href="index.php?action=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a></div></h1>
+                    <div class='date_billet'>Chapitre publié le : <?=  $date->format('d-m-Y'); ?></div>
                     <div class='contenu'>
                         <?php
                             $id = $post->id();
@@ -19,16 +18,14 @@ ob_start();
                             echo $cutText;
                          ?>
                     </div>
-                    <div class='auteur'>
-                        <?= $post->auteur(); ?>
-                    </div>
+                    <div class='auteur'> <?= $post->auteur(); ?></div>
                  <?php } ?>
                 <!--Fin affichage des articles-->
             </div>
         </div>
         <div class="col-xl-2">
-            <figure><img class="biographie" src="public/img/JeanForteroche.jpg" alt="Jean Forteroche" /></figure>
             <figurecaption id="textBiographie"><center>Jean Forteroche</center></figurecaption>
+            <figure><img class="biographie" src="public/img/JeanForteroche.jpg" alt="Jean Forteroche" /></figure>
             <div class="postTitleRight">Liste des chapitres</div>
             <div class="postsTitlesList">
             <?php
@@ -39,13 +36,11 @@ ob_start();
                 $titleLink = ("<a href='index.php?action=singlePost&&id=$id'>$cutTitle</a><br />");
                 echo $titleLink;
              } ?>
+            </div>
         </div>
-    </div>
-</div>
-</div>
 <?php
 $content = ob_get_clean();
 $title = "Jean Forteroche - Un billet simple pour l'Alaska";
-require('view/template.php');
+require('view/frontend/template.php');
 ?>
 

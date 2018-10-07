@@ -4,21 +4,16 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $dateCreate = date("Y-m-d");
     $reporting = 1;
     ?>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-2">
-                <?php include('public/template/adminNav.php'); ?>
-            </div>
-            <div class="col-8">
-                <div class="articles">
+            <div class="col-xl-2"><?php include('public/template/adminNav.php'); ?></div>
+            <div class="col-xl-10">
+                <div class="main">
                     <h2>Liste des signalements de commentaires :</h2>
                     <div class="form_billet">
                         <?php
                         $manager = new CmtManager($bdd);
                         $comments = $manager->getReporting($reporting);
                         if ($comments) {
-                            foreach ($comments as $comment) {
-                                ?>
+                            foreach ($comments as $comment) { ?>
                                 <form action="#" method="post">
                                     <div class="comment">
                                         <?= 'Chapitre : ' . $comment->postId() . ' - Id N° : ' . $comment->id(); ?>
@@ -37,8 +32,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
     <?php
 } else {
     header("Refresh: 2; URL=index.php");
@@ -47,6 +40,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
 }
 $content = ob_get_clean();
 $title = "Modération commentaires";
-require('view/template.php');
+require('view/backend/template.php');
 ?>
 

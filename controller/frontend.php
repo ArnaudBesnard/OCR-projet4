@@ -8,6 +8,7 @@ function getList()
 {
     $manager = new PostManager();
     $posts = $manager->getList();
+
     require('view/frontend/listPostView.php');
 }
 

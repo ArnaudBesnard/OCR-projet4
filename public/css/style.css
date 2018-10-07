@@ -1,3 +1,6 @@
+
+/****************************************  GENERAL  ****************************************/
+
 html,
 body {
     width: 100%;
@@ -5,19 +8,45 @@ body {
     padding: 0;
     background-color: white;
 }
+h1 {
+    color: black !important;
+    font-size: 2.5em !important;
+    text-align: center;
+}
+h2 {
+    margin-top: 25px;
+    text-align: center;
+}
+li {
+    margin-top: 10px;
+}
+.container-fluid {
+    padding: 0;
+}
+.main {
+    /*margin-left:100px;
+    margin-right: 100px;*/
+}
+
+/****************************************  HEADER  ****************************************/
 
 header {
     margin-bottom: 35px;
 }
-
+.menuHeader {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
 .navResponsive{
     display: none;
 }
-
-.container-fluid {
-    padding: 0;
+a.dropdown-item:hover{
+    background-color: #007BFF;
 }
-
 .travel_train {
     background-image: url(../img/travel_train_nb.jpg);
     background-repeat: no-repeat;
@@ -27,7 +56,6 @@ header {
     margin: 67px auto;
     margin-bottom: 0px;
 }
-
 .titre_img {
     padding-top: 165px;
     padding-left: 50px;
@@ -35,89 +63,42 @@ header {
     color: white;
 }
 
-.menuHeader {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
-}
+/****************************************  AFFICHAGE CHAPITRES  ****************************************/
 
 .titre {
-    font-size: 1em;
-    color: black;
-    text-align: center;
+    font-size: 2em;
+    text-align: left;
 }
-
-h1 {
-    color: red !important;
-    font-size: 1.5em !important;
+.titre a{
+    color: black;
+}
+.titre a:hover{
+    color: dodgerblue;
+    text-decoration: none;
+}
+.date_billet {
+    font-size: 0.8em;
+    color: green;
+    text-align: left;
     margin-left: 10px;
 }
-
-h2 {
-    margin-top: 25px;
-    text-align: center;
-}
-
-li {
-    margin-top: 10px;
-}
-
-.articles {
-    /*margin-left:100px;
-    margin-right: 100px;*/
-}
-
-.titreComment {
-    background-color: #999999;
-    margin: 0;
-    padding: 5px;
-}
-
-.comment {
-    margin: auto;
-    margin-bottom: 15px;
+.contenu {
     width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: justify;
+    background-color: antiquewhite;
+    padding: 10px;
+    border-radius: 1em;
 }
-
-.contenuComment {
-    background-color: #CCCCCC;
-    padding: 5px;
-}
-
-.commentAuthor {
-    background-color: white;
-    font-size: 14px;
-    color: green;
-}
-
-.signalement {
+.auteur {
+    width: 100%;
     font-size: 0.8em;
-    color: red;
-    text-align: right;
-    margin-top: -20px;
-}
-
-.signalement a {
-    color: red;
-}
-
-.titre_nav_admin {
-    font-weight: bold;
-    font-size: 1em;
-    margin-left: 14px;
-    margin-top: 25px;
-}
-
-.signalement a:hover {
-    color: red;
-}
-
-.buttonValidComment {
+    color: blue;
     text-align: right;
 }
+
+/*************************  Affichage photo biographie & liste chapitres  *****************************/
 
 .postTitleRight {
     margin-top: 10px;
@@ -126,100 +107,95 @@ li {
     font-weight: bold;
     width: 200px;
 }
-
 .postsTitlesList {
     background-color: #CCCCCC;
     padding: 10px;
     font-size: 1em;
     width: 200px;
 }
-
 .postsTitlesList a {
     color: black;
 }
-
 .postsTitlesList a:hover {
     color: black;
 }
-
 .biographie {
     border-radius: 10px;
-    width: 195px;
+    width: 190px;
     height: auto;
-    margin-top: 65px;
+}
+#textBiographie{
+    color: brown;
+    font-style: italic;
 }
 
+/******************************  AFFICHAGE SINGLEPOST & COMMENTAIRES  ******************************/
+
+#imgPost {
+    width: 100%;
+    height: auto;
+    margin:0;
+}
+.comment {
+    margin: auto;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.titreComment {
+    background-color: #999999;
+    margin: 0;
+    padding: 5px;
+}
+.contenuComment {
+    background-color: #CCCCCC;
+    padding: 10px;
+}
+.commentAuthor {
+    background-color: white;
+    font-size: 14px;
+    color: green;
+}
+.buttonValidComment {
+    text-align: right;
+}
+.signalement {
+    font-size: 0.8em;
+    color: red;
+    text-align: right;
+    margin-top: -20px;
+}
+.signalement a {
+    color: red;
+}
+.signalement a:hover {
+    color: red;
+}
+
+/****************************************  ADMINISTRATION  ****************************************/
+
 .menuAdmin {
+    width: auto;
     margin-top: 10px;
     padding: 15px 0;
     background-color: gray;
     height: auto;
     font-size: 0.8em;
 }
-
 .menuAdmin a {
     padding: 15px;
     color: white;
 }
-
 .menuAdmin a:hover {
     color: white;
 }
-
-.contenu {
-    width: 100%;
-
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: justify;
-    background-color: antiquewhite;
-    padding: 10px;
-    border-radius: 1em;
+.titre_nav_admin {
+    font-weight: bold;
+    font-size: 1em;
+    margin-left: 14px;
+    margin-top: 25px;
 }
 
-.auteur {
-    width: 100%;
-    font-size: 0.8em;
-    color: blue;
-    text-align: right;
-}
-
-.date_billet {
-    font-size: 0.8em;
-    color: green;
-    text-align: left;
-    margin-left: 10px;
-}
-
-.btn {
-    margin-left: 10px;
-}
-
-.btn a {
-    color: white;
-    text-decoration: none;
-}
-
-.btn a:hover {
-    color: white;
-    text-decoration: none;
-}
-
-.btnGestion {
-    text-align: right;
-}
-
-.btnGestion a {
-    text-decoration: none;
-    color: white;
-}
-
-.btnGestion a:hover {
-    text-decoration: none;
-    color: white;
-}
-
-/******************************FORMULAIRES****************************/
+/****************************************  FORMULAIRES  ****************************************/
 
 form {
     margin: 0 auto;
@@ -228,14 +204,12 @@ form {
     border: 1px solid #CCC;
     border-radius: 0.5em;
 }
-
 label {
     /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
     display: inline-block;
     width: 190px;
     text-align: left;
 }
-
 input,
 textarea {
     /* Pour s'assurer que tous les champs texte ont la même police.
@@ -250,13 +224,11 @@ textarea {
     /* Pour harmoniser le look & feel des bordures des champs texte */
     border: 1px solid #999;
 }
-
 input:focus,
 textarea:focus {
     /* Pour souligner légèrement les éléments actifs */
     border-color: #000;
 }
-
 textarea {
     /* Pour aligner les champs texte multi‑ligne avec leur étiquette */
     vertical-align: top;
@@ -264,34 +236,54 @@ textarea {
     /* Pour donner assez de place pour écrire du texte */
     height: 5em;
 }
-
 .button {
     /* Pour placer le bouton à la même position que les champs texte */
     padding-left: 90px;
     /* même taille que les étiquettes */
 }
-
 button {
     /* Cette marge supplémentaire représente grosso modo le même espace que celui
      entre les étiquettes et les champs texte */
     margin-left: .5em;
 }
-
+.btn {
+    margin-left: 10px;
+}
+.btn a {
+    color: white;
+    text-decoration: none;
+}
+.btn a:hover {
+    color: white;
+    text-decoration: none;
+}
+.btnGestion {
+    text-align: right;
+}
+.btnGestion a {
+    text-decoration: none;
+    color: white;
+}
+.btnGestion a:hover {
+    text-decoration: none;
+    color: white;
+}
 #mdperror {
     color: red;
 }
 
+/****************************************  FOOTER  ****************************************/
+
 footer {
 
 }
-
 #footerLink {
     color: lightgray;
 }
 
-/*************************************************/
-/******************RESPONSIVE*********************/
-/*************************************************/
+/******************************************************************************************/
+/****************************************RESPONSIVE****************************************/
+/******************************************************************************************/
 
 @media screen and (min-width: 480px) and (max-width: 1152px) {
 
@@ -301,7 +293,7 @@ footer {
     .navResponsive{
         display: block;
     }
-    .articles {
+    .main {
         margin-top: 40px;
         margin-left:0;
         margin-right:0;
@@ -326,10 +318,18 @@ footer {
     .travel_train {
         display:none;
     }
+    .menuAdmin{
+        display:none;
+    }
 }
 
 @media screen and (max-width: 480px) {
 
+    html,
+    body {
+        width: 100%;
+
+    }
     .navNormal{
         display:none;
     }
@@ -356,12 +356,15 @@ footer {
     .postsTitlesList {
         display:none;
     }
-    .articles {
-        width: 320px;
+    .main {
+        width: 310px;
         margin-top: 120px;
     }
-    .formComment{
-        /*display:none;*/
+    .contenu{
+        width: 310px;
+    }
+    .menuAdmin{
+        display:none;
     }
 
 }

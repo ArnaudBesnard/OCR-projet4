@@ -5,13 +5,11 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $action = "#";
     $status = 0;
     ?>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-2">
+            <div class="col-xl-2">
                 <?php include('public/template/adminNav.php'); ?>
             </div>
-            <div class="col-8">
-                <div class="articles">
+            <div class="col-xl-10">
+                <div class="main">
                     <h2>Validation des commentaires :</h2>
                     <div class="form_billet">
                         <?php
@@ -38,8 +36,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
     <?php
 } else {
     header("Refresh: 2; URL=index.php");
@@ -48,6 +44,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
 }
 $content = ob_get_clean();
 $title = "Validation des commentaires";
-require('view/template.php');
+require('view/backend/template.php');
 ?>
 
