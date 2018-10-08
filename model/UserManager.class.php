@@ -2,7 +2,7 @@
 
 class userManager extends Database
 {
-
+//Add User method
     public function add(User $user)
     {
         $db = $this->dbconnect();
@@ -15,9 +15,7 @@ class userManager extends Database
             header("Refresh: 3; URL=index.php?action=register" );
             echo('<center>Ce nom d\'utilisateur est déjà pris</center>');
             exit;
-        }
-        else
-        {
+        } else {
             $req = $db->prepare('INSERT INTO users(login, lastname, firstname, email, password, createDate, role) VALUES(:login, :lastname, :firstname, :email, :password, :createDate, :role)');
             $req->bindValue(':login', $user->login());
             $req->bindValue(':lastname', $user->lastname());
@@ -32,7 +30,7 @@ class userManager extends Database
             exit;
         }
     }
-
+//Check User method
     public function checkUser($login, $password)
     {
         $db = $this->dbconnect();
@@ -41,12 +39,11 @@ class userManager extends Database
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
             return $donnees;
-        }
-        else{
+        } else {
             echo('<center>Nom d\'utilisateur ou mot de passe invalide</center>');
         }
     }
-
+//Reset Password method
     public function resetPwd($login, $email){
         $db = $this->dbconnect();
         $req = $db->prepare('SELECT password FROM users WHERE login = :login AND email = :email');
@@ -54,12 +51,11 @@ class userManager extends Database
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
             return true;
-        }
-        else{
+        } else {
             echo('<center>Login ou mot de passe incorrect</center>');
         }
     }
-
+//New Password method
     public function newPwd($login, $pwd){
         $db = $this->dbconnect();
         $req = $db->prepare('UPDATE users SET password = :password WHERE login = :login');
@@ -68,8 +64,7 @@ class userManager extends Database
         $req->execute();
         if ($req){
             echo ('<center>Votre mot de passe a bien été changé !</center>');
-        }
-        else {
+        } else {
             echo ('<center>Une erreur s\'est produite ! Veuillez recommencer</center>');
         }
     }

@@ -60,7 +60,7 @@
 <!--Début navbar responsive-->
 
     <div class="navResponsive">
-        <nav class="navbar navbar-dark bg-dark indigo darken-2 fixed-top"
+        <nav class="navbar navbar-dark bg-dark indigo darken-2 fixed-top">
         <a class="navbar-brand" href="index.php"><img id="AvionHeader" src="public/img/avion.png" alt="Avion sur la bannière"/></a>
         <a class="navbar-brand" href="#">Billet pour l'Alaska</a>
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"

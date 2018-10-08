@@ -3,7 +3,7 @@
 class PostManager extends Database
 {
 
-    // Méthode d'ajout de post
+    // Add Posts method
     public function add(Post $billet)
     {
         $db = $this->dbconnect();
@@ -16,13 +16,13 @@ class PostManager extends Database
         $req->execute();
     }
 
-    // Méthode de suppression de post
+    // Delete Post method
     public function delete($id)
     {
         $db = $this->dbconnect();
         $db->exec('DELETE FROM posts WHERE id = ' . $id);
     }
-    // Méthode de sélection de post par Id
+    // select Post by ID method
     public function get($id)
     {
         $db = $this->dbconnect();
@@ -32,7 +32,7 @@ class PostManager extends Database
         $post->hydrate($donnees);
         return $post;
     }
-    // Méthode d'affichage de tous les posts
+    // View all posts method
     public function getList()
     {
         $db = $this->dbconnect();
@@ -45,7 +45,7 @@ class PostManager extends Database
         }
         return $posts;
     }
-    // Méthode d'update des posts
+    // Update Post method
     public function update(Post $billet)
     {
         $db = $this->dbconnect();

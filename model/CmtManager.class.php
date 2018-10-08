@@ -2,7 +2,7 @@
 
 class CmtManager extends Database
 {
-
+//Add Comment method
     public function add(Cmt $comment)
     {
         $db = $this->dbconnect();
@@ -14,13 +14,13 @@ class CmtManager extends Database
         $req->bindValue(':posted', $comment->posted());
         $req->execute();
     }
-
+//Delete Comment method
     public function delete($id)
     {
         $db = $this->dbconnect();
         $db->exec('DELETE FROM comments WHERE id = ' . $id);
     }
-
+//Get Status method
     public function getStatus($status)
     {
         $db = $this->dbconnect();
@@ -33,7 +33,7 @@ class CmtManager extends Database
         }
         return $comments;
     }
-
+//Get list method
     public function getlist($id, $statut)
     {
         $db = $this->dbconnect();
@@ -46,25 +46,25 @@ class CmtManager extends Database
         }
         return $comments;
     }
-
+// Valid comment method
     public function valid($id)
     {
         $db = $this->dbconnect();
         $req = $db->query('UPDATE comments SET statut = 1 WHERE id =' .$id);
     }
-
+//Report comment method
     public function reporting($id)
     {
         $db = $this->dbconnect();
         $req = $db->query('UPDATE comments SET reporting = 1 WHERE id =' .$id);
     }
-
+// Cancel Report method
     public function cancelReport($id)
     {
         $db = $this->dbconnect();
         $req = $db->query('UPDATE comments SET reporting = 0 WHERE id =' .$id);
     }
-
+// Get reporting method
     public function getReporting($reporting)
     {
         $db = $this->dbconnect();
@@ -77,7 +77,7 @@ class CmtManager extends Database
         }
         return $comments;
     }
-
+// Count comment method
     public function countComment()
     {
         $db = $this->dbconnect();
@@ -86,7 +86,7 @@ class CmtManager extends Database
         $count = $data['statut'];
         return $count;
     }
-
+// Count reporting comment method
     public function countReporting()
     {
         $db = $this->dbconnect();
