@@ -4,8 +4,8 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $dateCreate = date("Y-m-d");
     $reporting = 1;
     ?>
-            <div class="col-xl-2"><?php include('public/template/adminNav.php'); ?></div>
-            <div class="col-xl-10">
+            <div class="col-lg-2"><?php include('public/template/adminNav.php'); ?></div>
+            <div class="col-lg-10">
                 <div class="main">
                     <h2>Liste des signalements de commentaires :</h2>
                     <div class="form_billet">

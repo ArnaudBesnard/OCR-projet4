@@ -24,11 +24,15 @@
                                     <a class='dropdown-item' href=\"index.php?action=viewReport\"><i style=\"font-size:18px\" class=\"fa\">&#xf0f3;</i> Modéreration (" . $manager->countReporting() . ")</a>
                             </div>
                           </li>");
-                    } ?>
+                    }
+                    elseif (isset($_SESSION['login']) && ($_SESSION['role'] == 'Contributeur')) { ?>
+                        <li class="nav-item"> <a class="nav-link" href="index.php?action=formAddPost"><i style="font-size:16px" class="fa">&#xf055;</i> Ajouter un chapitre</a></li>
+                    <?php }
+                    ?>
                 </ul>
             </div>
             <div class="mx-auto order-0">
-                <a class="navbar-brand mx-auto" href="index.php">Billet simple pour l'Alaska</a>
+                <a class="navbar-brand mx-auto" href="index.php">Jean Forteroche - Un billet simple pour l'Alaska</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -57,7 +61,7 @@
 
     <div class="navResponsive">
         <nav class="navbar navbar-dark bg-dark indigo darken-2 fixed-top"
-        <a class="navbar-brand" href="index.php"><img src="public/img/avion.png" alt="Avion sur la bannière"/></a>
+        <a class="navbar-brand" href="index.php"><img id="AvionHeader" src="public/img/avion.png" alt="Avion sur la bannière"/></a>
         <a class="navbar-brand" href="#">Billet pour l'Alaska</a>
         <button class="navbar-toggler toggler-example" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent1" aria-controls="navbarSupportedContent1"
@@ -83,7 +87,11 @@
                                     <a class='dropdown-item' href=\"index.php?action=viewReport\"><i style=\"font-size:18px\" class=\"fa\">&#xf0f3;</i> Modéreration (" . $manager->countReporting() . ")</a>
                             </div>
                           </li>");
-                } ?>
+                }
+                elseif (isset($_SESSION['login']) && ($_SESSION['role'] == 'Contributeur')) { ?>
+                    <li class="nav-item"> <a class="nav-link" href="index.php?action=formAddPost"><i style="font-size:16px" class="fa">&#xf055;</i> Ajouter un chapitre</a></li>
+                <?php }
+                ?>
                 <li class="nav-item">
                     <?php if (empty($_SESSION['login'])) {
                         echo("<a class='nav-link' href='index.php?action=connect'><i style='font-size:16px' class='fa'>&#xf090;</i> Se connecter</a>

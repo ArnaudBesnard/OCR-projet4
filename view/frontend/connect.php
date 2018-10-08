@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-    <div class="col-xl-12">
+    <div class="col-lg-12">
         <div class="main">
             <?php if (!isset($_SESSION['login'])){ ?>
                 <h1>Page de connexion utilisateurs</h1>

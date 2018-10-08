@@ -51,9 +51,16 @@ function addPost(){
     }
     $manager = new PostManager($bdd);
     $manager->add($billet);
-    header("Refresh: 3; URL=index.php?action=administration" );
-    echo ('<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>');
-    exit;
+    if ($_SESSION['role']=='Administrateur'){
+        header("Refresh: 3; URL=index.php?action=administration" );
+        echo ('<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'administration</center>');
+        exit;
+    }
+    elseif ($_SESSION['role'] == 'Contributeur'){
+        header("Refresh: 3; URL=index.php" );
+        echo ('<center>Les données ont été ajoutées, vous allez êtes redirigé vers la page d\'accueil</center>');
+        exit;
+    }
 }
 
 function upload(){

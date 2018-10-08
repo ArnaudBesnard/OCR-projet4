@@ -1,7 +1,7 @@
 <?php
 ob_start();
 ?>
-        <div class="col-xl-10">
+        <div class="col-lg-10">
             <div class="main">
                 <!--Affichage des articles-->
                 <?php foreach($posts as $post){
@@ -23,8 +23,8 @@ ob_start();
                 <!--Fin affichage des articles-->
             </div>
         </div>
-        <div class="col-xl-2">
-            <figurecaption id="textBiographie"><center>Jean Forteroche</center></figurecaption>
+        <div class="col-lg-2">
+            <div id="textBiographie">Jean Forteroche</div>
             <figure><img class="biographie" src="public/img/JeanForteroche.jpg" alt="Jean Forteroche" /></figure>
             <div class="postTitleRight">Liste des chapitres</div>
             <div class="postsTitlesList">

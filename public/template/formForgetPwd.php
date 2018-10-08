@@ -2,7 +2,7 @@
 $title = "Mot de passe oublié ?";
 ob_start();
 ?>
-<h2>Formulaire de réinitialisation de mot de passe</h2>
+<h1>Formulaire de réinitialisation de mot de passe</h1>
 <h6><center>Un email vous sera envoyé afin de réinitialiser votre mot de passe</center></h6>
 <form action="index.php?action=resetPwd" method="post">
 

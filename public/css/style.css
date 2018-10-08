@@ -127,6 +127,7 @@ a.dropdown-item:hover{
 #textBiographie{
     color: brown;
     font-style: italic;
+    text-align: center;
 }
 
 /******************************  AFFICHAGE SINGLEPOST & COMMENTAIRES  ******************************/
@@ -199,7 +200,7 @@ a.dropdown-item:hover{
 
 form {
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
     padding: 1em;
     border: 1px solid #CCC;
     border-radius: 0.5em;
@@ -328,13 +329,15 @@ footer {
     html,
     body {
         width: 100%;
-
     }
     .navNormal{
         display:none;
     }
     .navResponsive{
         display: block;
+    }
+    #AvionHeader{
+        display:none;
     }
     #imgPost {
         width: 310px;
@@ -366,7 +369,6 @@ footer {
     .menuAdmin{
         display:none;
     }
-
 }
 
 

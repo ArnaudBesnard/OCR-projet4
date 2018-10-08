@@ -7,7 +7,7 @@ $brutDate  = $post->dateAjout();
 $date = DateTime::createFromFormat('Y-m-d', $brutDate);
 ob_start();
 ?>
-            <div class="col-xl-12">
+            <div class="col-lg-12">
                 <div class="main">
                     <!--Début de l'affichage de l'article-->
                     <div class="titre"><?= $post->titre(); ?></div>

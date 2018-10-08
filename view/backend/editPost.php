@@ -1,10 +1,10 @@
 <?php
 ob_start();
 if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) { ?>
-            <div class="col-xl-2">
+            <div class="col-lg-2">
                 <?php include('public/template/adminNav.php'); ?>
             </div>
-            <div class="col-xl-10">
+            <div class="col-lg-10">
                 <div class="main">
                     <h2>Edition d'un billet sur le site :</h2>
                     <div class="form_billet">
