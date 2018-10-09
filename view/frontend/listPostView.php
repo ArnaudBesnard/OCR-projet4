@@ -8,7 +8,7 @@ ob_start();
                     $brutDate  = $post->dateAjout();
                     $date = DateTime::createFromFormat('Y-m-d', $brutDate);
                     ?>
-                    <div class="titre"><a href="index.php?action=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a></div></h1>
+                    <div class="titre"><a href="index.php?action=singlePost&&id=<?= $post->id(); ?>"><?= $post->titre(); ?></a></div>
                     <div class='date_billet'>Chapitre publié le : <?=  $date->format('d-m-Y'); ?></div>
                     <div class='contenu'>
                         <?php

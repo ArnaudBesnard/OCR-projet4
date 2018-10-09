@@ -281,12 +281,19 @@ footer {
         display: block;
     }
     .main {
-       margin-top: 50px;
+       margin-top: 10px;
         margin-left:0;
         margin-right:0;
     }
     .travel_train {
-        display: none;
+        height: auto;
+        background-position: 55% 45%;;
+    }
+    .titre_img {
+        padding-top: 165px;
+        padding-left: 50px;
+        font-size: 1em;
+        color: white;
     }
     .titre {
         font-size: 1.5em;

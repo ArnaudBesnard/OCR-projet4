@@ -1,8 +1,7 @@
 <?php
-
-$id = $_GET['id'];
 if (isset($_SESSION['login'])) { $author = $_SESSION['login']; }
 $posted = date("Y-m-d");
+$id = $_GET['id'];
 $brutDate  = $post->dateAjout();
 $date = DateTime::createFromFormat('Y-m-d', $brutDate);
 ob_start();
@@ -29,8 +28,7 @@ ob_start();
                     include('public/template/formComment.php'); ?>
                 </div>
                 <?php
-                }
-                else {
+                } else {
                     echo("<center>Vous devez être connecté afin de voir ou poster un commentaire,<br /><a href='index.php?action=connect'>cliquez ici</a> pour vous connecter</center>");
                 } ?>
             </div>
