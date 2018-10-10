@@ -1,5 +1,6 @@
 <?php $manager = new CmtManager($bdd); ?>
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=x033aj159s617dv6p04ex8cf9h6t37eytyjtfami5oah5xsg"></script>
+<script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.1.3/dist/bootstrap-validate.js" ></script>
 <script>tinymce.init({selector: 'textarea'});</script>
 
 <header>

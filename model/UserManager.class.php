@@ -8,7 +8,9 @@ class userManager extends Database
         $db = $this->dbconnect();
         $login = $_POST['login'];
         $email = $_POST['email'];
-        $query = $db->query("SELECT * from users WHERE login='$login'");
+        $query = $db->prepare('SELECT * from users WHERE login = :login');
+        $query->bindValue(':login', $login);
+        $query->execute();
         $num_row = $query->rowCount();
         if ($num_row == 1)
         {
@@ -35,7 +37,9 @@ class userManager extends Database
     {
         $db = $this->dbconnect();
         $req = $db->prepare('SELECT * FROM users WHERE login = :login AND password = :password');
-        $req->execute(array('login' => $login, 'password' => md5($password)));
+        $req->bindValue(':login', $login);
+        $req->bindValue(':password', md5($password));
+        $req->execute();
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
             return $donnees;
@@ -47,7 +51,9 @@ class userManager extends Database
     public function resetPwd($login, $email){
         $db = $this->dbconnect();
         $req = $db->prepare('SELECT password FROM users WHERE login = :login AND email = :email');
-        $req->execute(array('login' =>$login, 'email' =>$email));
+        $req->bindValue(':login', $login);
+        $req->bindValue(':email', $email);
+        $req->execute();
         $donnees = $req->fetch(PDO::FETCH_ASSOC);
         if ($donnees){
             return true;

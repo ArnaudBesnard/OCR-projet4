@@ -20,14 +20,18 @@ class PostManager extends Database
     public function delete($id)
     {
         $db = $this->dbconnect();
-        $db->exec('DELETE FROM posts WHERE id = ' . $id);
+        $req = $db->prepare('DELETE FROM posts WHERE id = :id');
+        $req->bindValue(':id', $id);
+        $req->execute();
     }
     // select Post by ID method
     public function get($id)
     {
         $db = $this->dbconnect();
-        $request = $db->query('select * from posts WHERE id = ' . $id) or die(print_r($db->errorInfo()));
-        $donnees = $request->fetch(PDO::FETCH_ASSOC);
+        $req= $db->prepare('select * from posts WHERE id = :id') or die(print_r($db->errorInfo()));
+        $req->bindValue(':id', $id);
+        $req->execute();
+        $donnees = $req->fetch(PDO::FETCH_ASSOC);
         $post = new Post();
         $post->hydrate($donnees);
         return $post;
@@ -37,8 +41,9 @@ class PostManager extends Database
     {
         $db = $this->dbconnect();
         $posts = [];
-        $request = $db->query('select * from posts order by id ASC ') or die(print_r($db->errorInfo()));
-        while ($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
+        $req = $db->prepare('select * from posts order by id ASC ') or die(print_r($db->errorInfo()));
+        $req->execute();
+        while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
             $post = new Post();
             $post->hydrate($donnees);
             array_push($posts, $post);
