@@ -40,9 +40,9 @@ class userManager extends Database
         $req->bindValue(':login', $login);
         $req->bindValue(':password', md5($password));
         $req->execute();
-        $donnees = $req->fetch(PDO::FETCH_ASSOC);
-        if ($donnees){
-            return $donnees;
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+        if ($data){
+            return $data;
         } else {
             echo('<center>Nom d\'utilisateur ou mot de passe invalide</center>');
         }
@@ -54,8 +54,8 @@ class userManager extends Database
         $req->bindValue(':login', $login);
         $req->bindValue(':email', $email);
         $req->execute();
-        $donnees = $req->fetch(PDO::FETCH_ASSOC);
-        if ($donnees){
+        $data = $req->fetch(PDO::FETCH_ASSOC);
+        if ($data){
             return true;
         } else {
             echo('<center>Login ou mot de passe incorrect</center>');

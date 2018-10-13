@@ -1,6 +1,6 @@
 <?php
 ob_start();
-if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) { ?>
+?>
             <div class="col-lg-2">
                 <?php include('public/template/adminNav.php'); ?>
             </div>
@@ -15,11 +15,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) { ?>
         </div>
     </div>
     <?php
-} else {
-    header("Refresh: 2; URL=index.php");
-    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
-    exit;
-}
 $content = ob_get_clean();
 $title = "Edition d'un chapitre";
 require('view/backend/template.php');

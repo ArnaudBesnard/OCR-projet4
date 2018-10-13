@@ -31,9 +31,9 @@ class PostManager extends Database
         $req= $db->prepare('select * from posts WHERE id = :id') or die(print_r($db->errorInfo()));
         $req->bindValue(':id', $id);
         $req->execute();
-        $donnees = $req->fetch(PDO::FETCH_ASSOC);
+        $data = $req->fetch(PDO::FETCH_ASSOC);
         $post = new Post();
-        $post->hydrate($donnees);
+        $post->hydrate($data);
         return $post;
     }
     // View all posts method
@@ -43,9 +43,9 @@ class PostManager extends Database
         $posts = [];
         $req = $db->prepare('select * from posts order by id ASC ') or die(print_r($db->errorInfo()));
         $req->execute();
-        while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $post = new Post();
-            $post->hydrate($donnees);
+            $post->hydrate($data);
             array_push($posts, $post);
         }
         return $posts;

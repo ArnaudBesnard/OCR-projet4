@@ -6,10 +6,7 @@ spl_autoload_register(function ($classe) {
 });
 require('controller/frontend.php');
 require('controller/backend.php');
-
-
 if (isset($_GET['action'])) {
-
     //Posts
     if ($_GET['action'] == 'listPost') {
         getList();
@@ -24,14 +21,6 @@ if (isset($_GET['action'])) {
         addComment();
     } elseif ($_GET['action'] == 'reporting') {
         reporting();
-    } elseif ($_GET['action'] == 'formAddPost') {
-        formAddPost();
-    } elseif ($_GET['action'] == 'addPost') {
-        addPost();
-    } elseif ($_GET['action'] == 'deletePost') {
-        deletePost();
-    } elseif ($_GET['action'] == 'editPost') {
-        editPost();
     } //Users
     elseif ($_GET['action'] == 'connect') {
         connect();
@@ -51,36 +40,138 @@ if (isset($_GET['action'])) {
         formPwd();
     } elseif ($_GET['action'] == 'updatePwd') {
         updatePwd();
-    } //Administration
-    elseif ($_GET['action'] == 'administration') {
-        administration();
-    } elseif ($_GET['action'] == 'createUser') {
-        createUser();
-    } elseif ($_GET['action'] == 'adminComment') {
-        adminComment();
-    } elseif ($_GET['action'] == 'validComment') {
-        validComment();
-    } elseif ($_GET['action'] == 'deleteComment') {
-        deleteComment();
-    } elseif ($_GET['action'] == 'viewReport') {
-        viewReport();
-    } elseif ($_GET['action'] == 'cancelReport') {
-        cancelReport();
-    } elseif ($_GET['action'] == 'deleteComment') {
-        deleteComment();
+    } elseif ($_GET['action'] == 'administration') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            administration();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'formAddPost') {
+        if (isset($_SESSION['login']) && (($_SESSION['role'] == 'Administrateur') || ($_SESSION['role'] == 'Contributeur'))) {
+            formAddPost();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'addPost') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            addPost();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'deletePost') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            deletePost();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
     } elseif ($_GET['action'] == 'editPost') {
-        editPost();
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            editPost();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'createUser') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            createUser();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'adminComment') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            adminComment();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'validComment') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            validComment();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'deleteComment') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            deleteComment();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'viewReport') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            viewReport();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'cancelReport') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            cancelReport();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'deleteComment') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            deleteComment();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
+    } elseif ($_GET['action'] == 'editPost') {
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            editPost();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
     } elseif ($_GET['action'] == 'updatePost') {
-        updatePost();
+        if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
+            updatePost();
+        }
+        else{
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
+            exit;
+        }
     } elseif ($_GET['action'] == 'mentionsLegales'){
         mentionsLegales();
     }
-    else{
+    else {
         getDefault();
     }
 } else {
     getlist();
 }
-        
-
-

@@ -1,6 +1,5 @@
 <?php
 ob_start();
-if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     $dateCreate = date("Y-m-d");
     $action = "index.php?action=addUser";
     ?>
@@ -16,12 +15,6 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                 </div>
             </div>
     <?php
-}
-else{
-    header("Refresh: 2; URL=index.php");
-    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
-    exit;
-}
 $content = ob_get_clean();
 $title = "Ajout d'un utilisateur";
 require('view/backend/template.php');

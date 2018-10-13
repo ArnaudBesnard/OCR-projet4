@@ -1,12 +1,12 @@
-function checkMdp() {
-    var mdp = $('input[name="password"]').val();
-    var mdp2 = $('input[name="confirm_password"]').val();
-    if (mdp!=mdp2) {
-        var msg = document.createTextNode("Mots de passe différents");
-        document.getElementById("mdperror").value(msg);
+function checkPwd() {
+    var pwd = $('input[name="password"]').val();
+    var pwd2 = $('input[name="confirm_password"]').val();
+
+    if (pwd!=pwd2) {
+        $('#confirm_password').css('border', '2px solid red');
     }
     else{
-        var msg = document.createTextNode("Mots de passe ok");
-        document.getElementById("mdperror").value(msg);
+        $('#password').css('border', '2px solid green');
+        $('#confirm_password').css('border', '2px solid green');
     }
 }

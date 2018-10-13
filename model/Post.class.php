@@ -9,9 +9,9 @@
         protected $_auteur;
         protected $_postImg;
 
-        public function hydrate(array $donnees)
+        public function hydrate(array $data)
         {
-            foreach ($donnees as $key => $value)
+            foreach ($data as $key => $value)
             {
                 // On récupère le nom du setter correspondant à l'attribut.
                 $method = 'set'.ucfirst($key);

@@ -16,11 +16,11 @@
     </div>
     <br/>
     <div>
-        <input id="password" for="mdp" type="password" name="password" class="form-control" placeholder="Mot de passe" required value="">
+        <input id="password" for="pwd" type="password" name="password" class="form-control" placeholder="Mot de passe" required value="">
     </div>
     <br/>
     <div>
-        <input id="confirm_password" for="mdp2" type="password" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" onblur="checkMdp()" required value="">
+        <input id="confirm_password" for="pwd2" type="password" name="confirm_password" class="form-control" placeholder="Confirmez votre mot de passe" onblur="checkPwd()" required value="">
         <label id="mdperror"></label>
     </div>
     <br/>

@@ -40,7 +40,6 @@ function addComment(){
     $comment->setComment($_POST['commentaire']);
     $comment->setAuthor($_POST['author']);
     $comment->setPosted($_POST['posted']);
-
     $manager = new CmtManager();
     $manager->add($comment);
     header("Refresh: 3; URL=index.php?action=singlePost&&id=".$_POST['postId']);

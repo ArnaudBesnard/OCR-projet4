@@ -1,6 +1,5 @@
 <?php
 ob_start();
-if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
     ?>
             <div class="col-lg-2">
                 <?php include('public/template/adminNav.php'); ?>
@@ -33,11 +32,7 @@ if (isset($_SESSION['login']) && ($_SESSION['role'] == 'Administrateur')) {
                     <?php }; ?>
                 </div>
             </div>
-<?php } else {
-    header("Refresh: 2; URL=index.php");
-    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
-    exit;
-}
+<?php
 $content = ob_get_clean();
 $title = "Jean Forteroche - Administration";
 require('view/backend/template.php');

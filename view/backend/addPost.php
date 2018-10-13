@@ -1,6 +1,5 @@
 <?php
 ob_start();
-if (isset($_SESSION['login']) && (($_SESSION['role'] == 'Administrateur') || ($_SESSION['role'] == 'Contributeur'))) {
     $dateCreate = date("Y-m-d");
     $action = "index.php?action=addPost";
     $auteur = $_SESSION['login']; ?>
@@ -16,13 +15,7 @@ if (isset($_SESSION['login']) && (($_SESSION['role'] == 'Administrateur') || ($_
                     </div>
                 </div>
             </div>
-    <?php
-}
-else{
-    header("Refresh: 2; URL=index.php");
-    echo('<center>Vous n\'êtes pas autorisé à accéder à cette partie du site</center>');
-    exit;
-}
+<?php
 $content = ob_get_clean();
 $title = "Ajout d'un chapitre";
 require('view/backend/template.php');

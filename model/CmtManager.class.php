@@ -30,9 +30,9 @@ class CmtManager extends Database
         $req = $db->prepare('select * from comments WHERE  statut = :status') or die(print_r($db->errorInfo()));
         $req->bindValue(':status', $status);
         $req->execute();
-        while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
-            $comment->hydrate($donnees);
+            $comment->hydrate($data);
             array_push($comments, $comment);
         }
         return $comments;
@@ -45,9 +45,9 @@ class CmtManager extends Database
         $req = $db->prepare('select * from comments WHERE postId = :id && statut = 1 ORDER BY posted DESC') or die(print_r($db>errorInfo()));
         $req->bindValue(':id', $id);
         $req->execute();
-        while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
-            $comment->hydrate($donnees);
+            $comment->hydrate($data);
             array_push($comments, $comment);
         }
         return $comments;
@@ -84,9 +84,9 @@ class CmtManager extends Database
         $req = $db->prepare('select * from comments WHERE  reporting = :reporting') or die(print_r($bdd->errorInfo()));
         $req->bindValue(':reporting', $reporting);
         $req->execute();
-        while ($donnees = $req->fetch(PDO::FETCH_ASSOC)) {
+        while ($data = $req->fetch(PDO::FETCH_ASSOC)) {
             $comment = new Cmt();
-            $comment->hydrate($donnees);
+            $comment->hydrate($data);
             array_push($comments, $comment);
         }
         return $comments;
