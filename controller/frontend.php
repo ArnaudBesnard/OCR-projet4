@@ -104,7 +104,6 @@ function resetPwd()
 {
     $mail = $_POST['email'];
     $login = $_POST['user'];
-
     if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui rencontrent des bogues.
     {
         $passage_ligne = "\r\n";
@@ -129,6 +128,7 @@ function resetPwd()
     $message .= $passage_ligne . $message_html . $passage_ligne;
     $message .= $passage_ligne . "--" . $boundary . "--" . $passage_ligne;
     $message .= $passage_ligne . "--" . $boundary . "--" . $passage_ligne;
+
     $manager = new userManager();
     $pwd = $manager->resetPwd($login, $mail);
     if ($pwd == true) {

@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="fr">
 <head>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=x033aj159s617dv6p04ex8cf9h6t37eytyjtfami5oah5xsg"></script>
+    <script>tinymce.init({selector: 'textarea'});</script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title><?= $title ?>

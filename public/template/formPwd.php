@@ -24,5 +24,5 @@ $login = $_GET['login'];
 
 <?php
 $content = ob_get_clean();
-require('view/template.php');
+require('view/frontend/template.php');
 ?>

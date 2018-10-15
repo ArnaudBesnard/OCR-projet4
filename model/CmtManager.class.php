@@ -8,8 +8,8 @@ class CmtManager extends Database
         $db = $this->dbconnect();
         $req = $db->prepare('INSERT INTO comments(postId, title, comment, author, posted) VALUES(:postId, :title, :comment, :author, :posted)');
         $req->bindValue(':postId', $comment->postId());
-        $req->bindValue(':title', $comment->title());
-        $req->bindValue(':comment', $comment->comment());
+        $req->bindValue(':title', htmlspecialchars($comment->title()));
+        $req->bindValue(':comment', htmlspecialchars($comment->comment()));
         $req->bindValue(':author', $comment->author());
         $req->bindValue(':posted', $comment->posted());
         $req->execute();

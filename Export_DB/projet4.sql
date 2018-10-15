@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 08 oct. 2018 à 09:37
+-- Généré le :  lun. 15 oct. 2018 à 14:32
 -- Version du serveur :  5.7.19
 -- Version de PHP :  7.0.23
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `posted` date NOT NULL,
   `reporting` int(16) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `comments`
@@ -47,15 +47,8 @@ CREATE TABLE IF NOT EXISTS `comments` (
 
 INSERT INTO `comments` (`id`, `postId`, `statut`, `title`, `comment`, `author`, `posted`, `reporting`) VALUES
 (2, 2, 1, 'Très bon chapitre Mr Forteroche', '<p>Tr&egrave;s bon chapitre</p>', 'Arnaud', '2018-09-17', 0),
-(43, 6, 1, 'test', '<p>test</p>', 'Admin', '2018-09-27', 0),
 (10, 1, 1, 'Bon chapitre', '<p>Bon chapitre mon ami, good</p>', 'Admin', '2018-09-19', 0),
-(11, 1, 1, 'Essai pour validation commentaires', '<p>Ceci est un essai de validation des commentaires</p>', 'Admin', '2018-09-22', 0),
-(19, 12, 1, 'Nouvel essai des commentaires sur chaptre 8', '<p>Nouvel essai des commentaires sur chaptre 8Nouvel essai des commentaires sur chaptre 8Nouvel essai des commentaires sur chaptre 8Nouvel essai des commentaires sur chaptre 8Nouvel essai des commentaires sur chaptre 8Nouvel essai des commentaires sur chaptre 8</p>', 'Admin', '2018-09-22', 0),
-(22, 11, 1, 'tres bonchapitre 7', '<p>tres bonchapitre 7tres bonchapitre 7tres bonchapitre 7</p>', 'Admin', '2018-09-22', 0),
-(29, 1, 1, 'essai de contenu', '<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque luctus eros quis metus pulvinar interdum. In quis justo diam. Ut at ipsum vitae tellus auctor lacinia. Nunc sodales quis diam vitae malesuada. Proin in dui eget odio egestas dictum. Morbi et sodales nulla. Sed a volutpat diam. Pellentesque hendrerit tellus nec odio rhoncus elementum sed a nisi. Proin rhoncus sem sit amet ante ullamcorper pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nullam vehicula diam at justo finibus, non aliquet velit hendrerit. Pellentesque vehicula nisl orci, nec molestie leo dapibus quis. Praesent et ipsum mollis, tristique eros nec, consectetur nunc.</p>\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;\">Aenean tortor mauris, bibendum at blandit non, ultrices non felis. Sed fringilla egestas blandit. Sed at ultrices nibh. Vestibulum dapibus, arcu nec tristique mattis, orci est pellentesque est, ut condimentum velit lacus nec lacus. Phasellus vel nulla vulputate, tempor mauris sed, eleifend orci. Fusce tempor accumsan risus sed euismod. Pellentesque ut ultricies quam. Nam eu viverra mauris. Proin luctus nisi auctor, ultricies arcu nec, accumsan ante. Aliquam feugiat ac est a interdum. Aliquam a leo sem. Quisque faucibus, nibh faucibus commodo pulvinar, felis libero convallis diam, eleifend scelerisque lorem erat at magna. Nam viverra et orci porttitor malesuada.</p>\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;\">Donec aliquam, urna vitae aliquam cursus, diam ante tristique lorem, placerat vulputate justo massa a mi. Vivamus a eleifend dui. Quisque ac leo urna. Maecenas a commodo turpis. Proin ut ex massa. Sed ultrices neque sed lectus ornare interdum. Donec at odio porta, semper metus nec, fermentum nibh. Etiam dolor elit, iaculis vel hendrerit eu, pretium in quam. Curabitur sed volutpat dolor. Curabitur luctus rutrum libero, non pharetra mi rhoncus in.</p>\r\n<p style=\"margin: 0px 0px 15px; padding: 0px; text-align: justify; font-family: \'Open Sans\', Arial, sans-serif;\">Nam ut metus eu mauris lobortis luctus. Nullam nec libero id ante placerat pharetra. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin eu libero quis ante ullamcorper cursus. Praesent nec dignissim sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent et ante enim. Nulla neque ante, finibus in mattis vel, euismod id quam. Integer quis accumsan est. Etiam est sapien, varius sit amet turpis vitae, sagittis maximus ante. Fusce ultricies tempus tellus sit amet condimentum. Aliquam erat volutpat. Nunc dignissim finibus eros, vitae fermentum arcu accumsan sit amet. Donec justo tortor, ultricies porttitor sagittis vel, laoreet ac justo.</p>', 'Admin', '2018-09-22', 0),
-(42, 9, 1, 'tefdgsvg', '<p>crgegbsge</p>', 'Admin', '2018-09-26', 0),
-(45, 1, 1, 'test MVC', '<p>TEST MVC</p>', 'Admin', '2018-10-01', 0),
-(54, 113, 1, 'Une belle histoire', '<p>Tr&egrave;s belle histoire ! Un plaisir &agrave; lire !</p>', 'Admin', '2018-10-07', 0);
+(59, 3, 1, 'Un plaisir à lire', '<p>Toujours un plaisir &agrave; lire !</p>', 'Utilisateur', '2018-10-15', 0);
 
 -- --------------------------------------------------------
 
@@ -104,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `createDate` date NOT NULL,
   `role` varchar(127) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=38 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=39 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `users`
