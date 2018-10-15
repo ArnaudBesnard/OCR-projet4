@@ -23,10 +23,6 @@ li {
 .container-fluid {
     padding: 0;
 }
-.main {
-    /*margin-left:100px;
-    margin-right: 100px;*/
-}
 
 /****************************************  HEADER  ****************************************/
 
@@ -206,7 +202,6 @@ form {
     border-radius: 0.5em;
 }
 label {
-    /* Pour être sûrs que toutes les étiquettes ont même taille et sont correctement alignées */
     display: inline-block;
     width: 190px;
     text-align: left;
@@ -261,9 +256,6 @@ button {
 
 /****************************************  FOOTER  ****************************************/
 
-footer {
-
-}
 #footerLink {
     color: lightgray;
 }
@@ -311,7 +303,6 @@ footer {
     .postsTitlesList {
         display:none;
     }
-
     .menuAdmin{
         display:none;
     }

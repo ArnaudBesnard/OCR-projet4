@@ -6,6 +6,7 @@ spl_autoload_register(function ($classe) {
 });
 require('controller/frontend.php');
 require('controller/backend.php');
+
 if (isset($_GET['action'])) {
     //Posts
     if ($_GET['action'] == 'listPost') {
@@ -23,7 +24,14 @@ if (isset($_GET['action'])) {
         reporting();
     } //Users
     elseif ($_GET['action'] == 'connect') {
-        connect();
+        if (!isset($_SESSION['login'])){
+            connect();
+        }
+        else {
+            header("Refresh: 2; URL=index.php");
+            echo('<center>Vous êtes déjà connecté !</center>');
+            exit;
+        }
     } elseif ($_GET['action'] == 'verifUser') {
         verifUser();
     } elseif ($_GET['action'] == 'deconnexion') {

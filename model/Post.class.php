@@ -13,13 +13,9 @@
         {
             foreach ($data as $key => $value)
             {
-                // On récupère le nom du setter correspondant à l'attribut.
                 $method = 'set'.ucfirst($key);
-        
-                // Si le setter correspondant existe.
                 if (method_exists($this, $method))
                 {
-                    // On appelle le setter.
                     $this->$method($value);
                 }
             }
@@ -82,15 +78,6 @@
             $this->_dateAjout = $dateAjout;
             }
         }
-        /*public function setDateAjout($dateAjout)
-        {
-            $brutDate  = $dateAjout;
-            $date = DateTime::createFromFormat('Y-m-d', $brutDate);
-            if ($date)
-            {
-                $this->_dateAjout = $date->format('d/m/Y');
-            }
-        }*/
         
         public function setAuteur($auteur)
         {

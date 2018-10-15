@@ -1,7 +1,6 @@
 <?php
 ob_start();
     $dateCreate = date("Y-m-d");
-    $action = "#";
     $status = 0;
     ?>
             <div class="col-lg-2">
@@ -20,7 +19,7 @@ ob_start();
                                 <form action="index.php?action=validComment&&id=<?= $comment->id(); ?>" method="post">
                                     <div class="comment">
                                         <?= 'Chapitre : ' . $comment->postId() . ' - Id N° : ' . $comment->id(); ?>
-                                        <?php echo("<div class='titreComment'>" . $comment->title() . "</div><div class='contenuComment'>" . $comment->comment() . "</div><div class='commentAuthor'>" . $comment->author() . "</div>"); ?>
+                                        <?=("<div class='titreComment'>" . $comment->title() . "</div><div class='contenuComment'>" . $comment->comment() . "</div><div class='commentAuthor'>" . $comment->author() . "</div>"); ?>
                                     </div>
                                     <div class="button">
                                         <button type="submit" class="btn btn-primary"><i style="font-size:18px" class="fa">&#xf087;</i> Valider</button>
